@@ -21,17 +21,4 @@ Route::get('/', function () {
 
 Route::post('/register', [AdminController::class, 'index']);
 
-Route::get('get-my-location', function() {
-    $location = Location::get();
-    return view('location', compact('location'));
-});
 
-Route::get('remove-spec', function () {
-    function clean($string) {
-        $string = str_replace(' ', '', $string); // Replaces all spaces with hyphens.
-     
-        return preg_replace('/[^0-9\.]+/', '', $string); // Removes special chars.
-    }
-
-     return isValidAmount('30,00.00');
-});
