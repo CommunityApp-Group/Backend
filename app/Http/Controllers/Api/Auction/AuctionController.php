@@ -23,7 +23,7 @@ class AuctionController extends Controller
     public function index() {
         $auctions = AuctionService::retrieveAuction();
         return $this->getFullAuction($auctions)->additional([
-            'message' => 'Auction successfully created',
+            'message' => 'Auction successfully retrieved',
             'status' => 'success'
         ]);
     }
@@ -45,7 +45,8 @@ class AuctionController extends Controller
     }
 
     public function show(Auction $auction) {
-        return (new AuctionResource($auction))->additional([
+
+        return $this->getSimpleAuction($auction)->additional([
             'message' => 'Auction successfully retrieved',
             'status' => 'success'
         ]);
@@ -70,7 +71,7 @@ class AuctionController extends Controller
     public function destroy(Auction $auction) {
         $user = auth()->user();
         if($auction->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
-        
+
         if(!$auction->delete()) {
             return response()->errorResponse('Failed to delete auction');
         }

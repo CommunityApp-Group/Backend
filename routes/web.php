@@ -15,12 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-<<<<<<< HEAD
-});
-=======
 });
 
 Route::post('/register', [AdminController::class, 'index']);
 
 
->>>>>>> 039e310730e2e58a315250524b65104f69c5378d

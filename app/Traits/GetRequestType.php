@@ -27,7 +27,7 @@ trait GetRequestType {
     public function getSimpleAuction($auction) {
         if(request()->has('fullDetails') && request('fullDetails') === 'true') {
             $auction = $auction->with('user', 'verifiedBy')->firstOrFail();
-            return new AuctionResource($auction);
+            return new AuctionResourceCollection($auction);
         }
         
         return new AuctionResource($auction->firstOrFail());
