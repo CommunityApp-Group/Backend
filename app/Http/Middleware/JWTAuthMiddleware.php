@@ -15,7 +15,7 @@ class JWTAuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $auth="regular")
     {
         $autheticate = new AuthenticateUser();
 
@@ -30,7 +30,13 @@ class JWTAuthMiddleware
         }
 
         if($user->email_verified_at == null) {
-            return response()->errorResponse("User account has not been verified", ["account" => "Please verify user email to continue"], 403);
+            return response()->errorResponse("Account has not been activativated", ["account" => "Please activate user account to continue"], 403);
+        }
+
+        if($auth === 'admin') {
+            if(!$user->can('admin_user')) {
+                return response()->errorResponse('Access Denied',  ["account" => "You are not allowed to access this resource"], 403);
+            }
         }
 
         return $next($request);
