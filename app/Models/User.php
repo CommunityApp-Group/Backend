@@ -2,18 +2,24 @@
 
 namespace App\Models;
 
+use App\Models\Otp;
+use App\Traits\AddUUID;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Interfaces\Wallet;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Traits\HasRoles;
+use Bavix\Wallet\Traits\HasWalletFloat;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Bavix\Wallet\Interfaces\WalletFloat;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Notifications\ResetPasswordNotification;
-use App\Traits\AddUUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
 {
-    use HasFactory, Notifiable, SoftDeletes, AddUUID;
+    use HasFactory, Notifiable, SoftDeletes, AddUUID, HasWallet, HasWalletFloat, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -75,6 +81,17 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Relationships
+    */
+
+    public function auction() {
+        return $this->hasMany(Auction::class);
+    }
+    public function verifiedAuction() {
+        return $this->hasMany(Auction::class, 'verified_by');
     }
 
     public function setPasswordAttribute($input) {

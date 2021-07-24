@@ -2,24 +2,33 @@
 
 namespace App\Http\Controllers\Api\Wallet;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Bavix\Wallet\Exceptions\AmountInvalid;
+use App\Http\Requests\Wallet\DepositRequest;
 
 class WalletController extends Controller
 {
+    public $user;
 
     public function __construct()
     {
         $this->middleware('auth.jwt');
+        $this->user = auth('api')->user();
     }
     /**
-     * Display a listing of the resource.
+     * Display a user wallet balance
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function balance()
     {
-        //
+        // dd($this->user->wallet->meta);
+        return response()->success(
+            'User wallet balance retrieved successfully',
+            ['balance' => $this->user->balanceFloat]
+        );
+        
     }
 
     /**
@@ -27,9 +36,26 @@ class WalletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function deposit(DepositRequest $request)
     {
-        //
+        $step1 = session()->get($this->user->encodedKey);
+
+        dd($step1);
+
+        try {
+            $amount = $request->amount;
+            if(!$this->user->depositFloat($amount)) {
+                return response()->errorResponse(
+                    'Error funding user wallet'
+                );
+            }
+            return response()->success(
+                'User wallet funded successfully',
+                ['balance' => $this->user->balanceFloat]
+            );
+        } catch (AmountInvalid $e) {
+            return response()->errorResponse($e->getMessage());
+        }
     }
 
     /**

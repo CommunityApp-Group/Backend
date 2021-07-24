@@ -1,12 +1,13 @@
 <?php
 
-use App\Helpers\ResourceHelpers;
 use Illuminate\Support\Str;
+use App\Helpers\ResourceHelpers;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use libphonenumber\PhoneNumberUtil;
 use libphonenumber\PhoneNumberFormat;
 use Illuminate\Support\Facades\Storage;
 use libphonenumber\NumberParseException;
+use Spatie\Permission\Models\Permission;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -17,12 +18,12 @@ function getAuthenticatedUser()
     try {
         JWTAuth::parseToken()->authenticate();
         if (! $user = auth('api')->user()) {
-                return response()->errorResponse('User not found', [], 404);
+            return response()->errorResponse('User not found', [], 404);
         }
 
     } catch (TokenExpiredException $e) {
 
-        return response()->errorResponse('token_expired', ["token" => $e->getMessage()], 401);
+        return response()->errorResponse('token_expired', ["token" => $e->getMessage()], 419);
 
     } catch (TokenInvalidException $e) {
 
@@ -34,7 +35,11 @@ function getAuthenticatedUser()
 
     }
 
-    return ResourceHelpers::returnUserData($user);
+    if(request()->has('fullDetails') && request('fullDetails') === 'true') {
+        return ResourceHelpers::fullUserWithRoles($user, "User data successfully retrieved");
+    }
+
+    return ResourceHelpers::fullUserWithRoles($user, "User data succssfully retrieved");
 }
 
 function sanitizePhoneNumber($phoneNumber, $national = true, $trim = true)
@@ -83,10 +88,6 @@ function photoType($photo) {
         } catch(ErrorException $e) {
             return false;
         }
-       
-        // dd($image_data);
-        // if (base64_encode(base64_decode($photo, true)) === $image_data){
-        // } 
     }
    
     return @is_file($photo) ? "file" : false; 
@@ -136,4 +137,12 @@ function isValidAmount($amount) {
     $string = str_replace(',', '', $amount);
     
     return preg_match('/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/', $string); 
+}
+
+function isPermissionExist($permission_name){
+    if(Permission::whereName($permission_name)->first()) {
+        return true;
+    }
+
+    return false;
 }
