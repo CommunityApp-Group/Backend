@@ -2,6 +2,7 @@
 
 use App\Helpers\PaystackHelper;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
+use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Auction\AuctionController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,6 +45,8 @@ Route::group(['prefix' => 'v1'], function () {
 
 
     Route::apiResource('auction', AuctionController::class);
+    Route::apiResource('category', CategoryController::class);
+    Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
     Route::get('list-banks', function(PaystackHelper $paystack) {
         return $paystack->listBanks();

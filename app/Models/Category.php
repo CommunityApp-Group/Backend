@@ -15,4 +15,12 @@ class Category extends Model
     public function auction() {
         $this->hasMany(Auction::class, 'category_name', 'name');
     }
+
+    public function format() {
+        return [
+            'id'            => $this->id,
+            'name'          => $this->name,
+            'created_at'    => $this->created_at
+        ];
+    }
 }
