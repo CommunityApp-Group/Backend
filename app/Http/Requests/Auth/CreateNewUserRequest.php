@@ -27,7 +27,7 @@ class CreateNewUserRequest extends FormRequest
             'fullname' => 'required|string|max:255',
             'call_up_no' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'gender' => 'required|in:male,femail',
+            'gender' => 'required|in:male,female',
             'password' => ['required',
                             'string',
                             'confirmed',

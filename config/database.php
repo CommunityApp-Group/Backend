@@ -1,5 +1,4 @@
 
-text/x-generic database.php ( PHP script, ASCII text )
 <?php
 
 use Illuminate\Support\Str;
