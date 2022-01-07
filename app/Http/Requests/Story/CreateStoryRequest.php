@@ -27,8 +27,8 @@ class CreateStoryRequest extends FormRequest
         $data =  [
             "title"   => ['required', 'string', 'max:255'],
             "category_name" => ['required', 'exists:categories,name'],
-            "storyline"   => ['nullable'],
-            "story_image"  => ['required'],
+            "storyline"   => ['required'],
+            "story_image"  => ['nullable'],
         ];
 
         if($this->filled('story_image'))

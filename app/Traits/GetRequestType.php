@@ -44,7 +44,7 @@ trait GetRequestType {
 
     public function getSimpleStory($story) {
         if(request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user', 'verifiedBy')->firstOrFail();
+            $story = $story->with('user')->firstOrFail();
             return new StoryResourceCollection($story);
         }
 
@@ -52,9 +52,9 @@ trait GetRequestType {
     }
     public function getFullStory($story) {
         if(request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user', 'verifiedBy')->paginate(20);
+            $story = $story->with('user')->paginate(20);
             return StoryResourceCollection::collection($story);
         }
-        return  StoryResource::collection($story->with('verifiedBy')->paginate(20));
+        return  StoryResource::collection($story->with()->paginate(20));
     }
 }
