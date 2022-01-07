@@ -4,6 +4,7 @@ use App\Helpers\PaystackHelper;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Auction\AuctionController;
+use App\Http\Controllers\Api\Story\StoryController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Api\AuthController;
 use Bavix\Wallet\Exceptions\InsufficientFunds;
 use App\Http\Controllers\Api\Wallet\WalletController;
 use App\Http\Resources\Auction\AuctionResource;
+use App\Http\Resources\Story\StoryResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +45,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('deposit', [WalletController::class, 'deposit']);
     });
 
-
+    Route::apiResource('story', StoryController::class);
     Route::apiResource('auction', AuctionController::class);
     Route::apiResource('category', CategoryController::class);
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);

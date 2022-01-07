@@ -16,6 +16,10 @@ class Category extends Model
         $this->hasMany(Auction::class, 'category_name', 'name');
     }
 
+    public function story() {
+        $this->hasMany(Story::class, 'category_name', 'name');
+    }
+
     public function format() {
         return [
             'id'            => $this->id,

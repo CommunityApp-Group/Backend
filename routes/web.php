@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/register', [AdminController::class, 'index']);
+//Route::post('/register', [AdminController::class, 'index']);
 
 

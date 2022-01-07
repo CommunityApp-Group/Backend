@@ -77,7 +77,7 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
     {
         return $this->getKey();
     }
-    
+
     public function getJWTCustomClaims()
     {
         return [];
@@ -90,6 +90,11 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
     public function auction() {
         return $this->hasMany(Auction::class);
     }
+
+    public function story() {
+        return $this->hasMany(Story::class);
+    }
+
     public function verifiedAuction() {
         return $this->hasMany(Auction::class, 'verified_by');
     }
