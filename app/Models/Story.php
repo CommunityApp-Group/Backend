@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Traits\AddUUID;
 use Illuminate\Pipeline\Pipeline;
-use Illuminate\Database\Eloquent\Model;
-use App\Filters\AuctionFilter\AuctionName;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Filters\StoryFilter\StoryName;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Auction extends Model
+
+class Story extends Model
 {
     use HasFactory, AddUUID, SoftDeletes;
 
@@ -25,22 +26,17 @@ class Auction extends Model
     {
         return 'encodedKey';
     }
-
     public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function verifiedBy() {
-        return $this->belongsTo(User::class, 'verified_by');
-    }
-
-    public function auctionCategory() {
+    public function storyCategory() {
         return $this->belongsTo(Category::class, 'category_name', 'name');
     }
 
-    public function setAuctionImageAttribute($input) {
+    public function setStoryImageAttribute($input) {
         if($input) {
-            $this->attributes['auction_image'] = !is_null($input) ? uploadImage('images/auction/', $input) : null;
+            $this->attributes['story_image'] = !is_null($input) ? uploadImage('images/story/', $input) : null;
         }
-     }
+    }
 }
