@@ -10,7 +10,7 @@ use App\Filters\StoryFilter\Category;
 class StoryService {
     public static function retrieveStory() {
         $story_filter = app(Pipeline::class)
-            ->send(Story::where('status', 'verified'))
+            ->send(Story::where('storyline', 'storyline'))
             ->through([
                 Category::class,
                 StoryName::class
