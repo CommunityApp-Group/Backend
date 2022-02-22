@@ -18,4 +18,14 @@ class AuctionService {
                         ->thenReturn();
         return $auction_filter;
     }
+    public static function retrieveMyAuction() {
+        $auction_filter = app(Pipeline::class)
+            ->send(Auction::where('user_id',  auth()->id()))
+            ->through([
+                Category::class,
+                AuctionName::class
+            ])
+            ->thenReturn();
+        return $auction_filter;
+    }
 }

@@ -46,9 +46,12 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     Route::apiResource('story', StoryController::class);
+    Route::get('storylist', [StoryController::class, 'storylist'])->name('storylist');
     Route::apiResource('auction', AuctionController::class);
+    Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
     Route::apiResource('category', CategoryController::class);
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
+
 
     Route::get('list-banks', function(PaystackHelper $paystack) {
         return $paystack->listBanks();

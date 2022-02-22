@@ -54,6 +54,13 @@ class StoryController extends Controller
             'status' => 'success'
         ]);
     }
+    public function storylist(Story $story) {
+        $storys = StoryService::retrieveMyStory();
+        return $this->getMystory($story)->additional([
+            'message' => 'My Auction successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
 
     public function update(CreateStoryRequest $request, Story $story) {
         $user = auth()->user();
