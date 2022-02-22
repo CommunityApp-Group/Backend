@@ -51,6 +51,13 @@ class AuctionController extends Controller
             'status' => 'success'
         ]);
     }
+    public function auctionlist(Auction $auction) {
+        $auctions = AuctionService::retrieveMyAuction();
+        return $this->getMyAuction($auctions)->additional([
+            'message' => 'My Auction successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
 
     public function update(CreateAuctionRequest $request, Auction $auction) {
         $user = auth()->user();
