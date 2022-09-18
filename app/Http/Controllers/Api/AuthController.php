@@ -24,9 +24,11 @@ use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
 use App\Http\Requests\OTP\ActivationCodeValidationRequest;
 
+
 class AuthController extends Controller
 {
     public $activation_code, $profileService;
+    
     public function __construct(OTPInterface $activation_code)
     {
         $this->middleware('auth.jwt')->only('resendCode', 'verifyAccount', 'logout', 'authenticatedUser');

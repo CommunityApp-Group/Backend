@@ -7,7 +7,8 @@ use Illuminate\Pipeline\Pipeline;
 use App\Filters\AuctionFilter\AuctionName;
 use App\Filters\AuctionFilter\Category;
 
-class AuctionService {
+class AuctionService 
+{
     public static function retrieveAuction() {
         $auction_filter = app(Pipeline::class)
                         ->send(Auction::where('status', 'verified'))
