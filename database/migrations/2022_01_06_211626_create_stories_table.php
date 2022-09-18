@@ -20,11 +20,25 @@ class CreateStoriesTable extends Migration
             $table->string('title');
             $table->string('category_name');
             $table->text('storyline')->nullable();
-            $table->text( 'story_image')->nullable();
+            $table->text('story_image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
     }
+    // Schema::create('users', function (Blueprint $table) {
+    //     $table->id();
+    //     $table->string('nom');
+    //     $table->string('prénom');
+    //     $table->string('direction');
+    //     $table->string('email')->unique();
+    //     $table->string('role')->default(0);
+    //     $table->timestamp('email_verified_at')->nullable();
+    //     $table->string('password');
+    //     $table->foreign('direction_id')->references('id')->on('direction')->onDelete('cascade');
+    //     $table->rememberToken();
+    //     $table->timestamps();
+
+
 
     /**
      * Reverse the migrations.

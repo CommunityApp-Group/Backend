@@ -1,12 +1,14 @@
 <?php
+
 namespace App\Macros;
 
 use Illuminate\Support\Facades\Response;
 
-class ResponseMacro {
-
-    public function success() {
-        return function($message, $data = [], $status = 200) {
+class ResponseMacro
+{
+    public function success()
+    {
+        return function ($message, $data = [], $status = 200) {
             $response_format =  [
                 "status" => "success",
                 "message" => $message,
@@ -16,8 +18,9 @@ class ResponseMacro {
         };
     }
 
-    public function errorResponse() {
-        return function($message, $data = [], $status = 400) {
+    public function errorResponse()
+    {
+        return function ($message, $data = [], $status = 400) {
             $response_format = (object) [
                 "status" => "failed",
                 "message" => $message,

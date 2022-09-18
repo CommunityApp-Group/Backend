@@ -7,7 +7,8 @@ use Illuminate\Pipeline\Pipeline;
 use App\Filters\StoryFilter\StoryName;
 use App\Filters\StoryFilter\Category;
 
-class StoryService {
+class StoryService 
+{
     public static function retrieveStory() {
         $story_filter = app(Pipeline::class)
             ->send(Story::orderBy('created_at', 'DESC'))
