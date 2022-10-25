@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d024c7b-2580-4510-811f-350a6ff129b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/OTP/ActivationCodeValidationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OTP/ActivationCodeValidationRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Macros/ResponseMacro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Macros/ResponseMacro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AuctionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AuctionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Auth/AuthenticateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Auth/AuthenticateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/StoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/StoryService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/GetRequestType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GetRequestType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_stories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_stories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +199,9 @@
       <workItem from="1643300131843" duration="3315000" />
       <workItem from="1644333016371" duration="2453000" />
       <workItem from="1645513521242" duration="13691000" />
-      <workItem from="1663501145384" duration="2662000" />
+      <workItem from="1663501145384" duration="4570000" />
+      <workItem from="1663603432156" duration="395000" />
+      <workItem from="1666690144780" duration="3755000" />
     </task>
     <servers />
   </component>
@@ -233,10 +222,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="378" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1663501329440">
+    <state x="378" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1666690159732">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1663501329440" />
+    <state x="378" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1666690159732" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

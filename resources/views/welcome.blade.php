@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Community App</title>
+    <title>Bridge App</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -36,7 +36,7 @@
                 <div class="display-table">
                     <div class="display-table-cell">
                         <div class="main-content">
-                            <h1 class="title" style="color:forestgreen;"><b>Welcome to Community App Version 1.2.0</b></h1>
+                            <h1 class="title" style="color:forestgreen;"><b>Welcome to Bridge  Version 1.2.0</b></h1>
                             <h3 class="title"><b>Sit down relax while the food get ready</b></h3>
                         </div><!-- main-content -->
                     </div><!-- display-table-cell -->
