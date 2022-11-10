@@ -46,7 +46,6 @@
             "dont-discover": []
         }
     },
-
     "autoload": {
         "psr-4": {
             "App\\": "app/",
@@ -54,7 +53,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/helpers.php"
+
         ]
     },
     "autoload-dev": {
@@ -89,6 +88,7 @@
         {
              "type": "composer",
              "url": "https://packagist.org"
+
         },
         { "packagist": false }
     ]
