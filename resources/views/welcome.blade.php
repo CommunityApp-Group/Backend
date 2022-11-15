@@ -36,7 +36,7 @@
                 <div class="display-table">
                     <div class="display-table-cell">
                         <div class="main-content">
-                            <h1 class="title" style="color:forestgreen;"><b>Welcome to Bridge  Version 1.2.0</b></h1>
+                            <h1 class="title" style="color:forestgreen;"><b>Welcome to Bridge </b></h1>
                             <h2  style="color:forestgreen;"><b> Version 1.2.1</b></h2>
                             <h3 class="title"><b>Sit down and relax while the food get done</b></h3>
                         </div><!-- main-content -->
@@ -44,38 +44,9 @@
                 </div><!-- display-table -->
 
 
-            </section><!-- left-section -->
-{{--        --}}
-{{--            <a href="https://www.whogohost.com/host/link.php?id=453">--}}
-{{--                <section class="right-section">--}}
-{{--                --}}
-{{--                    <div class="display-table center-text">--}}
-{{--                        <div class="display-table-cell">--}}
-{{--                            --}}
-                        </div><!-- display-table-cell -->
-                    </div><!-- display-table -->
-
-
-                </section><!-- right-section -->
-          </a>
-        </div><!-- container -->
-    </div><!-- main-area -->
-
-    <!-- SCIPTS -->
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/jquery-3.1.1.min.js"></script>--}}
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/tether.min.js"></script>--}}
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/bootstrap.js"></script>--}}
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/jquery.classycountdown.js"></script>--}}
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/jquery.knob.js"></script>--}}
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/jquery.throttle.js"></script>--}}
-{{--    --}}
-{{--    <script src="https://static.whogohost.net/micro/under-construction/js/scripts.js"></script>--}}
+            </section>
+        </div>
+    </div>
 
 </body>
 </html>
