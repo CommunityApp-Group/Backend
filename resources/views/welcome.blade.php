@@ -37,7 +37,8 @@
                     <div class="display-table-cell">
                         <div class="main-content">
                             <h1 class="title" style="color:forestgreen;"><b>Welcome to Bridge  Version 1.2.0</b></h1>
-                            <h3 class="title"><b>Sit down relax while the food get ready</b></h3>
+                            <h2  style="color:forestgreen;"><b> Version 1.2.1</b></h2>
+                            <h3 class="title"><b>Sit down and relax while the food get done</b></h3>
                         </div><!-- main-content -->
                     </div><!-- display-table-cell -->
                 </div><!-- display-table -->
