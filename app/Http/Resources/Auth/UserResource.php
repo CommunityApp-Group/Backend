@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Auth;
 
-use Tymon\JWTAuth\Facades\JWTAuth;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource

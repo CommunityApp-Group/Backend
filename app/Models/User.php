@@ -9,7 +9,7 @@ use Bavix\Wallet\Interfaces\Wallet;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
 use Bavix\Wallet\Traits\HasWalletFloat;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Bavix\Wallet\Interfaces\WalletFloat;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
