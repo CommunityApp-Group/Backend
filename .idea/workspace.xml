@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/SendActivationCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/SendActivationCode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +216,7 @@
       <workItem from="1653813707633" duration="12597000" />
       <workItem from="1656520315808" duration="11012000" />
       <workItem from="1657276709852" duration="488000" />
-      <workItem from="1668857660824" duration="6743000" />
+      <workItem from="1668857660824" duration="7262000" />
     </task>
     <servers />
   </component>
@@ -226,5 +228,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1668865360575" />
+    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1668901366812">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1668901366812" />
   </component>
 </project>

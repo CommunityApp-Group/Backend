@@ -41,7 +41,7 @@ class SendActivationCode extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Faghat Fans  User Activation Code')
+                    ->subject('Bridge App  User Activation Code')
                     ->line('Your activation code is '. $notifiable->gererateOTP()->digit)
                     ->line('The code will expire in 10 minutes')
                     ->line('if you have not signed up with us, ignore this message');
