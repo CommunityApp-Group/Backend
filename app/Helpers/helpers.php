@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Str;
 use App\Helpers\ResourceHelpers;
-use Tymon\JWTAuth\Facades\JWTAuth;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 use libphonenumber\PhoneNumberUtil;
 use libphonenumber\PhoneNumberFormat;
 use Illuminate\Support\Facades\Storage;
 use libphonenumber\NumberParseException;
 use Spatie\Permission\Models\Permission;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\Exceptions\TokenExpiredException;
-use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
+use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenExpiredException;
+use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException;
 
 
 function getAuthenticatedUser()
@@ -89,8 +89,8 @@ function photoType($photo) {
             return false;
         }
     }
-   
-    return @is_file($photo) ? "file" : false; 
+
+    return @is_file($photo) ? "file" : false;
 }
 
 function uploadImage($dir, $photo) {
@@ -114,10 +114,10 @@ function uploadImage($dir, $photo) {
         $image = \Image::make($photo)->stream();
         Storage::put($dir . $name, $image);
         // ->save(storage_path('images/shop/').$name);
-        return $dir . $name; 
-        
-    } 
-    
+        return $dir . $name;
+
+    }
+
     if($photo_type == "file") {
         $imageName = time(). rand(1,10) . '.' . $photo->getClientOriginalExtension();
         $newImage = \Image::make($photo->getRealPath());
@@ -135,8 +135,8 @@ function cleanAmount($string) {
 
 function isValidAmount($amount) {
     $string = str_replace(',', '', $amount);
-    
-    return preg_match('/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/', $string); 
+
+    return preg_match('/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/', $string);
 }
 
 function isPermissionExist($permission_name){
