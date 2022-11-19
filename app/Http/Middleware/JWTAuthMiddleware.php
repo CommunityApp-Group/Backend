@@ -30,7 +30,7 @@ class JWTAuthMiddleware
         }
 
         if($user->email_verified_at == null) {
-            return response()->errorResponse("Account has not been activativated", ["account" => "Please activate user account to continue"], 403);
+            return response()->errorResponse("Account has not been activated", ["account" => "Please activate user account to continue"], 403);
         }
 
         if($auth === 'admin') {

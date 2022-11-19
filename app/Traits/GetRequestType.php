@@ -2,86 +2,39 @@
 
 namespace App\Traits;
 
-use App\Http\Resources\Auction\AuctionResource;
-use App\Http\Resources\Auction\AuctionResourceCollection;
-use App\Http\Resources\Story\StoryResource;
-use App\Http\Resources\Story\StoryResourceCollection;
+use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\PostResourceCollection;
+
 
 trait GetRequestType
 {
-    public function getUserDetail($user)
-    {
-        // if(request()->has('fullDetails') && request('fullDetails') === 'true') {
-        //     $retrieved_user = $user->with('company', 'userProfile')->jsonPaginate();
-        //     return UserResourceCollection::collection($retrieved_user);
-        // }
 
-        // return UserResource::collection($user->jsonPaginate());
-    }
-
-    public function getSimpleUser($user)
-    {
-        // if(request()->has('fullDetails') && request('fullDetails') === 'true') {
-        //     // return new UserResourceCollection($new_user);
-        // }
-
-        // return new UserResource($user->firstOrFail());
-    }
-
-    public function getSimpleAuction($auction)
+    public function getSimplePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $auction = $auction->with('user', 'verifiedBy')->firstOrFail();
-            return new AuctionResourceCollection($auction);
+            $post = $post->with('user')->firstOrFail();
+            return new PostResourceCollection($post);
         }
 
-        return new AuctionResource($auction->firstOrFail());
+        return new PostResource($post->firstOrFail());
     }
-    public function getFullAuction($auction)
+    public function getFullPost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $auction = $auction->with('user', 'verifiedBy')->paginate(20);
-            return AuctionResourceCollection::collection($auction);
+            $post = $post->with('user')->paginate(20);
+            return PostResourceCollection::collection($post);
         }
-        return  AuctionResource::collection($auction->with('verifiedBy')->paginate(20));
+        return  PostResource::collection($post->with()->paginate(20));
     }
 
-    public function getMyAuction($auction)
+    public function getMyPost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $auction = $auction->paginate(20);
+            $post = $post->paginate(20);
 
-            return AuctionResourceCollection::collection($auction);
-        }
-        return  AuctionResource::collection($auction->paginate(20));
-    }
-
-    public function getSimpleStory($story)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user')->firstOrFail();
-            return new StoryResourceCollection($story);
+            return PostResourceCollection::collection($post);
         }
 
-        return new StoryResource($story->firstOrFail());
-    }
-    public function getFullStory($story)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user')->paginate(20);
-            return StoryResourceCollection::collection($story);
-        }
-        return  StoryResource::collection($story->with()->paginate(20));
-    }
-
-    public function getMystory($story)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->paginate(20);
-
-            return StoryResourceCollection::collection($story);
-        }
-
-        return  StoryResource::collection($story->paginate(20));
+        return  PostResource::collection($post->with()->paginate(20));
     }
 }

@@ -29,14 +29,14 @@ class CreateNewUserRequest extends FormRequest
             'email' => 'required|string|email|max:255|unique:users',
             'gender' => 'required|in:male,female',
             'password' => ['required',
-                            'string',
-                            'confirmed',
-                            'min:8', // must be a minimum of 8
-                            'regex:/[a-z]/',
-                            'regex:/[A-Z]/',
-                            'regex:/[0-9]/',
-                            'regex:/[@$!%*#?&]/',
-                        ]
+                'string',
+                'confirmed',
+                'min:8', // must be a minimum of 8
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
+            ]
         ];
     }
 }

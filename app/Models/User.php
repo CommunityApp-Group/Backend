@@ -85,7 +85,7 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
 
     /**
      * Relationships
-    */
+     */
 
     public function auction() {
         return $this->hasMany(Auction::class);
@@ -129,3 +129,5 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
         return rand(100000, 999999);
     }
 }
+
+

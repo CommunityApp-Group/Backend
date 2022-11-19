@@ -75,7 +75,7 @@ class Handler extends ExceptionHandler
                 if(property_exists($exception, 'errorInfo')) {
                      $errorCode = optional($exception->errorInfo)[1];
                     if($errorCode == 1451) {
-                        return response()->errorResponse("Cannot remove this resource permanently; It's related with othe resource", [], 409);
+                        return response()->errorResponse("Cannot remove this resource permanently; It's related with other resource", [], 409);
                     }
                 }
                

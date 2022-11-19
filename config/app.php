@@ -13,7 +13,7 @@ return [
     |
     */
 
-   'name' => env('APP_NAME', 'Community App'),
+   'name' => env('APP_NAME', 'Faghat Fans '),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +169,7 @@ return [
         /*
          * Application Service Providers...
          */
+        PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
         PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,

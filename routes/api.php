@@ -4,6 +4,7 @@ use App\Helpers\PaystackHelper;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Auction\AuctionController;
+use App\Http\Controllers\Api\Profile\ProfileController;
 use App\Http\Controllers\Api\Story\StoryController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Users authentication a
     Route::name('users.')->prefix('users')->group(function () {
-        Route::post('create', [AuthController::class, 'createUser'])->name('create');
+        Route::post('register', [AuthController::class, 'register'])->name('register');
         Route::post('login', [AuthController::class, 'authenticate'])->name('login');
         Route::get('refresh-token', [AuthController::class, 'refreshToken'])->name('refresh');
         Route::get('current', [AuthController::class, 'authenticatedUser'])->name('current');
@@ -38,7 +39,11 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->name('password.request');
         Route::post('/reset-password', [AuthController::class, 'resetPassword']);
         Route::get('logout', [AuthController::class, 'logout']);
+        Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+        Route::patch('profile/{encodedKey}', [ProfileController::class, 'update'])->name('update.profile');
     });
+
+
 
     Route::name('wallet')->prefix('wallet')->group(function() {
         Route::get('balance', [WalletController::class, 'balance']);
