@@ -39,7 +39,7 @@ function getAuthenticatedUser()
         return ResourceHelpers::fullUserWithRoles($user, "User data successfully retrieved");
     }
 
-    return ResourceHelpers::fullUserWithRoles($user, "User data succssfully retrieved");
+    return ResourceHelpers::fullUserWithRoles($user, "User data successfully retrieved");
 }
 
 function sanitizePhoneNumber($phoneNumber, $national = true, $trim = true)
@@ -89,8 +89,8 @@ function photoType($photo) {
             return false;
         }
     }
-
-    return @is_file($photo) ? "file" : false;
+   
+    return @is_file($photo) ? "file" : false; 
 }
 
 function uploadImage($dir, $photo) {
@@ -114,10 +114,10 @@ function uploadImage($dir, $photo) {
         $image = \Image::make($photo)->stream();
         Storage::put($dir . $name, $image);
         // ->save(storage_path('images/shop/').$name);
-        return $dir . $name;
-
-    }
-
+        return $dir . $name; 
+        
+    } 
+    
     if($photo_type == "file") {
         $imageName = time(). rand(1,10) . '.' . $photo->getClientOriginalExtension();
         $newImage = \Image::make($photo->getRealPath());
@@ -135,8 +135,8 @@ function cleanAmount($string) {
 
 function isValidAmount($amount) {
     $string = str_replace(',', '', $amount);
-
-    return preg_match('/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/', $string);
+    
+    return preg_match('/^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/', $string); 
 }
 
 function isPermissionExist($permission_name){
@@ -145,4 +145,33 @@ function isPermissionExist($permission_name){
     }
 
     return false;
+}
+
+
+function getprofile()
+{
+    try {
+        JWTAuth::parseToken()->authenticate();
+        if (! $user = auth('api')->user()) {
+            return response()->errorResponse('User not found', [], 404);
+        }
+
+    } catch (TokenExpiredException $e) {
+
+        return response()->errorResponse('token_expired', ["token" => $e->getMessage()], 419);
+
+    } catch (TokenInvalidException $e) {
+
+        return response()->errorResponse('token_invalid', ["token" => $e->getMessage()], 401);
+
+    } catch (JWTException $e) {
+
+        return response()->errorResponse('token_absent', ["token" => $e->getMessage()], 401);
+
+    }
+
+    if(request()->has('fullDetails') && request('fullDetails') === 'true') {
+        return ResourceHelpers::returnUserprofile($user, "User Profile successfully retrieved");
+    }
+    return ResourceHelpers::returnUserprofile($user, "User data successfully retrieved");
 }

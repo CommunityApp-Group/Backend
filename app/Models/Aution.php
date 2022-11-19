@@ -42,5 +42,5 @@ class Auction extends Model
         if($input) {
             $this->attributes['auction_image'] = !is_null($input) ? uploadImage('images/auction/', $input) : null;
         }
-     }
+    }
 }

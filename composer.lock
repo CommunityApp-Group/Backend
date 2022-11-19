@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8346449eb511c02bc684bf6171729a2a",
+    "content-hash": "db8c06d12b0577d39f4ad5bdee35042c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3275,16 +3275,16 @@
         },
         {
             "name": "php-open-source-saver/jwt-auth",
-            "version": "2.0.0",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-Open-Source-Saver/jwt-auth.git",
-                "reference": "3da2695543df82d5286504fd7272bbd3def58eb7"
+                "reference": "5fd8c185453d875835c24d4ce50be7396af6ae14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-Open-Source-Saver/jwt-auth/zipball/3da2695543df82d5286504fd7272bbd3def58eb7",
-                "reference": "3da2695543df82d5286504fd7272bbd3def58eb7",
+                "url": "https://api.github.com/repos/PHP-Open-Source-Saver/jwt-auth/zipball/5fd8c185453d875835c24d4ce50be7396af6ae14",
+                "reference": "5fd8c185453d875835c24d4ce50be7396af6ae14",
                 "shasum": ""
             },
             "require": {
@@ -3313,7 +3313,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "2.0-dev"
+                    "dev-develop": "1.0-dev"
                 },
                 "laravel": {
                     "aliases": {
@@ -3365,7 +3365,7 @@
                 "issues": "https://github.com/PHP-Open-Source-Saver/jwt-auth/issues",
                 "source": "https://github.com/PHP-Open-Source-Saver/jwt-auth"
             },
-            "time": "2022-09-08T06:52:59+00:00"
+            "time": "2022-04-22T06:31:30+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -9489,7 +9489,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.1|^8.0",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

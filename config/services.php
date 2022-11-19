@@ -33,24 +33,24 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => '/api/v1/users/callback/facebook'
+        'redirect' => '/api/v1/users/facebook/callback'
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => '/api/v1/users/callback/google'
+        'redirect' => '/api/v1/users/google/callback'
     ],
 
     'instagram' => [
         'client_id' => env('INSTAGRAM_CLIENT_ID'),
         'client_secret' => env('INSTAGRAM_CLIENT_SECRET'),
-        'redirect' => '/api/v1/users/callback/instagram'
+        'redirect' => '/api/v1/users/instagram/callback'
     ],
 
     'linkedin' => [
         'client_id' => env('LINKEDIN_CLIENT_ID'),
         'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
-        'redirect' => '/api/v1/users/callback/linkedin'
+        'redirect' => '/api/v1/users/linkedin/callback'
     ],
 ];
