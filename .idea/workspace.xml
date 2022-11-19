@@ -2,49 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Backend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/ResourceHelpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/ResourceHelpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/JWTAuthMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/JWTAuthMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/CreateNewUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/CreateNewUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/LoginRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/LoginRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auth/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auth/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Auction.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Story.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Story.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/SendActivationCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/SendActivationCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AuctionService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Auth/AuthenticateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Auth/AuthenticateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/PaystackService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/StoryService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/GetRequestType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GetRequestType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jwt.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jwt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +214,7 @@
       <workItem from="1653813707633" duration="12597000" />
       <workItem from="1656520315808" duration="11012000" />
       <workItem from="1657276709852" duration="488000" />
-      <workItem from="1668857660824" duration="6448000" />
+      <workItem from="1668857660824" duration="6743000" />
     </task>
     <servers />
   </component>
