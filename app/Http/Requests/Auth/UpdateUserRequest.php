@@ -26,10 +26,11 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         $data =  [
-            "first_name"  => ['required', 'string', 'max:155'],
-            "last_name"   => ['required', 'string', 'max:155'],
+            "firstname"  => ['required', 'string', 'max:155'],
+            "lastname"   => ['required', 'string', 'max:155'],
             "location"    => ['required'],
             "username"    => ['required', 'string', 'max:155'],
+            'gender' => 'required|in:male,female',
             "avatar"      => ['nullable'],
             "cover"       => ['nullable'],
             "bio"      => ['nullable'],

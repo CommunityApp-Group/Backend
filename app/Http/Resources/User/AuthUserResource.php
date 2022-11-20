@@ -20,9 +20,9 @@ class AuthUserResource extends JsonResource
         return [
             'user_info' => [
                 'id' => $this->encodedKey,
-                'name' => $this->name,
+                'fullname' => $this->firstname. " ".$this->lastname,
                 'email' => $this->email,
-                'phone' => $this->phone,
+                'call_up_no' => $this->call_up_no,
                 'verified' => is_null($this->email_verified_at) ? 'no' : 'yes',
                 'created_at' => $this->created_at->format('Y-m-d H:i:s'),
                 'permissions' => $this->getPermissionNames()

@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/SendActivationCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/SendActivationCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/OTP/ActivationCodeValidationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OTP/ActivationCodeValidationRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +165,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -216,7 +217,8 @@
       <workItem from="1653813707633" duration="12597000" />
       <workItem from="1656520315808" duration="11012000" />
       <workItem from="1657276709852" duration="488000" />
-      <workItem from="1668857660824" duration="7262000" />
+      <workItem from="1668857660824" duration="7581000" />
+      <workItem from="1668901784357" duration="8620000" />
     </task>
     <servers />
   </component>
@@ -224,13 +226,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="274" y="21" key="#Notifications" timestamp="1668901854076">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="274" y="21" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1668901854076" />
     <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1668865360575">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1668865360575" />
-    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1668901366812">
+    <state x="491" y="177" key="NewPhpClassDialog" timestamp="1668902836113">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1668901366812" />
+    <state x="491" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1668902836113" />
+    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1668902313910">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1668902313910" />
   </component>
 </project>

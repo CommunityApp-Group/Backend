@@ -23,7 +23,6 @@ class ActivationCodeValidationRequest extends FormRequest
      */
     public function rules()
     {
-        // 'exists:App\Models\Otp,digit',
         return [
             'code' => [
                 'required', function ($attribute, $value, $fail) {

@@ -24,10 +24,10 @@ class CreateNewUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'call_up_no' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'gender' => 'required|in:male,female',
             'password' => ['required',
                 'string',
                 'confirmed',
