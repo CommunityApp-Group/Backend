@@ -27,12 +27,12 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
      * @var array
      */
     protected $fillable = [
-        'fullname',
+        'firstname',
+        'lastname',
         'call_up_no',
         'email',
         'encodedKey',
-        'password',
-        'gender'
+        'password'
     ];
 
     protected $dates = [

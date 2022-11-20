@@ -105,7 +105,7 @@ class LoginRequest extends FormRequest
     {
         $login = request()->input('username');
  
-        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'call_up_no';
  
         request()->merge([$fieldType => $login]);
  
