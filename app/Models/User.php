@@ -107,7 +107,7 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
 
     public function gererateOTP() {
         $this->resetOTP();
-        $OTP = rand(10000, 99999);
+        $OTP = rand(1000, 9999);
         $expires = now()->addMinutes(10);
         return $this->otp()->create([
             'digit' => $OTP,

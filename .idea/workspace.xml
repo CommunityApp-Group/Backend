@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/CreateNewUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/CreateNewUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/LoginRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/LoginRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auth/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auth/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/OTP/ActivationCodeValidationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OTP/ActivationCodeValidationRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +218,7 @@
       <workItem from="1656520315808" duration="11012000" />
       <workItem from="1657276709852" duration="488000" />
       <workItem from="1668857660824" duration="7581000" />
-      <workItem from="1668901784357" duration="8115000" />
+      <workItem from="1668901784357" duration="8620000" />
     </task>
     <servers />
   </component>
