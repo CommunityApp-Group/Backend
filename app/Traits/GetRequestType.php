@@ -4,8 +4,8 @@ namespace App\Traits;
 
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Resources\Auction\AuctionResourceCollection;
-use App\Http\Resources\Story\StoryResource;
-use App\Http\Resources\Story\StoryResourceCollection;
+use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\PostResourceCollection;
 
 trait GetRequestType
 {
@@ -56,32 +56,32 @@ trait GetRequestType
         return  AuctionResource::collection($auction->paginate(20));
     }
 
-    public function getSimpleStory($story)
+    public function getSimplePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user')->firstOrFail();
-            return new StoryResourceCollection($story);
+            $post = $post->with('user')->firstOrFail();
+            return new PostResourceCollection($post);
         }
 
-        return new StoryResource($story->firstOrFail());
+        return new PostResource($post->firstOrFail());
     }
-    public function getFullStory($story)
+    public function getFullPost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user')->paginate(20);
-            return StoryResourceCollection::collection($story);
+            $post = $post->with('user')->paginate(20);
+            return PostResourceCollection::collection($post);
         }
-        return  StoryResource::collection($story->with()->paginate(20));
+        return  PostResource::collection($post->with()->paginate(20));
     }
 
-    public function getMystory($story)
+    public function getMypost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->paginate(20);
+            $post = $post->paginate(20);
 
-            return StoryResourceCollection::collection($story);
+            return PostResourceCollection::collection($post);
         }
 
-        return  StoryResource::collection($story->paginate(20));
+        return  PostResource::collection($post->paginate(20));
     }
 }

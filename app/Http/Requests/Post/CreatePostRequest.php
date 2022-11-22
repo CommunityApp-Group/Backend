@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Story;
+namespace App\Http\Requests\Post;
 
-use App\Models\Story;
+use App\Models\Post;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateStoryRequest extends FormRequest
+class CreatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,39 +27,39 @@ class CreateStoryRequest extends FormRequest
         $data =  [
             "title"   => ['required', 'string', 'max:255'],
             "category_name" => ['required', 'exists:categories,name'],
-            "storyline"   => ['required'],
-            "story_image"  => ['nullable'],
+            "postline"   => ['required'],
+            "post_image"  => ['nullable'],
         ];
 
-        if($this->filled('story_image'))
-        foreach($this->input('story_image') as $index => $photo) {
+        if($this->filled('post_image'))
+        foreach($this->input('post_image') as $index => $photo) {
             if(photoType($photo)) {
-                $data['story_image'.$index] = photoType($photo) == "file" ? 'image|mimes:jpeg,jpg,png,gif,webp' : 'base64image|base64mimes:jpeg,jpg,png,gif,webp';
+                $data['post_image'.$index] = photoType($photo) == "file" ? 'image|mimes:jpeg,jpg,png,gif,webp' : 'base64image|base64mimes:jpeg,jpg,png,gif,webp';
             }
         }
 
         return $data;
     }
 
-    public function createStory() {
+    public function createPost() {
         $user = auth()->user();
         $data = $this->validated();
 
-        return $user->story()->create($data);
+        return $user->post()->create($data);
     }
 
     protected function getPhotoType() {
-        if ($this->filled('story_image')) {
-            return photoType($this->input('story_image'));
-        } elseif($this->file('story_image')) {
-            return photoType($this->file('story_image'));
+        if ($this->filled('post_image')) {
+            return photoType($this->input('post_image'));
+        } elseif($this->file('post_image')) {
+            return photoType($this->file('post_image'));
         }
     }
 
     public function messages()
     {
         return [
-            'story_image.*.required' => 'Story image is required'
+            'post_image.*.required' => 'Post image is required'
         ];
     }
 }

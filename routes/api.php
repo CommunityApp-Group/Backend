@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Auction\AuctionController;
 use App\Http\Controllers\Api\Profile\ProfileController;
-use App\Http\Controllers\Api\Story\StoryController;
+use App\Http\Controllers\Api\Post\PostController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\AuthController;
 use Bavix\Wallet\Exceptions\InsufficientFunds;
 use App\Http\Controllers\Api\Wallet\WalletController;
 use App\Http\Resources\Auction\AuctionResource;
-use App\Http\Resources\Story\StoryResource;
+use App\Http\Resources\Post\PostResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +50,8 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('deposit', [WalletController::class, 'deposit']);
     });
 
-    Route::apiResource('story', StoryController::class);
-    Route::get('storylist', [StoryController::class, 'storylist'])->name('storylist');
+    Route::apiResource('story', PostController::class);
+    Route::get('storylist', [PostController::class, 'storylist'])->name('storylist');
     Route::apiResource('auction', AuctionController::class);
     Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
     Route::apiResource('category', CategoryController::class);

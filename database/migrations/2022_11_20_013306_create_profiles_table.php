@@ -22,11 +22,6 @@ class CreateProfilesTable extends Migration
             $table->string('location')->nullable();
             $table->string('website')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('cover')->nullable();
-            $table->boolean('public_profile')->default(true);
-            $table->float('profile_access_price')->default(5);
-            $table->float('profile_access_price_6_months')->default(5);
-            $table->float('profile_access_price_12_months')->default(5);
             $table->string('billing_address')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();

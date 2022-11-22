@@ -28,7 +28,6 @@ class UserProfile extends JsonResource
             'location' => $this->location,
             'website' => $this->website,
             'avatar' => $this->avatar,
-            'cover' => $this->cover,
             'billing_address' => $this->billing_address,
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Story;
+namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class StoryResource extends JsonResource
+class PostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,7 @@ class StoryResource extends JsonResource
         return [
             'id'            =>  $this->encodedKey,
             'title'         =>  $this->title,
-            'storyline'     =>  $this->storyline,
+            'postline'     =>  $this->postline,
             'category'      =>  $this->category_name,
             'created_at'    =>  $this->created_at->format('Y-m-d H:i:s')
         ];
