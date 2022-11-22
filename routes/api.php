@@ -50,8 +50,8 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('deposit', [WalletController::class, 'deposit']);
     });
 
-    Route::apiResource('story', PostController::class);
-    Route::get('storylist', [PostController::class, 'storylist'])->name('storylist');
+    Route::apiResource('post', PostController::class);
+    Route::get('postlist', [PostController::class, 'postlist'])->name('postlist');
     Route::apiResource('auction', AuctionController::class);
     Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
     Route::apiResource('category', CategoryController::class);

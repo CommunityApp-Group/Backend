@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/PostService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filters/StoryFilter/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filters/PostFilter/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filters/StoryFilter/StoryName.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filters/PostFilter/PostName.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Story/StoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Story/CreateStoryRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Post/CreatePostRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auction/AuctionResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auction/AuctionResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Story/StoryResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post/PostResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Story/StoryResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post/PostResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Story.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/StoryService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/GetRequestType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GetRequestType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_stories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_stories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_11_20_013306_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_11_20_013306_create_profiles_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +217,7 @@
       <workItem from="1656520315808" duration="11012000" />
       <workItem from="1657276709852" duration="488000" />
       <workItem from="1668857660824" duration="7581000" />
-      <workItem from="1668901784357" duration="17314000" />
+      <workItem from="1668901784357" duration="18097000" />
     </task>
     <servers />
   </component>
