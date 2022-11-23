@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Faghat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Auction/AuctionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_posts_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,11 +174,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Faghat-Fans\app\Http\Resources\User" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Faghat-Fans\app\Services" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Faghat-Fans\app\Http\Resources\User" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.Post">
@@ -217,7 +222,8 @@
       <workItem from="1656520315808" duration="11012000" />
       <workItem from="1657276709852" duration="488000" />
       <workItem from="1668857660824" duration="7581000" />
-      <workItem from="1668901784357" duration="18097000" />
+      <workItem from="1668901784357" duration="18702000" />
+      <workItem from="1669142143210" duration="5908000" />
     </task>
     <servers />
   </component>
@@ -229,17 +235,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="21" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1668901854076" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1668865360575">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1669187435719">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1668865360575" />
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1669187435719" />
     <state x="491" y="177" key="NewPhpClassDialog" timestamp="1668902836113">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="491" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1668902836113" />
-    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1669123934367">
+    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1669145327505">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1669123934367" />
+    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1669145327505" />
   </component>
 </project>
