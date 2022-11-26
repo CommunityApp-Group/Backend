@@ -94,6 +94,9 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
     public function post() {
         return $this->hasMany(Post::class);
     }
+    public function product() {
+        return $this->hasMany(Product::class);
+    }
 
     public function verifiedAuction() {
         return $this->hasMany(Auction::class, 'verified_by');

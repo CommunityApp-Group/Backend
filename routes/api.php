@@ -1,8 +1,11 @@
 <?php
 
 use App\Helpers\PaystackHelper;
-use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\CategoryController;
+use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
+use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Api\Product\ProductController;
+use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Api\Auction\AuctionController;
 use App\Http\Controllers\Api\Profile\ProfileController;
 use App\Http\Controllers\Api\Post\PostController;
@@ -50,10 +53,12 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('deposit', [WalletController::class, 'deposit']);
     });
 
-    Route::apiResource('post', PostController::class);
-    Route::get('postlist', [PostController::class, 'postlist'])->name('postlist');
     Route::apiResource('auction', AuctionController::class);
     Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
+    Route::apiResource('post', PostController::class);
+    Route::get('postlist', [PostController::class, 'postlist'])->name('postlist');
+    Route::apiResource('product', ProductController::class);
+
     Route::apiResource('category', CategoryController::class);
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
@@ -66,6 +71,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::name('admin.')->prefix('admin')->group(function () {
         Route::patch('auction/update/{auction}', [AdminAuctionController::class, 'update']);
         Route::delete('auction/delete/{auction}', [AdminAuctionController::class, 'destroy']);
+        Route::delete('post/delete/{post}', [AdminPostController::class, 'destroy']);
+        Route::delete('product/delete/{product}', [AdminProductController::class, 'destroy']);
     });
     // Route::resource('wallet', WalletController::class);
 

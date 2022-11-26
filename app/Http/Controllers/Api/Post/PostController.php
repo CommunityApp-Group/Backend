@@ -10,7 +10,7 @@ use App\Services\PostService;
 use App\Traits\GetRequestType;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
-use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\ProductResource;
 use App\Http\Requests\Post\CreatePostRequest;
 
 class PostController extends Controller
@@ -39,7 +39,7 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return PostResource
+     * @return ProductResource
      */
     public function store(CreatePostRequest $request) {
         try {
@@ -47,7 +47,7 @@ class PostController extends Controller
                 return response()->errorResponse('Failed to create post! Please try again later');
             }
 
-            return (new PostResource($post))->additional([
+            return (new ProductResource($post))->additional([
                 'message' => 'Post successfully created',
                 'status' => 'success'
             ]);
@@ -61,7 +61,7 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $post
-     * @return PostResource|\App\Http\Resources\Post\PostResourceCollection
+     * @return ProductResource|\App\Http\Resources\Post\ProductResourceCollection
      */
     public function show(Post $post) {
 
@@ -89,7 +89,7 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return PostResource
+     * @return ProductResource
      */
     public function update(CreatePostRequest $request, Post $post) {
         $user = auth()->user();
@@ -101,7 +101,7 @@ class PostController extends Controller
             return response()->errorResponse('Post Update Failed');
         }
 
-        return (new PostResource($post))->additional([
+        return (new ProductResource($post))->additional([
             'message' => 'Post successfully updated',
             'status' => 'success'
         ]);

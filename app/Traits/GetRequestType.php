@@ -6,6 +6,8 @@ use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Resources\Auction\AuctionResourceCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostResourceCollection;
+use App\Http\Resources\Product\ProductResource;
+use App\Http\Resources\Product\ProductResourceCollection;
 
 trait GetRequestType
 {
@@ -28,6 +30,7 @@ trait GetRequestType
         // return new UserResource($user->firstOrFail());
     }
 
+    //Auction Request
     public function getSimpleAuction($auction)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
@@ -56,6 +59,7 @@ trait GetRequestType
         return  AuctionResource::collection($auction->paginate(20));
     }
 
+    //Post Request
     public function getSimplePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
@@ -83,5 +87,38 @@ trait GetRequestType
         }
 
         return  PostResource::collection($post->paginate(20));
+    }
+
+    //Product
+    public function getSimpleProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            $product = $product->with('user')->firstOrFail();
+            return new ProductResourceCollection($product);
+        }
+
+        return new ProductResource($product->firstOrFail());
+    }
+
+    public function getFullProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true')
+        {
+            $product = $product->with('user')->paginate(20);
+            return ProductResourceCollection::collection($product);
+        }
+        return  ProductResource::collection($product->with()->paginate(20));
+    }
+
+
+    public function getMyProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            $product = $product->paginate(20);
+
+            return ProductResourceCollection::collection($product);
+        }
+
+        return  ProductResource::collection($product->paginate(20));
     }
 }

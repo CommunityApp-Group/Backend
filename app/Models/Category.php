@@ -20,6 +20,10 @@ class Category extends Model
         $this->hasMany(Post::class, 'category_name', 'name');
     }
 
+    public function product() {
+        $this->hasMany(Product::class, 'category_name', 'name');
+    }
+
     public function format() {
         return [
             'id'            => $this->id,

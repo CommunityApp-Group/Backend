@@ -1,9 +1,9 @@
 <?php
-namespace App\Filters\PostFilter;
+namespace App\Filters\ProductFilter;
 
 use App\Filters\BaseFilter;
 
-class PostName extends BaseFilter {
+class ProductName extends BaseFilter {
 
     protected function applyFilter($builder)
     {

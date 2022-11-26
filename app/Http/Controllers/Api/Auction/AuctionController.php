@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Api\Auction;
 
-
 use App\Models\Auction;
 use Illuminate\Http\Request;
 use App\Traits\GetRequestType;
+use App\Services\AuctionService;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Requests\Auction\CreateAuctionRequest;
-use App\Services\AuctionService;
+
 
 class AuctionController extends Controller
 {
