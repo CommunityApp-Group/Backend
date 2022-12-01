@@ -48,6 +48,7 @@ Route::group(['prefix' => 'v1'], function () {
 
 
     // Users Wallet
+    // Route::resource('wallet', WalletController::class);
     Route::name('wallet')->prefix('wallet')->group(function() {
         Route::get('balance', [WalletController::class, 'balance']);
         Route::post('deposit', [WalletController::class, 'deposit']);
@@ -74,13 +75,13 @@ Route::group(['prefix' => 'v1'], function () {
 
 
 
-
+    // Admin Op
     Route::name('admin.')->prefix('admin')->group(function () {
         Route::patch('auction/update/{auction}', [AdminAuctionController::class, 'update']);
         Route::delete('auction/delete/{auction}', [AdminAuctionController::class, 'destroy']);
         Route::delete('post/delete/{post}', [AdminPostController::class, 'destroy']);
         Route::delete('product/delete/{product}', [AdminProductController::class, 'destroy']);
     });
-    // Route::resource('wallet', WalletController::class);
+
 
 });

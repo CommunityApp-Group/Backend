@@ -8,7 +8,6 @@ use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
-use App\Models\Post;
 
 trait GetRequestType
 {
@@ -78,8 +77,7 @@ trait GetRequestType
 
             return PostResourceCollection::collection($post);
         }
-
-        return  PostResource::collection($post->paginate(20));
+        return  PostResource::collection($post->paginate(10));
     }
 //
     public function getMypost($post)
@@ -89,7 +87,6 @@ trait GetRequestType
 
             return PostResourceCollection::collection($post);
         }
-
         return  PostResource::collection($post->paginate(10));
     }
 
@@ -100,7 +97,6 @@ trait GetRequestType
 
             return PostResourceCollection::collection($post);
         }
-
         return  PostResource::collection($post->paginate(10));
     }
 
@@ -111,7 +107,6 @@ trait GetRequestType
             $product = $product->with('user')->firstOrFail();
             return new ProductResourceCollection($product);
         }
-
         return new ProductResource($product->firstOrFail());
     }
 
@@ -134,7 +129,6 @@ trait GetRequestType
 
             return ProductResourceCollection::collection($product);
         }
-
         return  ProductResource::collection($product->paginate(20));
     }
 
@@ -145,8 +139,7 @@ trait GetRequestType
 
             return ProductResourceCollection::collection($product);
         }
-
-        return  ProductResource::collection($product->paginate(20));
+        return  ProductResource::collection($product->paginate(10));
     }
 
 }
