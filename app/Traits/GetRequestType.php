@@ -8,6 +8,7 @@ use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
+use App\Models\Post;
 
 trait GetRequestType
 {
@@ -60,7 +61,7 @@ trait GetRequestType
     }
 
     //Post Request
-    public function getSimplePost($post)
+    public function getSinglePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
             $post = $post->with('user')->firstOrFail();
@@ -69,56 +70,70 @@ trait GetRequestType
 
         return new PostResource($post->firstOrFail());
     }
+
     public function getFullPost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $post = $post->with('user')->paginate(20);
-            return PostResourceCollection::collection($post);
-        }
-        return  PostResource::collection($post->with()->paginate(20));
-    }
-
-    public function getMypost($post)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $post = $post->paginate(20);
+            $post = $post->paginate(10);
 
             return PostResourceCollection::collection($post);
         }
 
         return  PostResource::collection($post->paginate(20));
     }
-
-    //Product
-    public function getSimpleProduct($product)
+//
+    public function getMypost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $product = $product->with('user')->firstOrFail();
-            return new ProductResourceCollection($product);
+            $post = $post->paginate(10);
+
+            return PostResourceCollection::collection($post);
         }
 
-        return new ProductResource($product->firstOrFail());
+        return  PostResource::collection($post->paginate(10));
     }
 
-    public function getFullProduct($product)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true')
-        {
-            $product = $product->with('user')->paginate(20);
-            return ProductResourceCollection::collection($product);
-        }
-        return  ProductResource::collection($product->with()->paginate(20));
-    }
-
-
-    public function getMyProduct($product)
+    public function getPopularPost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $product = $product->paginate(20);
+            $post = $post->paginate(10);
 
-            return ProductResourceCollection::collection($product);
+            return PostResourceCollection::collection($post);
         }
 
-        return  ProductResource::collection($product->paginate(20));
+        return  PostResource::collection($post->paginate(10));
     }
+
+//    //Product
+//    public function getSimpleProduct($product)
+//    {
+//        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+//            $product = $product->with('user')->firstOrFail();
+//            return new ProductResourceCollection($product);
+//        }
+//
+//        return new ProductResource($product->firstOrFail());
+//    }
+//
+//    public function getFullProduct($product)
+//    {
+//        if (request()->has('fullDetails') && request('fullDetails') === 'true')
+//        {
+//            $product = $product->with('user')->paginate(20);
+//            return ProductResourceCollection::collection($product);
+//        }
+//        return  ProductResource::collection($product->with()->paginate(20));
+//    }
+//
+//
+//    public function getMyProduct($product)
+//    {
+//        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+//            $product = $product->paginate(20);
+//
+//            return ProductResourceCollection::collection($product);
+//        }
+//
+//        return  ProductResource::collection($product->paginate(20));
+//    }
 }

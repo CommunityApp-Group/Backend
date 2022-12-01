@@ -11,7 +11,7 @@ class PostService
 {
     public static function retrievePost() {
         $post_filter = app(Pipeline::class)
-            ->send(Post::orderBy('created_at', 'DESC'))
+            ->send(Post::latest()->first())
             ->through([
                 Category::class,
                 PostName::class
@@ -21,6 +21,17 @@ class PostService
     }
 
     public static function retrieveMyPost() {
+        $post_filter = app(Pipeline::class)
+            ->send(Post::where('user_id',  auth()->id()))
+            ->through([
+                Category::class,
+                PostName::class
+            ])
+            ->thenReturn();
+        return $post_filter;
+    }
+
+    public static function retrievePopularPost() {
         $post_filter = app(Pipeline::class)
             ->send(Post::where('user_id',  auth()->id()))
             ->through([

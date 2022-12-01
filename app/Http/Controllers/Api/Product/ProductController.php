@@ -28,11 +28,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ProductService::retrieveProduct();
-        return $this->getFullProduct($products)->additional([
-            'message' => 'Product successfully retrieved',
-            'status' => 'success'
-        ]);
+        $products = Product::latest()->paginate(10);
+        return ProductResource::collection($products);
     }
 
     /**

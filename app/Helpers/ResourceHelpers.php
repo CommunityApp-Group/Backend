@@ -48,6 +48,11 @@ class ResourceHelpers
         ]);
     }
 
+    /**
+     * @param $user
+     * @param $message
+     * @return UserProfile
+     */
     public static function returnUserprofile($user, $message)
     {
         return (new UserProfile($user))->additional([

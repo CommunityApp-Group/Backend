@@ -57,6 +57,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
     Route::apiResource('post', PostController::class);
     Route::get('postlist', [PostController::class, 'postlist'])->name('postlist');
+    Route::get('popularpost', [PostController::class, 'popularpost'])->name('popularpost');
     Route::apiResource('product', ProductController::class);
 
     Route::apiResource('category', CategoryController::class);

@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Requests\Auction\CreateAuctionRequest;
-
+use App\Http\Resources\Auction\AuctionResourceCollection;
 
 class AuctionController extends Controller
 {
@@ -62,8 +62,8 @@ class AuctionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $auction
-     * @return AuctionResource|\App\Http\Resources\Auction\AuctionResourceCollection
+     * @param Auction $auction
+     * @return AuctionResource|AuctionResourceCollection
      */
     public function show(Auction $auction)
     {
@@ -72,6 +72,14 @@ class AuctionController extends Controller
             'status' => 'success'
         ]);
     }
+
+    /**
+     * Display the specified Users resource.
+     *
+     * @param Auction $auction
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+
     public function auctionlist(Auction $auction) {
         $auctions = AuctionService::retrieveMyAuction();
         return $this->getMyAuction($auctions)->additional([

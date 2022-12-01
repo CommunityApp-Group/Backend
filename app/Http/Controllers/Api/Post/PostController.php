@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Api\Post;
 
-
-
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Services\PostService;
 use App\Traits\GetRequestType;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
-use App\Http\Resources\Post\ProductResource;
+use App\Http\Resources\Post\PostResource;
 use App\Http\Requests\Post\CreatePostRequest;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class PostController extends Controller
 {
@@ -25,9 +24,12 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return AnonymousResourceCollection
      */
-    public function index() {
+    public function index()
+    {
+//        $posts = Post::latest()->paginate(20);
+//        return PostResource::collection($posts);
         $posts = PostService::retrievePost();
         return $this->getFullPost($posts)->additional([
             'message' => 'Post successfully retrieved',
@@ -39,7 +41,7 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return ProductResource
+     * @return PostResource
      */
     public function store(CreatePostRequest $request) {
         try {
@@ -47,7 +49,7 @@ class PostController extends Controller
                 return response()->errorResponse('Failed to create post! Please try again later');
             }
 
-            return (new ProductResource($post))->additional([
+            return (new PostResource($post))->additional([
                 'message' => 'Post successfully created',
                 'status' => 'success'
             ]);
@@ -61,11 +63,11 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $post
-     * @return ProductResource|\App\Http\Resources\Post\ProductResourceCollection
+     * @return PostResource
      */
     public function show(Post $post) {
 
-        return $this->getSimplePost($post)->additional([
+        return $this->getSinglePost($post)->additional([
             'message' => 'Post successfully retrieved',
             'status' => 'success'
         ]);
@@ -74,11 +76,22 @@ class PostController extends Controller
     /**
      * Display a listing of the Current User resource.
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return AnonymousResourceCollection
      */
     public function postlist(Post $post) {
         $post = PostService::retrieveMyPost();
         return $this->getMypost($post)->additional([
+            'message' => 'My Post successfully retrieved',
+            'status' => 'success'
+        ]);
+    }    /**
+     * Display a listing of the Current User resource.
+     *
+     * @return AnonymousResourceCollection
+     */
+    public function popularpost(Post $post) {
+        $post = PostService::retrievePopularPost();
+        return $this->getPopularPost($post)->additional([
             'message' => 'My Post successfully retrieved',
             'status' => 'success'
         ]);
@@ -89,7 +102,7 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return ProductResource
+     * @return PostResource
      */
     public function update(CreatePostRequest $request, Post $post) {
         $user = auth()->user();
@@ -101,7 +114,7 @@ class PostController extends Controller
             return response()->errorResponse('Post Update Failed');
         }
 
-        return (new ProductResource($post))->additional([
+        return (new PostResource($post))->additional([
             'message' => 'Post successfully updated',
             'status' => 'success'
         ]);
