@@ -5,7 +5,6 @@ namespace App\Helpers;
 use App\Http\Resources\Auth\UserResource;
 use App\Http\Resources\User\AuthUserResource;
 use App\Http\Resources\User\Userprofile;
-use App\Http\Resources\User\UserPublicProfile;
 use App\Http\Resources\User\UserResourceCollection;
 
 class ResourceHelpers

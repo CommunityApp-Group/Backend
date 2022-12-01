@@ -37,4 +37,15 @@ class ProductService
             ->thenReturn();
         return $product_filter;
     }
+
+    public static function retrievePopularProduct() {
+        $product_filter = app(Pipeline::class)
+            ->send(Product::where('user_id',  auth()->id()))
+            ->through([
+                Category::class,
+                ProductName::class
+            ])
+            ->thenReturn();
+        return $product_filter;
+    }
 }

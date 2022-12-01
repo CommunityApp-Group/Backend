@@ -28,8 +28,6 @@ class PostController extends Controller
      */
     public function index()
     {
-//        $posts = Post::latest()->paginate(20);
-//        return PostResource::collection($posts);
         $posts = PostService::retrievePost();
         return $this->getFullPost($posts)->additional([
             'message' => 'Post successfully retrieved',
@@ -84,7 +82,9 @@ class PostController extends Controller
             'message' => 'My Post successfully retrieved',
             'status' => 'success'
         ]);
-    }    /**
+    }
+
+    /**
      * Display a listing of the Current User resource.
      *
      * @return AnonymousResourceCollection

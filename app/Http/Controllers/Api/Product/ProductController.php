@@ -28,8 +28,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(10);
-        return ProductResource::collection($products);
+        $products = ProductService::retrieveProduct();
+        return $this->getFullProduct($products)->additional([
+            'message' => 'Product successfully retrieved',
+            'status' => 'success'
+        ]);
     }
 
     /**
@@ -65,6 +68,33 @@ class ProductController extends Controller
     {
         return $this->getSimpleProduct($product)->additional([
             'message' => 'Product successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $product
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function productlist(Product $product)
+    {
+        return $this->getMyProduct($product)->additional([
+            'message' => 'Product successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
+
+    /**
+     * Display a listing of the Current User resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function popularproduct(Product $product) {
+        $product = ProductService::retrievePopularProduct();
+        return $this->getPopularProduct($product)->additional([
+            'message' => 'My Product successfully retrieved',
             'status' => 'success'
         ]);
     }

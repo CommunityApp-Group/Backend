@@ -31,7 +31,7 @@ use App\Http\Resources\Post\PostResource;
 */
 Route::group(['prefix' => 'v1'], function () {
 
-    // Users authentication a
+    // Users authentication
     Route::name('users.')->prefix('users')->group(function () {
         Route::post('register', [AuthController::class, 'register'])->name('register');
         Route::post('login', [AuthController::class, 'authenticate'])->name('login');
@@ -47,26 +47,32 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
 
-
+    // Users Wallet
     Route::name('wallet')->prefix('wallet')->group(function() {
         Route::get('balance', [WalletController::class, 'balance']);
         Route::post('deposit', [WalletController::class, 'deposit']);
     });
+    Route::get('list-banks', function(PaystackHelper $paystack) {
+        return $paystack->listBanks();
+    });
 
+    Route::apiResource('category', CategoryController::class);
+    Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
+
+
+    // User CRUD operations
     Route::apiResource('auction', AuctionController::class);
     Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
     Route::apiResource('post', PostController::class);
     Route::get('postlist', [PostController::class, 'postlist'])->name('postlist');
     Route::get('popularpost', [PostController::class, 'popularpost'])->name('popularpost');
     Route::apiResource('product', ProductController::class);
+    Route::get('productlist', [ProductController::class, 'productlist'])->name('productlist');
+    Route::get('popularproduct', [ProductController::class, 'popularproduct'])->name('popularproduct');
 
-    Route::apiResource('category', CategoryController::class);
-    Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
 
-    Route::get('list-banks', function(PaystackHelper $paystack) {
-        return $paystack->listBanks();
-    });
+
 
 
     Route::name('admin.')->prefix('admin')->group(function () {
