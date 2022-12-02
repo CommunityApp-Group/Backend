@@ -31,7 +31,7 @@ class CreateAuctionRequest extends FormRequest
             "category_name" => ['required', 'exists:categories,name'],
             "location"      => ['required'],
             "description"   => ['nullable'],
-            "auction_image"  => ['required', 'array'],
+            "auction_image"  => ['required'],
             "auction_image.*"  => ['required'],
             "negotiable"    => ['nullable', 'boolean', 'in:true,false'],
         ];
@@ -45,7 +45,7 @@ class CreateAuctionRequest extends FormRequest
             if(photoType($photo)) {
                 $data['auction_image'.$index] = photoType($photo) == "file" ? 'image|mimes:jpeg,jpg,png,gif,webp' : 'base64image|base64mimes:jpeg,jpg,png,gif,webp';
             }
-            // dd($photo);
+             //dd($photo);
         }
 
         return $data;

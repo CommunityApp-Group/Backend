@@ -23,7 +23,9 @@
         "laravel/tinker": "^2.5",
         "php-open-source-saver/jwt-auth": "^1.4",
         "spatie/laravel-permission": "^4.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-gd": "*",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
