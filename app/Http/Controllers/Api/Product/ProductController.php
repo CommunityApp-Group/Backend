@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show']);
     }
 
     /**
@@ -61,15 +61,16 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $product
-     * @return \App\Http\Resources\Product\ProductResource|\App\Http\Resources\Product\ProductResourceCollection
+     * @param  Product $id
+     * @return ProductResource
      */
     public function show(Product $product)
     {
-        return $this->getSimpleProduct($product)->additional([
+        return $this->getSingleProduct($product)->additional([
             'message' => 'Product successfully retrieved',
             'status' => 'success'
         ]);
+
     }
 
     /**
@@ -78,7 +79,7 @@ class ProductController extends Controller
      * @param  int  $product
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function productlist(Product $product)
+    public function myproduct(Product $product)
     {
         return $this->getMyProduct($product)->additional([
             'message' => 'Product successfully retrieved',

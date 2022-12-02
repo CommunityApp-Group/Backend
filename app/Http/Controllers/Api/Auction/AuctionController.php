@@ -18,7 +18,7 @@ class AuctionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show']);
     }
 
     /**
@@ -80,7 +80,7 @@ class AuctionController extends Controller
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
 
-    public function auctionlist(Auction $auction) {
+    public function myauction(Auction $auction) {
         $auctions = AuctionService::retrieveMyAuction();
         return $this->getMyAuction($auctions)->additional([
             'message' => 'My Auction successfully retrieved',

@@ -11,7 +11,7 @@ class PostService
 {
     public static function retrievePost() {
         $post_filter = app(Pipeline::class)
-            ->send(Post::latest()->first())
+            ->send(Post::orderBy('created_at', 'DESC'))
             ->through([
                 Category::class,
                 PostName::class

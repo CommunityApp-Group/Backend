@@ -8,6 +8,7 @@ use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
+use App\Models\Post;
 
 trait GetRequestType
 {
@@ -33,6 +34,7 @@ trait GetRequestType
     //Auction Request
     public function getSimpleAuction($auction)
     {
+        //dd($auction);
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
             $auction = $auction->with('user', 'verifiedBy')->firstOrFail();
             return new AuctionResourceCollection($auction);
@@ -63,11 +65,12 @@ trait GetRequestType
     public function getSinglePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $post = $post->with('user')->firstOrFail();
+            //$post = Post::where('encodedKey', $post)->first();
+            //dd($post);
             return new PostResourceCollection($post);
         }
 
-        return new PostResource($post->firstOrFail());
+        return new PostResource($post);
     }
 
     public function getFullPost($post)
@@ -100,14 +103,14 @@ trait GetRequestType
         return  PostResource::collection($post->paginate(10));
     }
 
+
     //Product
-    public function getSimpleProduct($product)
+    public function getSingleProduct($product)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $product = $product->with('user')->firstOrFail();
             return new ProductResourceCollection($product);
         }
-        return new ProductResource($product->firstOrFail());
+        return new ProductResource($product);
     }
 
     public function getFullProduct($product)
@@ -119,8 +122,6 @@ trait GetRequestType
         }
         return  ProductResource::collection($product->paginate(20));
     }
-
-
 
     public function getMyProduct($product)
     {

@@ -60,15 +60,14 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('category', CategoryController::class);
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
-
     // User CRUD operations
     Route::apiResource('auction', AuctionController::class);
-    Route::get('auctionlist', [AuctionController::class, 'auctionlist'])->name('auctionlist');
+    Route::get('myauction', [AuctionController::class, 'myauction'])->name('myauction');
     Route::apiResource('post', PostController::class);
-    Route::get('postlist', [PostController::class, 'postlist'])->name('postlist');
+    Route::get('mypost', [PostController::class, 'mypost'])->name('mypost');
     Route::get('popularpost', [PostController::class, 'popularpost'])->name('popularpost');
     Route::apiResource('product', ProductController::class);
-    Route::get('productlist', [ProductController::class, 'productlist'])->name('productlist');
+    Route::get('myproduct', [ProductController::class, 'myproduct'])->name('myproduct');
     Route::get('popularproduct', [ProductController::class, 'popularproduct'])->name('popularproduct');
 
 

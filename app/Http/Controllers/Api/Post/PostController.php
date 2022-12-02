@@ -18,13 +18,13 @@ class PostController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'popularpost']);
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return AnonymousResourceCollection
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -60,11 +60,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $post
+     * @param Post $id
      * @return PostResource
      */
-    public function show(Post $post) {
-
+    public function show(Post $post)
+    {
         return $this->getSinglePost($post)->additional([
             'message' => 'Post successfully retrieved',
             'status' => 'success'
@@ -76,7 +76,7 @@ class PostController extends Controller
      *
      * @return AnonymousResourceCollection
      */
-    public function postlist(Post $post) {
+    public function mypost(Post $post) {
         $post = PostService::retrieveMyPost();
         return $this->getMypost($post)->additional([
             'message' => 'My Post successfully retrieved',

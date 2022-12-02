@@ -16,9 +16,11 @@ class ProductResource extends JsonResource
     {
         return [
             'id'            =>  $this->encodedKey,
-            'product_name'  =>  $this->product_name,
-            'description'   =>  $this->description,
-            'price'         =>  $this->price,
+            'Product'       =>  $this->product_name,
+            'Description'   =>  $this->description,
+            'Price'         =>  $this->product_price,
+            'Image'         =>  $this->product_image,
+            'category'      =>  $this->category_name,
             'created_at'    =>  $this->created_at->format('Y-m-d H:i:s')
         ];
     }

@@ -58,8 +58,12 @@ class CategoryController extends Controller
      */
     public function findByName($name)
     {
-        $category = Category::firstWhere('name', $name);
+        if(!$category = Category::firstWhere('name', $name)) {
+            return response()->errorResponse('Category name not found');
+        }
+
         return response()->success("Category retrieved successfully", $category->format());
+
     }
 
     /**

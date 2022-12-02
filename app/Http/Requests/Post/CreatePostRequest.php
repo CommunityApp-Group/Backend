@@ -25,7 +25,7 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         $data =  [
-            "title"   => ['required', 'string', 'max:255'],
+
             "category_name" => ['required', 'exists:categories,name'],
             "postline"   => ['required'],
             "post_image"  => ['nullable'],

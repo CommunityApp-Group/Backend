@@ -27,8 +27,8 @@ class Category extends Model
     public function format() {
         return [
             'id'            => $this->id,
-            'name'          => $this->name,
-            'created_at'    => $this->created_at
+            'Category'          => $this->name,
+            'Date Created'    => $this->created_at->format('Y-m-d H:i:s')
         ];
     }
 }
