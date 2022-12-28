@@ -2,19 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Post::class;
+    protected $model = Product::class;
 
     /**
      * Define the model's default state.
@@ -28,11 +27,11 @@ class PostFactory extends Factory
                 return User::all()->random();
             },
             'category_name' => $this->faker->randomElement(['Electronic','Food','Motor','Kitchen']),
-            'postline'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
+            'description'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
             'encodedKey'=> $this->faker->uuid(),
-            'post_image' => $this->faker->imageUrl($width = 640, $height = 480)
+            'product_name'=> $this->faker->company(),
+            'product_price'=> $this->faker->randomNumber(3),
+            'product_image' => $this->faker->imageUrl($width = 640, $height = 480)
         ];
     }
-
-
 }

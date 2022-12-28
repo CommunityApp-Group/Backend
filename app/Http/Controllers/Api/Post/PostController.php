@@ -38,7 +38,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CreatePostRequest $request
      * @return PostResource
      */
     public function store(CreatePostRequest $request) {
@@ -76,7 +76,7 @@ class PostController extends Controller
      *
      * @return AnonymousResourceCollection
      */
-    public function mypost(Post $post) {
+    public function postlist(Post $post) {
         $post = PostService::retrieveMyPost();
         return $this->getMypost($post)->additional([
             'message' => 'My Post successfully retrieved',

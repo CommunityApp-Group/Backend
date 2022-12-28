@@ -1,6 +1,5 @@
 <?php
 
-use App\Helpers\PaystackHelper;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
@@ -9,15 +8,8 @@ use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Api\Auction\AuctionController;
 use App\Http\Controllers\Api\Profile\ProfileController;
 use App\Http\Controllers\Api\Post\PostController;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Bavix\Wallet\Exceptions\BalanceIsEmpty;
 use App\Http\Controllers\Api\AuthController;
-use Bavix\Wallet\Exceptions\InsufficientFunds;
-use App\Http\Controllers\Api\Wallet\WalletController;
-use App\Http\Resources\Auction\AuctionResource;
-use App\Http\Resources\Post\PostResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +21,7 @@ use App\Http\Resources\Post\PostResource;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::group(['prefix' => 'v1'], function () {
 
     // Users authentication
@@ -43,19 +36,9 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('/reset-password', [AuthController::class, 'resetPassword']);
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-        Route::patch('profile/{encodedKey}', [ProfileController::class, 'update'])->name('update.profile');
-    });
+        Route::patch('profile/{profile}', [ProfileController::class, 'update'])->name('update.profile');
+            });
 
-
-    // Users Wallet
-    // Route::resource('wallet', WalletController::class);
-    Route::name('wallet')->prefix('wallet')->group(function() {
-        Route::get('balance', [WalletController::class, 'balance']);
-        Route::post('deposit', [WalletController::class, 'deposit']);
-    });
-    Route::get('list-banks', function(PaystackHelper $paystack) {
-        return $paystack->listBanks();
-    });
 
     Route::apiResource('category', CategoryController::class);
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
@@ -69,9 +52,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('product', ProductController::class);
     Route::get('myproduct', [ProductController::class, 'myproduct'])->name('myproduct');
     Route::get('popularproduct', [ProductController::class, 'popularproduct'])->name('popularproduct');
-
-
-
 
 
     // Admin Op

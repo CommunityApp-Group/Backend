@@ -18,26 +18,19 @@ class UserProfile extends JsonResource
     {
         return [
             'id' => $this->encodedKey,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'username' => $this->username,
-            'credit' => $this->credit,
-            'gender' => $this->gender,
-            'bio' => $this->bio,
-            'dob' => $this->dob,
+            'Email' => $this->email,
+            'Phone' => $this->phone,
+            'Gender' => $this->gender,
+            'Date of Birth' => $this->dob,
             'location' => $this->location,
-            'website' => $this->website,
             'avatar' => $this->avatar,
-            'billing_address' => $this->billing_address,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
+            'Address' => $this->address,
+            'First Name' => $this->firstname,
+            'Last Name' => $this->lastname,
             'city' => $this->city,
             'country' => $this->country,
             'state' => $this->state,
-            'postcode' => $this->postcode,
-            'verified' => is_null($this->email_verified_at) ? 'no' : 'yes',
-            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
-            'permissions' => $this->getPermissionNames()
+            'created_at' => $this->created_at->format('Y-m-d H:i:s')
         ];
     }
 

@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="">
+    <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/Backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auction/CreateAuctionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auction/CreateAuctionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Profile/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Profile/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/Helpers/FactoryHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_11_20_013306_create_profiles_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CommentSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PostSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/Traits/DisableForeignKeys.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/Traits/TruncateTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -29,11 +51,9 @@
       <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
-      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
@@ -46,7 +66,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/infureal/artisan-gui" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
@@ -88,15 +107,12 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
-      <path value="$PROJECT_DIR$/vendor/bavix/laravel-wallet" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
-      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
-      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
       <path value="$PROJECT_DIR$/vendor/nette/schema" />
       <path value="$PROJECT_DIR$/vendor/nette/utils" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
@@ -151,18 +167,21 @@
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
-      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/stella-maris/clock" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/bavix/laravel-wallet" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
     </include_path>
   </component>
-  <component name="ProjectId" id="28lHL8kTUky8hXjunaE7tX9IVmX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2Ig1gsjwFCcGfQtjI9EWAXDipdF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -170,63 +189,29 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Faghat-Fans\app\Services" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Faghat-Fans\app\Http\Resources\User" />
-    </key>
-  </component>
-  <component name="RunManager" selected="PHPUnit.Post">
-    <configuration name="Post" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner directory="$PROJECT_DIR$/app/Http/Requests/Post" />
-      <method v="2" />
-    </configuration>
-    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHPUnit.Post" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d2b0e005-4904-4ef5-b798-6857ccec6b96" name="Default Changelist" comment="" />
-      <created>1651784195473</created>
+      <changelist id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="" />
+      <created>1670588527534</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1651784195473</updated>
-      <workItem from="1651784222033" duration="13801000" />
-      <workItem from="1651822932682" duration="3835000" />
-      <workItem from="1651827036495" duration="2968000" />
-      <workItem from="1651832381791" duration="92000" />
-      <workItem from="1651832606284" duration="9725000" />
-      <workItem from="1651993210736" duration="736000" />
-      <workItem from="1651997976749" duration="35566000" />
-      <workItem from="1652691633621" duration="2017000" />
-      <workItem from="1652708334714" duration="5348000" />
-      <workItem from="1652714885353" duration="31208000" />
-      <workItem from="1652793488527" duration="835000" />
-      <workItem from="1652794380259" duration="25921000" />
-      <workItem from="1653813707633" duration="12597000" />
-      <workItem from="1656520315808" duration="11012000" />
-      <workItem from="1657276709852" duration="488000" />
-      <workItem from="1668857660824" duration="7581000" />
-      <workItem from="1668901784357" duration="18702000" />
-      <workItem from="1669142143210" duration="26904000" />
-      <workItem from="1669618503496" duration="6874000" />
-      <workItem from="1669883174748" duration="44652000" />
+      <updated>1670588527534</updated>
+      <workItem from="1670588556966" duration="2285000" />
+      <workItem from="1670592111166" duration="1848000" />
+      <workItem from="1670598185560" duration="6389000" />
+      <workItem from="1670643319877" duration="4718000" />
+      <workItem from="1670655578231" duration="16255000" />
+      <workItem from="1671047994132" duration="3770000" />
+      <workItem from="1671242957901" duration="1032000" />
+      <workItem from="1671244997129" duration="724000" />
+      <workItem from="1671531209824" duration="2068000" />
+      <workItem from="1671778181040" duration="19324000" />
     </task>
     <servers />
   </component>
@@ -234,25 +219,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="274" y="21" key="#Notifications" timestamp="1668901854076">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1672151343363">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="21" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1668901854076" />
-    <state x="159" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1669467002939">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1672151343363" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1672235452586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="159" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1669467002939" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1669891558994">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1669891558994" />
-    <state x="491" y="177" key="NewPhpClassDialog" timestamp="1669971196465">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="491" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1669971196465" />
-    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1669968590965">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1669968590965" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1672235452586" />
   </component>
 </project>

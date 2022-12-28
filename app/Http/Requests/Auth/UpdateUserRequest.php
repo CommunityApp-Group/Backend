@@ -28,28 +28,19 @@ class UpdateUserRequest extends FormRequest
         $data =  [
             "firstname"  => ['required', 'string', 'max:155'],
             "lastname"   => ['required', 'string', 'max:155'],
-            "location"    => ['required'],
-            "username"    => ['required', 'string', 'max:155'],
-            'gender'    => ['required|in:male,female'],
+            "location"    => ['nullable','string'],
+            "phone"    => ['nullable','required','digits:11'],
+            'gender'    => ['required','in:male,female'],
             "avatar"      => ['nullable', 'image', 'max:4096'],
             "bio"      => ['nullable'],
-            "dob"       => ['nullable'],
-            "website"      => ['nullable'],
+            'dob'    => ['nullable','date','date_format:Y-m-d','before:'.now()->subYears(18)->toDateString()],
             "country"       => ['nullable'],
             "city"      => ['nullable'],
-            "postcode"       => ['nullable'],
             "state"       => ['nullable'],
-            "billing_address"      => ['nullable'],
+            "address"      => ['nullable']
         ];
 
 
-        if($this->filled('cover'))
-            foreach($this->input('cover') as $index => $photo) {
-                if(photoType($photo)) {
-                    $data['cover'.$index] = photoType($photo) == "file" ? 'image|mimes:jpeg,jpg,png,gif,webp' : 'base64image|base64mimes:jpeg,jpg,png,gif,webp';
-                }
-
-            }
         if($this->filled('avatar'))
             foreach($this->input('avatar') as $index => $photo) {
                 if(photoType($photo)) {
@@ -60,7 +51,12 @@ class UpdateUserRequest extends FormRequest
 
         return $data;
     }
+    public function createProfile() {
+        $user = auth()->user();
+        $data = $this->validated();
 
+        return $user->profile()->create($data);
+    }
 
     protected function getPhotoType() {
         if ($this->filled('avatar')) {

@@ -9,7 +9,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.1|^8.0",
-        "bavix/laravel-wallet": "^6.1",
+        "ext-gd": "*",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "bavix/laravel-wallet": "*",
         "binary-cats/laravel-sku": "^0.4.0",
         "crazybooot/base64-validation": "^1.0",
         "fideloper/proxy": "^4.4",
@@ -19,13 +22,9 @@
         "infureal/artisan-gui": "^2.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^8.5.1",
-        "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
         "php-open-source-saver/jwt-auth": "^1.4",
-        "spatie/laravel-permission": "^4.0",
-        "ext-json": "*",
-        "ext-gd": "*",
-        "ext-openssl": "*"
+        "spatie/laravel-permission": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
