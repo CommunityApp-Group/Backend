@@ -4,8 +4,11 @@ namespace App\Traits;
 
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Resources\Auction\AuctionResourceCollection;
-use App\Http\Resources\Story\StoryResource;
-use App\Http\Resources\Story\StoryResourceCollection;
+use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\PostResourceCollection;
+use App\Http\Resources\Product\ProductResource;
+use App\Http\Resources\Product\ProductResourceCollection;
+use App\Models\Post;
 
 trait GetRequestType
 {
@@ -28,8 +31,10 @@ trait GetRequestType
         // return new UserResource($user->firstOrFail());
     }
 
+    //Auction Request
     public function getSimpleAuction($auction)
     {
+        //dd($auction);
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
             $auction = $auction->with('user', 'verifiedBy')->firstOrFail();
             return new AuctionResourceCollection($auction);
@@ -56,32 +61,86 @@ trait GetRequestType
         return  AuctionResource::collection($auction->paginate(20));
     }
 
-    public function getSimpleStory($story)
+    //Post Request
+    public function getSinglePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user')->firstOrFail();
-            return new StoryResourceCollection($story);
+            //$post = Post::where('encodedKey', $post)->first();
+            //dd($post);
+            return new PostResourceCollection($post);
         }
 
-        return new StoryResource($story->firstOrFail());
+        return new PostResource($post);
     }
-    public function getFullStory($story)
+
+    public function getFullPost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->with('user')->paginate(20);
-            return StoryResourceCollection::collection($story);
-        }
-        return  StoryResource::collection($story->with()->paginate(20));
-    }
+            $post = $post->paginate(10);
 
-    public function getMystory($story)
+            return PostResourceCollection::collection($post);
+        }
+        return  PostResource::collection($post->paginate(10));
+    }
+//
+    public function getMypost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $story = $story->paginate(20);
+            $post = $post->paginate(10);
 
-            return StoryResourceCollection::collection($story);
+            return PostResourceCollection::collection($post);
         }
-
-        return  StoryResource::collection($story->paginate(20));
+        return  PostResource::collection($post->paginate(10));
     }
+
+    public function getPopularPost($post)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            $post = $post->paginate(10);
+
+            return PostResourceCollection::collection($post);
+        }
+        return  PostResource::collection($post->paginate(10));
+    }
+
+
+    //Product
+    public function getSingleProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            return new ProductResourceCollection($product);
+        }
+        return new ProductResource($product);
+    }
+
+    public function getFullProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true')
+        {
+            $product = $product->paginate(20);
+            return ProductResourceCollection::collection($product);
+        }
+        return  ProductResource::collection($product->paginate(20));
+    }
+
+    public function getMyProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            $product = $product->paginate(20);
+
+            return ProductResourceCollection::collection($product);
+        }
+        return  ProductResource::collection($product->paginate(20));
+    }
+
+    public function getPopularProduct($product)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            $product = $product->paginate(10);
+
+            return ProductResourceCollection::collection($product);
+        }
+        return  ProductResource::collection($product->paginate(10));
+    }
+
 }

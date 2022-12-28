@@ -27,13 +27,9 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
      * @var array
      */
     protected $fillable = [
-        'firstname',
-        'lastname',
-        'call_up_no',
-        'email',
-        'encodedKey',
-        'password'
-    ];
+        'firstname','lastname','call_up_no','email','encodedKey','password','phone',
+        'gender','address','dob','location','city','city','country','state','avatar'
+          ];
 
     protected $dates = [
         'updated_at',
@@ -91,8 +87,11 @@ class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
         return $this->hasMany(Auction::class);
     }
 
-    public function story() {
-        return $this->hasMany(Story::class);
+    public function post() {
+        return $this->hasMany(Post::class);
+    }
+    public function product() {
+        return $this->hasMany(Product::class);
     }
 
     public function verifiedAuction() {

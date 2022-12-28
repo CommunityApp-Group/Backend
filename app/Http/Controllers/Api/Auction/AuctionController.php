@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Api\Auction;
 use App\Models\Auction;
 use Illuminate\Http\Request;
 use App\Traits\GetRequestType;
+use App\Services\AuctionService;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Requests\Auction\CreateAuctionRequest;
-use App\Services\AuctionService;
+use App\Http\Resources\Auction\AuctionResourceCollection;
 
 class AuctionController extends Controller
 {
@@ -17,10 +18,16 @@ class AuctionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show']);
     }
 
-    public function index() {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index()
+    {
         $auctions = AuctionService::retrieveAuction();
         return $this->getFullAuction($auctions)->additional([
             'message' => 'Auction successfully retrieved',
@@ -28,7 +35,14 @@ class AuctionController extends Controller
         ]);
     }
 
-    public function store(CreateAuctionRequest $request) {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return AuctionResource
+     */
+    public function store(CreateAuctionRequest $request)
+    {
         try {
             if(!$auction = $request->createAuction()) {
                 return response()->errorResponse('Failed to create auction! Please try again later');
@@ -42,16 +56,31 @@ class AuctionController extends Controller
             report($e);
             return response()->errorResponse('Failed to create auction! Please try again later');
         }
+
     }
 
-    public function show(Auction $auction) {
-
+    /**
+     * Display the specified resource.
+     *
+     * @param Auction $auction
+     * @return AuctionResource|AuctionResourceCollection
+     */
+    public function show(Auction $auction)
+    {
         return $this->getSimpleAuction($auction)->additional([
             'message' => 'Auction successfully retrieved',
             'status' => 'success'
         ]);
     }
-    public function auctionlist(Auction $auction) {
+
+    /**
+     * Display the specified Users resource.
+     *
+     * @param Auction $auction
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+
+    public function myauction(Auction $auction) {
         $auctions = AuctionService::retrieveMyAuction();
         return $this->getMyAuction($auctions)->additional([
             'message' => 'My Auction successfully retrieved',
@@ -59,7 +88,15 @@ class AuctionController extends Controller
         ]);
     }
 
-    public function update(CreateAuctionRequest $request, Auction $auction) {
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $auction
+     * @return AuctionResource
+     */
+    public function update(CreateAuctionRequest $request, Auction $auction)
+    {
         $user = auth()->user();
         if($auction->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
 
@@ -75,7 +112,14 @@ class AuctionController extends Controller
         ]);
     }
 
-    public function destroy(Auction $auction) {
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $auction
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Auction $auction)
+    {
         $user = auth()->user();
         if($auction->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
 
@@ -85,4 +129,5 @@ class AuctionController extends Controller
 
         return response()->success('Auction deleted successfully');
     }
+
 }

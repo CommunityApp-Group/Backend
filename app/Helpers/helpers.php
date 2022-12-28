@@ -78,7 +78,7 @@ function generateEncodedKey() {
 function photoType($photo) {
     if(@is_string($photo)) {
         try {
-            $image_data = preg_replace('#^data:image/\w+;base64,#i', '', $photo);
+            $image_data = preg_replace('#^data:application/\w+;base64,#i', '', $photo);
             $decode_image = base64_decode($image_data);
 
             if(!imagecreatefromstring($decode_image)) {

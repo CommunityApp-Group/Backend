@@ -4,7 +4,7 @@ namespace App\Http\Resources\Auction;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AuctionResourceCollection extends JsonResource
+class   AuctionResourceCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -17,7 +17,7 @@ class AuctionResourceCollection extends JsonResource
         return [
             "auction" => new AuctionResource($this),
             "user" => [
-                'fullname' => $this->user->fullname,
+                'fullname' => $this->firstname. " ".$this->lastname,
                 'email' => $this->user->email,
                 'call_up_no' => $this->user->call_up_no,
                 'verified' => is_null($this->user->email_verified_at) ? 'no' : 'yes',

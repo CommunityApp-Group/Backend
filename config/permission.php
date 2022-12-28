@@ -3,7 +3,7 @@
 return [
 
     'default_permissions' => [
-        'regular', 'admin_user'
+        'regular', 'admin_user','super_admin'
     ],
 
     'models' => [

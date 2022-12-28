@@ -16,15 +16,19 @@ class Category extends Model
         $this->hasMany(Auction::class, 'category_name', 'name');
     }
 
-    public function story() {
-        $this->hasMany(Story::class, 'category_name', 'name');
+    public function post() {
+        $this->hasMany(Post::class, 'category_name', 'name');
+    }
+
+    public function product() {
+        $this->hasMany(Product::class, 'category_name', 'name');
     }
 
     public function format() {
         return [
             'id'            => $this->id,
-            'name'          => $this->name,
-            'created_at'    => $this->created_at
+            'Category'          => $this->name,
+            'Date Created'    => $this->created_at->format('Y-m-d H:i:s')
         ];
     }
 }

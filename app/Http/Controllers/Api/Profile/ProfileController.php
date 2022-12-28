@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\Profile;
 
 use App\Models\User;
-use App\Models\Profile;
 use App\Traits\GetRequestType;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\UpdateUserRequest;
@@ -18,7 +17,7 @@ class ProfileController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt');
     }
     /**
      * @return \App\Http\Resources\User\UserProfile
@@ -27,7 +26,7 @@ class ProfileController extends Controller
         return getprofile();
     }
 
-    public function update(UpdateUserRequest $request, User $user, $encodedKey ) {
+    public function update(UpdateUserRequest $request, User $user,  $encodedKey ) {
         $user = auth()->user();
         if($request->user()->encodedKey !== $user->encodedKey) return response()->errorResponse('Permission Denied', [], 403);
 

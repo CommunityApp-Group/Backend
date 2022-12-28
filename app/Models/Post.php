@@ -4,13 +4,13 @@ namespace App\Models;
 
 use App\Traits\AddUUID;
 use Illuminate\Pipeline\Pipeline;
-use App\Filters\StoryFilter\StoryName;
+use App\Filters\PostFilter\PostName;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Story extends Model
+class Post extends Model
 {
     use HasFactory, AddUUID, SoftDeletes;
 
@@ -30,13 +30,13 @@ class Story extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function storyCategory() {
+    public function postCategory() {
         return $this->belongsTo(Category::class, 'category_name', 'name');
     }
 
-    public function setStoryImageAttribute($input) {
+    public function setPostImageAttribute($input) {
         if($input) {
-            $this->attributes['story_image'] = !is_null($input) ? uploadImage('images/story/', $input) : null;
+            $this->attributes['post_image'] = !is_null($input) ? uploadImage('images/post/', $input) : null;
         }
     }
 }

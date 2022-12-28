@@ -1,9 +1,9 @@
 <?php
-namespace App\Filters\StoryFilter;
+namespace App\Filters\PostFilter;
 
 use App\Filters\BaseFilter;
 
-class StoryName extends BaseFilter {
+class PostName extends BaseFilter {
 
     protected function applyFilter($builder)
     {
