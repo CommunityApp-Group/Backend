@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Product;
 
-
+use App\Http\Resources\Product\ProductResourceCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Traits\GetRequestType;
@@ -11,6 +11,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Requests\Product\CreateProductRequest;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 class ProductController extends Controller
 {
@@ -18,7 +21,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index', 'show']);
+        $this->middleware('auth.jwt')->except(['index']);
     }
 
     /**
@@ -28,34 +31,29 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ProductService::retrieveProduct();
-        return $this->getFullProduct($products)->additional([
-            'message' => 'Product successfully retrieved',
-            'status' => 'success'
-        ]);
+        return ProductResourceCollection::Collection(Product::orderBy('created_at', 'DESC')->paginate(10));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return ProductResource
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
     public function store(CreateProductRequest $request)
     {
-        try {
-            if(!$product = $request->createProduct()) {
-                return response()->errorResponse('Failed to create product! Please try again later');
-            }
+        $product = new Product;
+        $product->product_name = $request->product_name;
+        $product->description = $request->description;
+        $product->category_name = $request->category_name;
+        $product->product_price = $request->product_price;
+        $product->product_image = $request->product_image;
+        $product->user_id = $user = auth()->user()->id;
+        $product->save();
+        return response([
+            'data' => new ProductResource($product)
+        ],Response::HTTP_CREATED);
 
-            return (new ProductResource($product))->additional([
-                'message' => 'Product successfully created',
-                'status' => 'success'
-            ]);
-        } catch(QueryException $e) {
-            report($e);
-            return response()->errorResponse('Failed to create product! Please try again later');
-        }
     }
 
     /**
@@ -80,11 +78,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function myproduct(Product $product)
-    {
-        return $this->getMyProduct($product)->additional([
-            'message' => 'Product successfully retrieved',
-            'status' => 'success'
-        ]);
+   {
+       $product = ProductService::retrieveMyProduct();
+       return $this->getMyProduct($product)->additional([
+           'message' => 'My Product successfully retrieved',
+           'status' => 'success'
+       ]);
     }
 
     /**
@@ -104,19 +103,21 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $product
      * @return ProductResource
      */
-    public function update(CreateProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
+        $request->validate([
+            'product_name' => 'required',
+            'description' => 'required',
+            'category_name' => 'required',
+            'product_price' => 'required',
+        ]);
         $user = auth()->user();
         if($product->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
 
-        if(!$update_product = $product->update(
-            $request->validated()
-        )) {
-            return response()->errorResponse('Product Update Failed');
-        }
+        $product->update($request->all());
 
         return (new ProductResource($product))->additional([
             'message' => 'Product successfully updated',
@@ -134,11 +135,13 @@ class ProductController extends Controller
     {
         $user = auth()->user();
         if($product->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
-
         if(!$product->delete()) {
             return response()->errorResponse('Failed to delete product');
         }
 
         return response()->success('Product deleted successfully');
     }
+
 }
+
+

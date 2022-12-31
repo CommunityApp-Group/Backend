@@ -9,6 +9,7 @@ use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
 use App\Models\Post;
+use App\Models\Product;
 
 trait GetRequestType
 {
@@ -113,24 +114,12 @@ trait GetRequestType
         return new ProductResource($product);
     }
 
-    public function getFullProduct($product)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true')
-        {
-            $product = $product->paginate(20);
-            return ProductResourceCollection::collection($product);
-        }
-        return  ProductResource::collection($product->paginate(20));
-    }
-
     public function getMyProduct($product)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $product = $product->paginate(20);
-
             return ProductResourceCollection::collection($product);
         }
-        return  ProductResource::collection($product->paginate(20));
+        return  ProductResource::collection($product->paginate(5));
     }
 
     public function getPopularProduct($product)

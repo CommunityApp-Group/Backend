@@ -30,7 +30,7 @@ class CreateProductRequest extends FormRequest
             "category_name" => ['required', 'exists:categories,name'],
             "description"   => ['required'],
             "product_price" => ['required', 'numeric', new ValidateValidAmount],
-            "product_image"    => ['required'],
+            "product_image"    => [''],
         ];
 
 
@@ -45,12 +45,6 @@ class CreateProductRequest extends FormRequest
         return $data;
     }
 
-    public function createProduct() {
-        $user = auth()->user();
-        $data = $this->validated();
-
-        return $user->product()->create($data);
-    }
 
     protected function getPhotoType() {
         if ($this->filled('product_image')) {

@@ -40,5 +40,9 @@ class Product extends Model
             $this->attributes['product_image'] = !is_null($input) ? uploadImage('images/product/', $input) : null;
         }
     }
+    public function reviews()
+    {
+        return $this->hasMany(Productreview::class);
+    }
 
 }

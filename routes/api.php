@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Api\Product\ProductController;
 use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Api\Auction\AuctionController;
+use App\Http\Controllers\Api\Product\ProductreviewController;
 use App\Http\Controllers\Api\Profile\ProfileController;
 use App\Http\Controllers\Api\Post\PostController;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('product', ProductController::class);
     Route::get('myproduct', [ProductController::class, 'myproduct'])->name('myproduct');
     Route::get('popularproduct', [ProductController::class, 'popularproduct'])->name('popularproduct');
+    Route::group(['prefix'=>'products'],function(){
+        Route::apiResource('/{product}/reviews',ProductReviewController::class);
+    });
 
 
     // Admin Op

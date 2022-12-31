@@ -16,12 +16,9 @@ class ProductResourceCollection extends JsonResource
     {
         return [
             "post" => new ProductResource($this),
-            "user" => [
-                'fullname' => $this->firstname. " ".$this->lastname,
-                'email' => $this->user->email,
-                'call_up_no' => $this->user->call_up_no,
-                'created_at' => $this->created_at->format('Y-m-d H:i:s')
-            ]
-        ];
+            'href' => [
+                'link' => route('product.show',$this->encodedKey)
+            ],
+                   ];
     }
 }
