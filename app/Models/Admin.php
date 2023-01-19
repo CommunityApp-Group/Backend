@@ -78,7 +78,11 @@ class Admin extends  Authenticatable implements JWTSubject
     public function createdby() {
         return $this->hasMany(Admin::class, 'created_by');
     }
+
     public function admin() {
         return $this->hasMany(Admin::class);
+    }
+    public function accommodation() {
+        return $this->hasMany(Accommodation::class);
     }
 }

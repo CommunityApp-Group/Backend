@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Accommodation\AccommodationController;
 use App\Http\Controllers\Api\Admin\AdminAuthController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
@@ -46,6 +47,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
     // User CRUD operations
+    Route::apiResource('accommodation', AccommodationController::class);
     Route::apiResource('auction', AuctionController::class);
     Route::get('myauction', [AuctionController::class, 'myauction'])->name('myauction');
     Route::apiResource('post', PostController::class);
