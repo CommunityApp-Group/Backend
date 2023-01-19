@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use App\Http\Resources\Admin\AdminResource;
+use App\Http\Resources\Admin\AdminlistResource;
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Resources\Auction\AuctionResourceCollection;
 use App\Http\Resources\Post\PostResource;
@@ -9,6 +11,7 @@ use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
 use App\Models\Post;
+use App\Models\Product;
 
 trait GetRequestType
 {
@@ -42,13 +45,14 @@ trait GetRequestType
 
         return new AuctionResource($auction->firstOrFail());
     }
+
     public function getFullAuction($auction)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
             $auction = $auction->with('user', 'verifiedBy')->paginate(20);
             return AuctionResourceCollection::collection($auction);
         }
-        return  AuctionResource::collection($auction->with('verifiedBy')->paginate(20));
+        return AuctionResource::collection($auction->with('verifiedBy')->paginate(20));
     }
 
     public function getMyAuction($auction)
@@ -58,7 +62,7 @@ trait GetRequestType
 
             return AuctionResourceCollection::collection($auction);
         }
-        return  AuctionResource::collection($auction->paginate(20));
+        return AuctionResource::collection($auction->paginate(20));
     }
 
     //Post Request
@@ -80,8 +84,9 @@ trait GetRequestType
 
             return PostResourceCollection::collection($post);
         }
-        return  PostResource::collection($post->paginate(10));
+        return PostResource::collection($post->paginate(10));
     }
+
 //
     public function getMypost($post)
     {
@@ -90,7 +95,7 @@ trait GetRequestType
 
             return PostResourceCollection::collection($post);
         }
-        return  PostResource::collection($post->paginate(10));
+        return PostResource::collection($post->paginate(10));
     }
 
     public function getPopularPost($post)
@@ -100,7 +105,7 @@ trait GetRequestType
 
             return PostResourceCollection::collection($post);
         }
-        return  PostResource::collection($post->paginate(10));
+        return PostResource::collection($post->paginate(10));
     }
 
 
@@ -113,24 +118,12 @@ trait GetRequestType
         return new ProductResource($product);
     }
 
-    public function getFullProduct($product)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true')
-        {
-            $product = $product->paginate(20);
-            return ProductResourceCollection::collection($product);
-        }
-        return  ProductResource::collection($product->paginate(20));
-    }
-
     public function getMyProduct($product)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $product = $product->paginate(20);
-
             return ProductResourceCollection::collection($product);
         }
-        return  ProductResource::collection($product->paginate(20));
+        return ProductResource::collection($product->paginate(5));
     }
 
     public function getPopularProduct($product)
@@ -140,7 +133,6 @@ trait GetRequestType
 
             return ProductResourceCollection::collection($product);
         }
-        return  ProductResource::collection($product->paginate(10));
+        return ProductResource::collection($product->paginate(10));
     }
-
 }

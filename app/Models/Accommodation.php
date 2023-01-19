@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Product extends Model
+class Accommodation extends Model
 {
     use HasFactory, AddUUID, SoftDeletes;
 
@@ -29,20 +29,20 @@ class Product extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function productCategory()
+    public function accommodationCategory()
     {
         return $this->belongsTo(Category::class, 'category_name', 'name');
     }
 
-    public function setProductImageAttribute($input)
+    public function setaccommodationImageAttribute($input)
     {
         if ($input) {
-            $this->attributes['product_image'] = !is_null($input) ? uploadImage('images/product/', $input) : null;
+            $this->attributes['accommodation_image'] = !is_null($input) ? uploadImage('images/accommodation/', $input) : null;
         }
     }
-    public function reviews()
-    {
-        return $this->hasMany(Productreview::class);
-    }
+//    public function reviews()
+//    {
+//        return $this->hasMany(Accommodationreview::class);
+//    }
 
 }

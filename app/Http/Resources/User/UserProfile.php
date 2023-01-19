@@ -29,8 +29,7 @@ class UserProfile extends JsonResource
             'Last Name' => $this->lastname,
             'city' => $this->city,
             'country' => $this->country,
-            'state' => $this->state,
-            'created_at' => $this->created_at->format('Y-m-d H:i:s')
+            'state' => $this->state
         ];
     }
 

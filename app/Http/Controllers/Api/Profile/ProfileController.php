@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Auth\UpdateUserRequest;
 use App\Http\Resources\User\UserProfile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 
@@ -25,7 +26,13 @@ class ProfileController extends Controller
     public function index() {
         return getprofile();
     }
-
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return UserProfile
+     */
     public function update(UpdateUserRequest $request, User $user,  $encodedKey ) {
         $user = auth()->user();
         if($request->user()->encodedKey !== $user->encodedKey) return response()->errorResponse('Permission Denied', [], 403);
@@ -41,8 +48,16 @@ class ProfileController extends Controller
             'status' => 'success'
         ]);
     }
-    public function show() {
 
-        return getprofile();
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User $user
+     * @return UserProfile
+     */
+    public function show(User $user)
+    {
+        $users = DB::table('users')->get();
+        return new UserProfile($user);
     }
 }

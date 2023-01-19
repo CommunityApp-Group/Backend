@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
-
+use App\Http\Resources\Admin\AdminResource;
 use Illuminate\Support\Str;
 use App\Helpers\ResourceHelpers;
 use Illuminate\Auth\Events\Lockout;
@@ -11,7 +11,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
 
-class LoginRequest extends FormRequest
+class AdminLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -39,7 +39,7 @@ class LoginRequest extends FormRequest
     /**
      * Attempt to authenticate the request's credentials.
      *
-     * @return \App\Http\Resources\Auth\UserResource
+     * @return AdminResource
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -47,7 +47,7 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! auth('api')->attempt($this->only($this->findUsername(), 'password'))) {
+        if (! auth('admin')->attempt($this->only($this->findUsername(), 'password'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -56,9 +56,10 @@ class LoginRequest extends FormRequest
         }
 
         RateLimiter::clear($this->throttleKey());
-        $user = auth('api')->user();
+        $admin = auth('api')->user();
 
-        return ResourceHelpers::returnUserData($user);
+        return ResourceHelpers::returnAdminData($admin);
+
     }
 
     /**
@@ -105,7 +106,7 @@ class LoginRequest extends FormRequest
     {
         $login = request()->input('username');
  
-        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'call_up_no';
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
  
         request()->merge([$fieldType => $login]);
  
