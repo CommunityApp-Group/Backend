@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Http\Resources\Admin\AdminResource;
 use App\Http\Resources\Auth\UserResource;
 use App\Http\Resources\User\AuthUserResource;
 use App\Http\Resources\User\Userprofile;
@@ -56,6 +57,18 @@ class ResourceHelpers
     {
         return (new UserProfile($user))->additional([
             'message' => 'User Profile successfully retrieved',
+            'status' => "success"
+        ]);
+    }
+
+    /**
+     * @param $admin
+     * @return AdminResource
+     */
+    public static function returnAdminData($admin)
+    {
+        return (new AdminResource($admin))->additional([
+            'message' => 'Successfully returned Admin data',
             'status' => "success"
         ]);
     }

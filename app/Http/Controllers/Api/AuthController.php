@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
@@ -21,13 +22,12 @@ use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Requests\OtpValidationRequest;
 use App\Http\Requests\Auth\CreateNewUserRequest;
 use App\Http\Requests\Auth\PasswordResetRequest;
-use Laravel\Socialite\Facades\Socialite;
 use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\OTP\ActivationCodeValidationRequest;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenBlacklistedException;
-
+use PHPOpenSourceSaver\JWTAuth\JWTAuth;
 
 
 class AuthController extends Controller
@@ -44,10 +44,12 @@ class AuthController extends Controller
     {
         $this->middleware('auth.jwt')->only('resendCode', 'verifyAccount', 'logout', 'authenticatedUser');
         $this->activation_code = $activation_code;
+
     }
 
     /**
      * @param LoginRequest $request
+     * @return \App\Http\Resources\Auth\UserResource
      * @throws \Illuminate\Validation\ValidationException
      */
     public function authenticate(LoginRequest $request)
@@ -59,6 +61,8 @@ class AuthController extends Controller
         return $request->authenticate();
 
     }
+
+
 
     /**
      * @return \App\Http\Resources\User\AuthUserResource

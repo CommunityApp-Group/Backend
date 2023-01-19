@@ -27,7 +27,7 @@ class ProductResource extends JsonResource
                 'reviews' => route('reviews.index',$this->encodedKey)
             ],
             "user" => [
-                'Full Name' => $this->user->firstname. " ".$this->user->lastname
+                'Name' => $this->name
             ]
                  ];
     }

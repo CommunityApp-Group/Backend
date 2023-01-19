@@ -175,3 +175,32 @@ function getprofile()
     }
     return ResourceHelpers::returnUserprofile($user, "User data successfully retrieved");
 }
+
+function logedAdmin()
+{
+    try {
+        JWTAuth::parseToken()->authenticate();
+        if (! $admin = auth()->guard('admin')->user()) {
+            return response()->errorResponse('User not found', [], 404);
+        }
+
+    } catch (TokenExpiredException $e) {
+
+        return response()->errorResponse('token_expired', ["token" => $e->getMessage()], 419);
+
+    } catch (TokenInvalidException $e) {
+
+        return response()->errorResponse('token_invalid', ["token" => $e->getMessage()], 401);
+
+    } catch (JWTException $e) {
+
+        return response()->errorResponse('token_absent', ["token" => $e->getMessage()], 401);
+
+    }
+
+    if(request()->has('fullDetails') && request('fullDetails') === 'true') {
+        return ResourceHelpers::returnAdminData($admin, "User data successfully retrieved");
+    }
+
+    return ResourceHelpers::returnAdminData($admin, "User data successfully retrieved");
+}

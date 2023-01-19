@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\AdminAuthController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::name('users.')->prefix('users')->group(function () {
         Route::post('register', [AuthController::class, 'register'])->name('register');
         Route::post('login', [AuthController::class, 'authenticate'])->name('login');
+        Route::post('admin', [AuthController::class, 'login'])->name('alogin');
         Route::get('refresh-token', [AuthController::class, 'refreshToken'])->name('refresh');
         Route::get('current', [AuthController::class, 'authenticatedUser'])->name('current');
         Route::post('verify-account', [AuthController::class, 'verifyAccount'])->name('verify');
@@ -36,8 +38,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->name('password.request');
         Route::post('/reset-password', [AuthController::class, 'resetPassword']);
         Route::get('logout', [AuthController::class, 'logout']);
-        Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-        Route::patch('profile/{profile}', [ProfileController::class, 'update'])->name('update.profile');
+        Route::apiResource('profile', ProfileController::class);
             });
 
 
@@ -58,6 +59,15 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
 
+    // Admin authentication
+    Route::name('admin.')->prefix('admin')->group(function () {
+        Route::post('login', [AdminAuthController::class, 'login'])->name('adminlogin');
+        Route::post('logout', [AdminAuthController::class, 'logout'])->name('adminlogout');
+        Route::post('refresh', [AdminAuthController::class, 'refresh'])->name('adminrefresh');
+        Route::post('me', [AdminAuthController::class, 'me'])->name('adminme');
+        Route::get('user', [AdminAuthController::class, 'user'])->name('user');
+        Route::apiResource('admin', AdminAuthController::class);
+    });
     // Admin Op
     Route::name('admin.')->prefix('admin')->group(function () {
         Route::patch('auction/update/{auction}', [AdminAuctionController::class, 'update']);

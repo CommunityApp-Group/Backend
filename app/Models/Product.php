@@ -24,9 +24,9 @@ class Product extends Model
         return 'encodedKey';
     }
 
-    public function user()
+    public function admin()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Admin::class);
     }
 
     public function productCategory()

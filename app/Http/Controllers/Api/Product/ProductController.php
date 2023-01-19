@@ -114,7 +114,7 @@ class ProductController extends Controller
             'category_name' => 'required',
             'product_price' => 'required',
         ]);
-        $user = auth()->user();
+        $user = auth()->guard('admin')->user();
         if($product->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
 
         $product->update($request->all());
