@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Accommodation\AccommodationController;
+use App\Http\Controllers\Api\Accommodation\AccommodationReviewController;
 use App\Http\Controllers\Api\Admin\AdminAuthController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
@@ -48,6 +49,11 @@ Route::group(['prefix' => 'v1'], function () {
 
     // User CRUD operations
     Route::apiResource('accommodation', AccommodationController::class);
+    Route::get('myaccommodation', [AccommodationController::class, 'myaccommodation'])->name('myaccommodation');
+    Route::get('popularaccommodation', [AccommodationController::class, 'popularaccommodation'])->name('popularaccommodation');
+    Route::group(['prefix'=>'accommodations'],function(){
+        Route::apiResource('/{accommodation}/reviews',AccommodationReviewController::class);
+    });
     Route::apiResource('auction', AuctionController::class);
     Route::get('myauction', [AuctionController::class, 'myauction'])->name('myauction');
     Route::apiResource('post', PostController::class);

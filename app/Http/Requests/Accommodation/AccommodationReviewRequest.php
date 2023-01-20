@@ -14,7 +14,7 @@ class AccommodationReviewRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -34,10 +34,4 @@ class AccommodationReviewRequest extends FormRequest
         return $data;
     }
 
-    public function createAccommodationReview() {
-        $user = auth()->user();
-        $data = $this->validated();
-
-        return $user->accommodation()->create($data);
-    }
 }

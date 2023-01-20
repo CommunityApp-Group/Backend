@@ -35,12 +35,12 @@ class ProductReviewRequest extends FormRequest
         return $data;
     }
 
-    public function createReview() {
-        $user = auth()->user();
-        $data = $this->validated();
-
-        return $user->product()->create($data);
-    }
+//    public function createReview() {
+//        $user = auth()->user();
+//        $data = $this->validated();
+//
+//        return $user->product()->create($data);
+//    }
 
 
 }

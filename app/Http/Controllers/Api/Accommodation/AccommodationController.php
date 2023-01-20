@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Api\Accommodation;
 
-use App\Http\Requests\Accommodation\CreateAccommodationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Accommodation;
 use App\Traits\GetRequestType;
 use App\Http\Controllers\Controller;
+use App\Services\AccommodationService;
 use App\Http\Resources\Accommodation\AccommodationResource;
+use App\Http\Requests\Accommodation\CreateAccommodationRequest;
 use App\Http\Resources\Accommodation\AccommodationsResourceCollection;
-use Illuminate\Support\Facades\DB;
-use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 
 class AccommodationController extends Controller
@@ -67,12 +66,42 @@ class AccommodationController extends Controller
      * Display the specified resource.
      *
      * @param Accommodation $accommodation
-     * @return \App\Http\Resources\Product\ProductResource|\App\Http\Resources\Product\ProductResourceCollection
+     * @return AccommodationResource|AccommodationsResourceCollection
      */
     public function show(Accommodation $accommodation)
     {
-        return $this->getSingleProduct($accommodation)->additional([
+        return $this->getSingleAccommodation($accommodation)->additional([
             'message' => 'Accommodation successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $accommodation
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function myaccommodation(Accommodation $accommodation)
+    {
+        $accommodation = AccommodationService::retrieveMyAccommodation();
+        return $this->getMyAccommodation($accommodation)->additional([
+            'message' => 'My Accommodation successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
+
+    /**
+     * Display a listing of the Current User resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function popularaccommodation(Accommodation $accommodation)
+    {
+        $accommodation = AccommodationService::retrievePopularAccommodation();
+        return $this->getPopularAccommodation($accommodation)->additional([
+            'message' => 'My Accommodation successfully retrieved',
             'status' => 'success'
         ]);
     }
@@ -87,10 +116,10 @@ class AccommodationController extends Controller
     public function update(Request $request, Accommodation $accommodation )
     {
         $request->validate([
-            'product_name' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'category_name' => 'required',
-            'product_price' => 'required',
+            'accommodation_price' => 'required',
         ]);
         $user = auth()->guard('admin')->user();
         if($accommodation->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
