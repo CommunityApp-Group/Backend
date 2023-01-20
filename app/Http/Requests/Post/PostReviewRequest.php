@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\Post;
 
-use App\Models\Product;
-use App\Rules\ValidateValidAmount;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductReviewRequest extends FormRequest
+class PostReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,5 +32,4 @@ class ProductReviewRequest extends FormRequest
 
         return $data;
     }
-
 }

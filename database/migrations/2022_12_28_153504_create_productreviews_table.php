@@ -21,6 +21,7 @@ class CreateProductreviewsTable extends Migration
             $table->text('review');
             $table->integer('star');
             $table->timestamps();
+            $table->softDeletes();
 
         });
     }

@@ -39,4 +39,10 @@ class Post extends Model
             $this->attributes['post_image'] = !is_null($input) ? uploadImage('images/post/', $input) : null;
         }
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Postreview::class);
+    }
+
 }
