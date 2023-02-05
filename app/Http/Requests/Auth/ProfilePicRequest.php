@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Accommodation;
+namespace App\Http\Requests\Auth;
 
-use App\Rules\ValidateValidAmount;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AccommodationReviewRequest extends FormRequest
+class ProfilePicRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class AccommodationReviewRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,14 +23,8 @@ class AccommodationReviewRequest extends FormRequest
      */
     public function rules()
     {
-        $data =  [
-            "customer"  => ['required', 'string', 'max:255'],
-            "star"   => ['required','integer','between:0,5'],
-            "review"    => ['required'],
+        return [
+            //
         ];
-
-
-        return $data;
     }
-
 }

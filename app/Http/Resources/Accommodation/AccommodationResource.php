@@ -22,12 +22,22 @@ class AccommodationResource extends JsonResource
             'Image'         =>  $this->accommodation_image,
             'category'      =>  $this->category_name,
             'Land Mark'      =>  $this->nearby,
+            'Bathroom'      =>  $this->bathroom,
+            'Bedroom'      =>  $this->bedroom,
+            'Type'      =>  $this->type,
             'State'      =>  $this->state,
             'City'      =>  $this->city,
             'LGA'      =>  $this->lga,
             'Address'      =>  $this->address,
             'accommodation Created Date'    =>  $this->created_at->format('Y-m-d H:i:s'),
-
+            'rating' => $this->reviews->count() > 0 ? round($this->reviews->sum('star')/$this->reviews->count(),2) : 'No rating yet',
+            'href' => [
+                'reviews' => route('reviews.index',$this->encodedKey)
+            ],
+            "user" => [
+                'Name' => $this->name
+            ]
         ];
+
     }
 }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Accommodation;
+namespace App\Http\Requests\Post;
 
-use App\Rules\ValidateValidAmount;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AccommodationReviewRequest extends FormRequest
+class PostReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,5 +32,4 @@ class AccommodationReviewRequest extends FormRequest
 
         return $data;
     }
-
 }

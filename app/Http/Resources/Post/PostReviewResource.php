@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Accommodation;
+namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AccommodationReviewResource extends JsonResource
+class PostReviewResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

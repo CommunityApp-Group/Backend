@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductreviewsTable extends Migration
+class CreatePostreviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateProductreviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('productreviews', function (Blueprint $table) {
+        Schema::create('postreviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->string('customer');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->text('review');
             $table->integer('star');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -33,6 +32,6 @@ class CreateProductreviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productreviews');
+        Schema::dropIfExists('postreviews');
     }
 }

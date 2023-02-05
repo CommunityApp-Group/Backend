@@ -17,11 +17,12 @@ use App\Notifications\ResetPasswordNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject, Wallet, WalletFloat
+class User extends Authenticatable implements JWTSubject, Wallet
 {
-    use HasFactory, Notifiable, SoftDeletes, AddUUID, HasWallet, HasWalletFloat, HasRoles;
+    use HasFactory, Notifiable, SoftDeletes, AddUUID, HasWallet,  HasRoles;
 
     protected $guard = "user";
+
     /**
      * The attributes that are mass assignable.
      *

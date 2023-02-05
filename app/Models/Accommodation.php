@@ -40,9 +40,9 @@ class Accommodation extends Model
             $this->attributes['accommodation_image'] = !is_null($input) ? uploadImage('images/accommodation/', $input) : null;
         }
     }
-//    public function reviews()
-//    {
-//        return $this->hasMany(Accommodationreview::class);
-//    }
+    public function reviews()
+    {
+        return $this->hasMany(Accommodationreview::class);
+    }
 
 }

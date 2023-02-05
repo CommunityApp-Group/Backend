@@ -2,16 +2,15 @@
 
 namespace App\Traits;
 
-use App\Http\Resources\Admin\AdminResource;
-use App\Http\Resources\Admin\AdminlistResource;
+use App\Http\Resources\Accommodation\AccommodationResource;
+use App\Http\Resources\Accommodation\AccommodationsResourceCollection;
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Resources\Auction\AuctionResourceCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
-use App\Models\Post;
-use App\Models\Product;
+
 
 trait GetRequestType
 {
@@ -134,5 +133,32 @@ trait GetRequestType
             return ProductResourceCollection::collection($product);
         }
         return ProductResource::collection($product->paginate(10));
+    }
+
+       // Accommodation
+    public function getSingleAccommodation($accommodation)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            return new AccommodationsResourceCollection($accommodation);
+        }
+        return new AccommodationResource($accommodation);
+    }
+
+    public function getMyAccommodation($accommodation)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            return AccommodationsResourceCollection::collection($accommodation);
+        }
+        return AccommodationResource::collection($accommodation->paginate(5));
+    }
+
+    public function getPopularAccommodation($accommodation)
+    {
+        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+            $accommodation = $accommodation->paginate(10);
+
+            return AccommodationsResourceCollection::collection($accommodation);
+        }
+        return AccommodationResource::collection($accommodation->paginate(10));
     }
 }
