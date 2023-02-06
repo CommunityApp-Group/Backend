@@ -56,7 +56,20 @@ class NewAccomodation extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => $this->accomodation->title,
+            'title' =>  $this->accomodation->title,
+            'description' => $this->accomodation->description,
+        ];
+    }
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toDatabase($notifiable)
+    {
+        return [
+            'title' =>  $this->accomodation->title,
             'description' => $this->accomodation->description,
         ];
     }
