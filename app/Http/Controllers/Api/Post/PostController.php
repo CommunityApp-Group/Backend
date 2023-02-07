@@ -18,7 +18,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index', 'show', 'popularpost']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -135,5 +135,17 @@ class PostController extends Controller
         }
 
         return response()->success('Post deleted successfully');
+    }
+
+    /**
+     * Search for a name
+     *
+     * @param $postline
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search($postline)
+    {
+        $post = Post::where('postline', 'like', '%'.$postline.'%')->get();
+        return PostResource::collection($post);
     }
 }

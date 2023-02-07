@@ -18,7 +18,7 @@ class AuctionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index', 'show']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -128,6 +128,19 @@ class AuctionController extends Controller
         }
 
         return response()->success('Auction deleted successfully');
+    }
+
+
+    /**
+     * Search for a name
+     *
+     * @param $auction_name
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search($auction_name)
+    {
+        $auction = Auction::where('auction_name', 'like', '%'.$auction_name.'%')->get();
+        return AuctionResource::collection($auction);
     }
 
 }

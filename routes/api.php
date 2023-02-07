@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Admin\AdminAuthController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Api\Order\Ordercontroller;
 use App\Http\Controllers\Api\Post\PostReviewController;
 use App\Http\Controllers\Api\Product\ProductController;
 use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
@@ -49,26 +50,31 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
     // User CRUD operations
-    Route::apiResource('accommodation', AccommodationController::class);
-    Route::get('myaccommodation', [AccommodationController::class, 'myaccommodation'])->name('myaccommodation');
-    Route::get('popularaccommodation', [AccommodationController::class, 'popularaccommodation'])->name('popularaccommodation');
+    Route::apiResource('accommodations', AccommodationController::class);
+    Route::get('accommodations/search/{title}', [AccommodationController::class, 'search'])->name('accommodationsearch');
+    Route::get('accommodations/my', [AccommodationController::class, 'myaccommodation'])->name('myaccommodation');
+    Route::get('accommodations/popular', [AccommodationController::class, 'popularaccommodation'])->name('popularaccommodation');
     Route::group(['prefix'=>'accommodations'],function(){
         Route::apiResource('/{accommodation}/reviews',AccommodationReviewController::class);
     });
-    Route::apiResource('auction', AuctionController::class);
-    Route::get('myauction', [AuctionController::class, 'myauction'])->name('myauction');
-    Route::apiResource('post', PostController::class);
-    Route::get('mypost', [PostController::class, 'mypost'])->name('mypost');
-    Route::get('popularpost', [PostController::class, 'popularpost'])->name('popularpost');
+    Route::apiResource('auctions', AuctionController::class);
+    Route::get('auctions/my', [AuctionController::class, 'myauction'])->name('myauction');
+    Route::get('auctions/search/{auction_name}', [AuctionController::class, 'search'])->name('auctionsearch');
+    Route::apiResource('posts', PostController::class);
+    Route::get('posts/my', [PostController::class, 'mypost'])->name('mypost');
+    Route::get('posts/popular', [PostController::class, 'popularpost'])->name('popularpost');
+    Route::get('posts/search/{postline}', [PostController::class, 'search'])->name('postsearch');
     Route::group(['prefix'=>'posts'],function(){
         Route::apiResource('/{post}/reviews',PostReviewController::class);
     });
-    Route::apiResource('product', ProductController::class);
-    Route::get('myproduct', [ProductController::class, 'myproduct'])->name('myproduct');
-    Route::get('popularproduct', [ProductController::class, 'popularproduct'])->name('popularproduct');
+    Route::apiResource('products', ProductController::class);
+    Route::get('products/search/{product_name}', [ProductController::class, 'search'])->name('productsearch');
+    Route::get('products/my', [ProductController::class, 'myproduct'])->name('myproduct');
+    Route::get('products/popular', [ProductController::class, 'popularproduct'])->name('popularproduct');
     Route::group(['prefix'=>'products'],function(){
         Route::apiResource('/{product}/reviews',ProductReviewController::class);
     });
+    Route::apiResource('orders', OrderController::class);
 
 
     // Admin authentication

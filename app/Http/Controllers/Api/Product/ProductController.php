@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -140,6 +140,18 @@ class ProductController extends Controller
         }
 
         return response()->success('Product deleted successfully');
+    }
+
+    /**
+     * Search for a name
+     *
+     * @param $product_name
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search($product_name)
+    {
+        $products = Product::where('product_name', 'like', '%'.$product_name.'%')->get();
+        return ProductResource::collection($products);
     }
 
 }

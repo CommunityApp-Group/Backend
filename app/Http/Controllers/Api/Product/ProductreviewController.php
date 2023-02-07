@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\Product\ReviewResource;
 use App\Http\Requests\Product\ProductReviewRequest;
+use function Doctrine\Common\Cache\Psr6\get;
 
 class ProductreviewController extends Controller
 {
@@ -17,8 +18,12 @@ class ProductreviewController extends Controller
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index(Product $product)
+    public function index()
     {
+        $product = Product::with('user:id,name')
+            ->withCount('reviews')
+            ->latest()
+            ->paginate(20);
         return ReviewResource::collection($product->reviews);
     }
 

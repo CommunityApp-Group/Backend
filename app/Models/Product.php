@@ -29,6 +29,14 @@ class Product extends Model
         return $this->belongsTo(Admin::class);
     }
 
+    public function order_item() {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function order() {
+        return $this->belongsToMany(Order::class, "order_items");
+    }
+
     public function productCategory()
     {
         return $this->belongsTo(Category::class, 'category_name', 'name');

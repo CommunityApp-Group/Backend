@@ -82,7 +82,12 @@ class Admin extends  Authenticatable implements JWTSubject
     public function admin() {
         return $this->hasMany(Admin::class);
     }
+
     public function accommodation() {
         return $this->hasMany(Accommodation::class);
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class);
     }
 }

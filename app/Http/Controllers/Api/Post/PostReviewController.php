@@ -15,11 +15,14 @@ class PostReviewController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Post $post
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index(Post $post)
+    public function index()
     {
+        $post = Post::with('user:id,name')
+            ->withCount('reviews')
+            ->latest()
+            ->paginate(20);
         return PostReviewResource::collection($post->reviews);
     }
 
