@@ -20,7 +20,7 @@ class PostReviewController extends Controller
     public function index()
     {
         $post = Post::with('user:id,name')
-            ->withCount('reviews')
+            ->withCount('postreviews')
             ->latest()
             ->paginate(20);
         return PostReviewResource::collection($post->reviews);
