@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Http\Resources\Order;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostReviewResource extends JsonResource
+class CartResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,10 @@ class PostReviewResource extends JsonResource
     public function toArray($request)
     {
         return [
-
-            'id' => $this->id,
-            'customer' => $this->customer,
-            'body' => $this->review,
-            'star' => $this->star,
+            'price' => $this->product_price,
+            'Name' => $this->product_name,
+            'Quantity' => $this->quantity,
+            'Image'    => $this->product_image,
         ];
     }
 }

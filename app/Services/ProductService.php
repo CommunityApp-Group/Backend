@@ -10,7 +10,7 @@ class ProductService
 {
     public static function retrieveMyProduct() {
         $product_filter = app(Pipeline::class)
-            ->send(Product::where('user_id',  auth()->id()))
+            ->send(Product::where('admin_id',  auth()->guard('admin')->id()))
             ->through([
                 Category::class,
                 ProductName::class

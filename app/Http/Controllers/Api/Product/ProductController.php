@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -60,7 +60,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  Product $id
-     * @return ProductResource
+     * @return ProductResourceCollection|\App\Http\Resources\Product\ProductshowResource
      */
     public function show(Product $product)
     {
@@ -115,7 +115,7 @@ class ProductController extends Controller
             'product_price' => 'required',
         ]);
         $user = auth()->guard('admin')->user();
-        if($product->user_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
+        if($product->admin_id !== $user->id) return response()->errorResponse('Permission Denied', [], 403);
 
         $product->update($request->all());
 
@@ -140,6 +140,32 @@ class ProductController extends Controller
         }
 
         return response()->success('Product deleted successfully');
+
+//        $this->ProductUserCheck($product);
+//        $product->delete();
+//        return response(null,204);
+    }
+
+
+
+    public function ProductUserCheck($product){
+        if (Auth::id() !== $product->user_id) {
+            throw new ProductNotBelongsToUser;
+
+        }
+    }
+
+    /**
+     * Search for a name
+     *
+     * @param $product_name
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search($product_name)
+    {
+        $products = Product::where('product_name', 'like', '%' . $product_name . '%')->get();
+        return ProductResourceCollection::Collection($products);
+
     }
 
 }

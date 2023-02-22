@@ -19,8 +19,18 @@ class AccommodationReviewController extends Controller
      * @param Accommodation $accommodation
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index(Accommodation $accommodation)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+
+    public function index()
     {
+        $accommodation = Accommodation::with('user:id,name')
+            ->withCount('reviews')
+            ->latest()
+            ->paginate(20);
         return AccommodationReviewResource::collection($accommodation->reviews);
     }
 

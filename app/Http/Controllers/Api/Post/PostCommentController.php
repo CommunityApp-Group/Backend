@@ -4,23 +4,27 @@ namespace App\Http\Controllers\Api\Post;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostReviewRequest;
-use App\Http\Resources\Post\PostReviewResource;
+use App\Http\Resources\Post\PostCommentResource;
 use App\Models\Post;
-use App\Models\Postreview;
+use App\Models\Postcomment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class PostReviewController extends Controller
+class PostCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Post $post
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index(Post $post)
+    public function index()
     {
-        return PostReviewResource::collection($post->reviews);
+        $post = Post::with('user:id,name')
+            ->withCount('postreviews')
+            ->latest()
+            ->paginate(20);
+        return PostCommentResource::collection($post->reviews);
+        return PostCommentResource::collection(Post::with('comment')->paginate(25));
     }
 
     /**
@@ -42,21 +46,21 @@ class PostReviewController extends Controller
      */
     public function store(PostReviewRequest $request, Post $post)
     {
-        $review = new Postreview($request->all());
+        $review = new Postcomment($request->all());
         $review->user_id = $user = auth()->user()->id;
         $post->reviews()->save($review);
         return response([
-            'data' => new PostReviewResource($review)
+            'data' => new PostCommentResource($review)
         ],Response::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Postreview  $postreview
+     * @param  \App\Models\Postcomment  $postreview
      * @return \Illuminate\Http\Response
      */
-    public function show(Postreview $postreview)
+    public function show(Postcomment $postreview)
     {
         //
     }
@@ -64,10 +68,10 @@ class PostReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Postreview  $postreview
+     * @param  \App\Models\Postcomment  $postreview
      * @return \Illuminate\Http\Response
      */
-    public function edit(Postreview $postreview)
+    public function edit(Postcomment $postreview)
     {
         //
     }
@@ -76,24 +80,24 @@ class PostReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Postreview  $postreview
+     * @param  \App\Models\Postcomment  $postreview
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post,  Postreview $postreview)
+    public function update(Request $request, Post $post, Postcomment $postreview)
     {
         $postreview->update($request->all());
         return response([
-            'data' => new PostReviewResource($postreview)
+            'data' => new PostCommentResource($postreview)
         ],Response::HTTP_CREATED);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Postreview  $postreview
+     * @param  \App\Models\Postcomment  $postreview
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post, Postreview $postreview)
+    public function destroy(Post $post, Postcomment $postreview)
     {
         $postreview->delete();
         return response(null,Response::HTTP_NO_CONTENT);

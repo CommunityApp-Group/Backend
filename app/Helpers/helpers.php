@@ -181,7 +181,7 @@ function logedAdmin()
     try {
         JWTAuth::parseToken()->authenticate();
         if (! $admin = auth()->guard('admin')->user()) {
-            return response()->errorResponse('User not found', [], 404);
+            return response()->errorResponse('Admin not found', [], 404);
         }
 
     } catch (TokenExpiredException $e) {

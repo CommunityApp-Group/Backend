@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Post;
 
+use App\Http\Resources\Post\PostResourceCollection;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Services\PostService;
@@ -18,7 +19,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index', 'show', 'popularpost']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -28,11 +29,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = PostService::retrievePost();
-        return $this->getFullPost($posts)->additional([
-            'message' => 'Post successfully retrieved',
-            'status' => 'success'
-        ]);
+        return PostResourceCollection::Collection(Post::orderBy('created_at', 'DESC')->paginate(10));
     }
 
     /**
@@ -61,7 +58,7 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param Post $id
-     * @return PostResource
+     * @return PostResourceCollection
      */
     public function show(Post $post)
     {
@@ -76,7 +73,8 @@ class PostController extends Controller
      *
      * @return AnonymousResourceCollection
      */
-    public function postlist(Post $post) {
+    public function mypost(Post $post) {
+
         $post = PostService::retrieveMyPost();
         return $this->getMypost($post)->additional([
             'message' => 'My Post successfully retrieved',
@@ -135,5 +133,17 @@ class PostController extends Controller
         }
 
         return response()->success('Post deleted successfully');
+    }
+
+    /**
+     * Search for a name
+     *
+     * @param $postline
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search($post)
+    {
+        $post = Post::where('post', 'like', '%'.$post.'%')->get();
+        return PostResourceCollection::collection($post);
     }
 }

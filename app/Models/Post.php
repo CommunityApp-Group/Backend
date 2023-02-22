@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+
     use HasFactory, AddUUID, SoftDeletes;
 
     protected $guarded = ['id'];
@@ -40,9 +41,9 @@ class Post extends Model
         }
     }
 
-    public function reviews()
+    public function comment()
     {
-        return $this->hasMany(Postreview::class);
+        return $this->hasMany(Postcomment::class);
     }
 
 }

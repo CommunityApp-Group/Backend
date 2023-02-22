@@ -19,7 +19,7 @@ class AccommodationController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -147,5 +147,17 @@ class AccommodationController extends Controller
         }
 
         return response()->success('Accommodation deleted successfully');
+    }
+
+    /**
+     * Search for a name
+     *
+     * @param $title
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function search($title)
+    {
+        $accommodation = Accommodation::where('title', 'like', '%'.$title.'%')->get();
+        return AccommodationResource::collection($accommodation);
     }
 }

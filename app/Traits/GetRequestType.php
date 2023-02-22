@@ -10,6 +10,7 @@ use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostResourceCollection;
 use App\Http\Resources\Product\ProductResource;
 use App\Http\Resources\Product\ProductResourceCollection;
+use App\Http\Resources\Product\ProductshowResource;
 
 
 trait GetRequestType
@@ -68,23 +69,20 @@ trait GetRequestType
     public function getSinglePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            //$post = Post::where('encodedKey', $post)->first();
-            //dd($post);
             return new PostResourceCollection($post);
         }
-
-        return new PostResource($post);
+        return new PostResourceCollection($post);
     }
 
-    public function getFullPost($post)
-    {
-        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            $post = $post->paginate(10);
-
-            return PostResourceCollection::collection($post);
-        }
-        return PostResource::collection($post->paginate(10));
-    }
+//    public function getFullPost($post)
+//    {
+//        if (request()->has('fullDetails') && request('fullDetails') === 'true') {
+//            $post = $post->paginate(10);
+//
+//            return PostResourceCollection::collection($post);
+//        }
+//        return PostResource::collection($post->paginate(10));
+//    }
 
 //
     public function getMypost($post)
@@ -113,8 +111,9 @@ trait GetRequestType
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
             return new ProductResourceCollection($product);
+
         }
-        return new ProductResource($product);
+        return new ProductshowResource($product);
     }
 
     public function getMyProduct($product)
@@ -122,7 +121,7 @@ trait GetRequestType
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
             return ProductResourceCollection::collection($product);
         }
-        return ProductResource::collection($product->paginate(5));
+        return ProductResource::collection($product->paginate(10));
     }
 
     public function getPopularProduct($product)
