@@ -16,10 +16,8 @@ class PostResourceCollection extends JsonResource
     {
         return [
             "post" => new PostResource($this),
-            "user" => [
-                'fullname' => $this->firstname. " ".$this->lastname,
-                'email' => $this->user->email,
-                'call_up_no' => $this->user->call_up_no,
+            "Post By" => [
+                'fullname' => $this->user->firstname. " ".$this->user->lastname,
                 'created_at' => $this->created_at->format('Y-m-d H:i:s')
             ]
         ];

@@ -92,16 +92,29 @@ class User extends Authenticatable implements JWTSubject, Wallet
     public function post() {
         return $this->hasMany(Post::class);
     }
+    public function postcomment() {
+        return $this->hasMany(Postcomment::class);
+    }
+    public function productreview() {
+        return $this->hasMany(Productreview::class);
+    }
 
-    public function order() {
+    public function orders() {
         return $this->hasMany(Order::class);
     }
-    public function accommodation() {
-        return $this->hasMany(Accommodation::class);
+
+    public function cart() {
+        return $this->hasMany(Cart::class);
     }
-    public function product() {
-        return $this->hasMany(Product::class);
-    }
+
+
+//    public function accommodation() {
+//        return $this->hasMany(Accommodation::class);
+//    }
+
+//    public function product() {
+//        return $this->hasMany(Product::class);
+//    }
 
     public function setPasswordAttribute($input) {
         if($input) {

@@ -16,10 +16,11 @@ class PostResource extends JsonResource
     {
         return [
             'id'            =>  $this->encodedKey,
-            'Post'          =>  $this->postline,
+            'Post'          =>  $this->post,
             'Image'         =>  $this->post_image,
             'category'      =>  $this->category_name,
-            'created_at'    =>  $this->created_at->format('Y-m-d H:i:s')
+            'created_at'    =>  $this->created_at->format('Y-m-d H:i:s'),
+
         ];
     }
 }

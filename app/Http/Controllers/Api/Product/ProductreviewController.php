@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Product;
 
+use App\Http\Resources\Product\ProductResourceCollection;
+use App\Http\Resources\Product\ReviewResourceCollection;
 use App\Models\Product;
 use App\Models\Productreview;
 use Illuminate\Http\Request;
@@ -9,7 +11,7 @@ use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\Product\ReviewResource;
 use App\Http\Requests\Product\ProductReviewRequest;
-use function Doctrine\Common\Cache\Psr6\get;
+//use function Doctrine\Common\Cache\Psr6\get;
 
 class ProductreviewController extends Controller
 {
@@ -20,11 +22,15 @@ class ProductreviewController extends Controller
      */
     public function index()
     {
-        $product = Product::with('user:id,name')
-            ->withCount('reviews')
-            ->latest()
-            ->paginate(20);
-        return ReviewResource::collection($product->reviews);
+//        $product = Product::with('admin:id,name')
+//            ->withCount('productreview')
+//            ->latest()
+//            ->paginate(20);
+
+//        return ReviewResource::collection(Productreview::orderBy('id', 'DESC')->paginate(10));
+        return ReviewResource::collection(Product::with('productreview')->paginate(25));
+
+
     }
 
     /**
@@ -35,11 +41,11 @@ class ProductreviewController extends Controller
      */
     public function store(ProductReviewRequest $request, Product $product)
     {
-        $review = new Productreview($request->all());
-        $review->user_id = $user = auth()->user()->id;
-        $product->reviews()->save($review);
+        $productreview = new Productreview($request->all());
+        $productreview->user_id = $user = auth()->user()->id;
+        $product->productreview()->save($productreview);
         return response([
-            'data' => new ReviewResource($review)
+            'Review' => new ReviewResource($productreview)
         ],Response::HTTP_CREATED);
     }
 
@@ -67,7 +73,7 @@ class ProductreviewController extends Controller
     {
         $productreview->update($request->all());
         return response([
-            'data' => new ReviewResource($productreview)
+            'Review' => new ReviewResource($productreview)
         ],Response::HTTP_CREATED);
     }
 

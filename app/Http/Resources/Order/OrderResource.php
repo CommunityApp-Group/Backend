@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Http\Resources\Order;
 
+use App\Models\OrderItem;
+use DB;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostCommentResource extends JsonResource
+class OrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +17,10 @@ class PostCommentResource extends JsonResource
     public function toArray($request)
     {
         return [
-
-            'id' => $this->id,
-            'customer' => $this->customer,
-            'body' => $this->review,
-            'star' => $this->star,
+            'Order No' => $this->order_no,
+            'Total Price' => $this->total,
+            'Status' => $this->status,
+            'Date' => $this->created_at->format('Y-m-d H:i:s'),
         ];
     }
 }

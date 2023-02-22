@@ -11,7 +11,20 @@ class Product extends Model
 {
     use HasFactory, AddUUID, SoftDeletes;
 
-    protected $guarded = ['id'];
+
+    protected $table = "product";
+    protected $guarded = ["id"];
+
+    public function orders()
+    {
+        return $this->belongsToMany("Order", "order_item");
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany("OrderItem");
+    }
+
 
     protected $dates = [
         'created_at',
@@ -29,13 +42,13 @@ class Product extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function order_item() {
-        return $this->hasMany(OrderItem::class);
-    }
-
-    public function order() {
-        return $this->belongsToMany(Order::class, "order_items");
-    }
+//    public function order_item() {
+//        return $this->hasMany(CartItem::class);
+//    }
+//
+//    public function order() {
+//        return $this->belongsTo(Order::class, "order_items");
+//    }
 
     public function productCategory()
     {
@@ -48,7 +61,7 @@ class Product extends Model
             $this->attributes['product_image'] = !is_null($input) ? uploadImage('images/product/', $input) : null;
         }
     }
-    public function reviews()
+    public function productreview()
     {
         return $this->hasMany(Productreview::class);
     }
