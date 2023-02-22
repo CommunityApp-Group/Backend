@@ -90,6 +90,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::name('admin.')->prefix('admin')->group(function () {
         Route::post('login', [AdminAuthController::class, 'login'])->name('adminlogin');
         Route::post('logout', [AdminAuthController::class, 'logout'])->name('adminlogout');
+        Route::post('/forgot-password', [AdminAuthController::class, 'forgotPassword'])->name('password.request');
+        Route::post('/reset-password', [AdminAuthController::class, 'resetPassword']);
         Route::post('refresh', [AdminAuthController::class, 'refresh'])->name('adminrefresh');
         Route::post('me', [AdminAuthController::class, 'me'])->name('adminme');
         Route::get('user', [AdminAuthController::class, 'user'])->name('user');
