@@ -3,15 +3,22 @@
 namespace App\Http\Controllers\Api\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\PostReviewRequest;
+use App\Http\Requests\Post\PostCommentRequest;
 use App\Http\Resources\Post\PostCommentResource;
+use App\Http\Resources\Post\PostcommentResourceCollection;
 use App\Models\Post;
 use App\Models\Postcomment;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class PostCommentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.jwt');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,12 +26,17 @@ class PostCommentController extends Controller
      */
     public function index()
     {
-        $post = Post::with('user:id,name')
-            ->withCount('postreviews')
+        $posts = Post::with('postcomment')
+            ->withcount('postcomment')
             ->latest()
             ->paginate(20);
-        return PostCommentResource::collection($post->reviews);
-        return PostCommentResource::collection(Post::with('comment')->paginate(25));
+        return PostcommentResourceCollection::collection($posts);
+//        $results = [
+//            'message' => 'All Post with COmments ',
+//            'Post' => $posts
+//        ];
+//
+//        return response($results, 200);
     }
 
     /**
@@ -40,38 +52,43 @@ class PostCommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param PostReviewRequest $request
+     * @param PostCommentRequest $request
      * @param Post $post
      * @return \Illuminate\Http\Response
      */
-    public function store(PostReviewRequest $request, Post $post)
+    public function store(PostCommentRequest $request, Post $post)
     {
-        $review = new Postcomment($request->all());
-        $review->user_id = $user = auth()->user()->id;
-        $post->reviews()->save($review);
-        return response([
-            'data' => new PostCommentResource($review)
-        ],Response::HTTP_CREATED);
+        $user = auth()->user()->id;
+        $comment = new Postcomment($request->all());
+        $comment->user_id =$user;
+        $post->postcomment()->save($comment);
+
+        $results = [
+                'message' => 'Comment Posted',
+                'Post' => new PostCommentResource($comment)
+            ];
+
+            return response($results, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Postcomment  $postreview
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Postcomment $postcomment
+     * @return void
      */
-    public function show(Postcomment $postreview)
+    public function show( Postcomment $postcomment)
     {
-        //
+//
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Postcomment  $postreview
+     * @param  \App\Models\Postcomment  $postcomment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Postcomment $postreview)
+    public function edit(Postcomment $postcomment)
     {
         //
     }
@@ -80,26 +97,26 @@ class PostCommentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Postcomment  $postreview
+     * @param  \App\Models\Postcomment  $postcomment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post, Postcomment $postreview)
+    public function update(Request $request, Post $post, Postcomment $postcomment)
     {
-        $postreview->update($request->all());
+        $postcomment->update($request->all());
         return response([
-            'data' => new PostCommentResource($postreview)
+            'data' => new PostCommentResource($postcomment)
         ],Response::HTTP_CREATED);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Postcomment  $postreview
+     * @param  \App\Models\Postcomment  $postcomment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post, Postcomment $postreview)
+    public function destroy(Post $post, Postcomment $postcomment)
     {
-        $postreview->delete();
+        $postcomment->delete();
         return response(null,Response::HTTP_NO_CONTENT);
     }
 }

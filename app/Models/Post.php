@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use App\Traits\AddUUID;
-use Illuminate\Pipeline\Pipeline;
-use App\Filters\PostFilter\PostName;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 
 class Post extends Model
 {
@@ -41,9 +38,9 @@ class Post extends Model
         }
     }
 
-    public function comment()
+    public function postcomment()
     {
-        return $this->hasMany(Postcomment::class);
+        return $this->hasMany(Postcomment::class)->whereNull('parent_id');
     }
 
 }

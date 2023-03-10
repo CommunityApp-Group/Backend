@@ -11,7 +11,6 @@ class Product extends Model
 {
     use HasFactory, AddUUID, SoftDeletes;
 
-
     protected $table = "product";
     protected $guarded = ["id"];
 
@@ -42,13 +41,6 @@ class Product extends Model
         return $this->belongsTo(Admin::class);
     }
 
-//    public function order_item() {
-//        return $this->hasMany(CartItem::class);
-//    }
-//
-//    public function order() {
-//        return $this->belongsTo(Order::class, "order_items");
-//    }
 
     public function productCategory()
     {

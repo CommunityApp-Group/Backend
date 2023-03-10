@@ -6,8 +6,9 @@ use App\Http\Controllers\Api\Admin\AdminAuthController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
-use App\Http\Controllers\Api\Order\CartController;
-use App\Http\Controllers\Api\Order\Ordercontroller;
+use App\Http\Controllers\Api\Auction\BidController;
+use App\Http\Controllers\Api\Product\Order\CartController;
+use App\Http\Controllers\Api\Product\Order\Ordercontroller;
 use App\Http\Controllers\Api\Post\PostCommentController;
 use App\Http\Controllers\Api\Product\ProductController;
 use App\Http\Controllers\Api\Admin\ProductController as AdminProductController;
@@ -61,11 +62,16 @@ Route::group(['prefix' => 'v1'], function () {
 
     //Auction management and order
     Route::apiResource('auctions', AuctionController::class);
-    Route::get('auction/myauctions', [AuctionController::class, 'myauction'])->name('myauction');
-    Route::get('auction/search/{auction_name}', [AuctionController::class, 'search'])->name('auctionsearch');
+    Route::group(['prefix'=>'auction'],function(){
+        Route::get('myauctions', [AuctionController::class, 'myauction'])->name('myauction');
+        Route::get('search/{auction_name}', [AuctionController::class, 'search'])->name('auctionsearch');
+        Route::apiResource('bid', BidController::class);
+        Route::patch('updatestatus/{bid}', [BidController::class, 'updatestatus'])->name('updatestatus');
+    });
 
     //Post management and comment
     Route::apiResource('posts', PostController::class);
+    Route::apiResource('postwithcomment', PostCommentController::class);
     Route::group(['prefix'=>'post'],function(){
         Route::get('myposts', [PostController::class, 'mypost'])->name('myposts');
         Route::get('popularposts', [PostController::class, 'popularpost'])->name('popularpost');

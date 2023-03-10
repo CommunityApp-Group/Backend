@@ -13,6 +13,7 @@ class Auction extends Model
 {
     use HasFactory, AddUUID, SoftDeletes;
 
+    protected $table = "auctions";
     protected $guarded = ['id'];
 
     protected $dates = [

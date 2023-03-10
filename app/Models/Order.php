@@ -7,10 +7,11 @@ use App\Traits\OrderNo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
 class Order extends Model
 {
-    use HasFactory, OrderNo,  SoftDeletes;
+    use HasFactory, OrderNo, Notifiable, SoftDeletes;
     protected $table = "orders";
     protected $guarded = ["id"];
 

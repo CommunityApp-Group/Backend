@@ -7,9 +7,9 @@ use App\Models\Admin;
 class AdminObserver
 {
     /**
-     * Handle the User "created" event.
+     * Handle the Admin "created" event.
      *
-     * @param Admin $admin
+     * @param   \App\Models\Admin $admin
      * @return void
      */
     public function created(Admin $admin)
@@ -18,7 +18,7 @@ class AdminObserver
     }
 
     /**
-     * Handle the User "updated" event.
+     * Handle the Admin "updated" event.
      *
      * @param  \App\Models\Admin $admin
      * @return void
@@ -29,7 +29,7 @@ class AdminObserver
     }
 
     /**
-     * Handle the User "deleted" event.
+     * Handle the Admin "deleted" event.
      *
      * @param  \App\Models\Admin $admin
      * @return void
@@ -40,7 +40,7 @@ class AdminObserver
     }
 
     /**
-     * Handle the User "restored" event.
+     * Handle the Admin "restored" event.
      *
      * @param  \App\Models\Admin $admin
      * @return void
@@ -51,7 +51,7 @@ class AdminObserver
     }
 
     /**
-     * Handle the User "force deleted" event.
+     * Handle the Admin "force deleted" event.
      *
      * @param  \App\Models\Admin $admin
      * @return void

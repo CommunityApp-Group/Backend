@@ -102,10 +102,8 @@ class AuthController extends Controller
         $user = auth('api')->user();
         if($user->email_verified_at == null) {
             SendActivationCodeJob::dispatch($user);
-            // $this->activation_code->send();
             return response()->success("Activation code sent to user's email");
         }
-
         return response()->success("User account already activated");
     }
 
