@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Accommodation\AccommodationCartController;
 use App\Http\Controllers\Api\Accommodation\AccommodationController;
 use App\Http\Controllers\Api\Accommodation\AccommodationReviewController;
 use App\Http\Controllers\Api\Admin\AdminAuthController;
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('accommodations/popular', [AccommodationController::class, 'popularaccommodation'])->name('popularaccommodation');
     Route::group(['prefix'=>'accommodations'],function(){
         Route::apiResource('/{accommodation}/reviews',AccommodationReviewController::class);
+        Route::apiResource('/cart',AccommodationCartController::class);
     });
 
     //Auction management and order

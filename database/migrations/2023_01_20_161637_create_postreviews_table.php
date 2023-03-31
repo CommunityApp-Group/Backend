@@ -13,7 +13,7 @@ class CreatePostreviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('postreviews', function (Blueprint $table) {
+        Schema::create('post_reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->string('customer');

@@ -13,7 +13,7 @@ class CreatePostcommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('postcomments', function (Blueprint $table) {
+        Schema::create('post_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

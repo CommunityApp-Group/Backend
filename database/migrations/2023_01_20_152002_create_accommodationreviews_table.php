@@ -13,7 +13,7 @@ class CreateAccommodationreviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accommodationreviews', function (Blueprint $table) {
+        Schema::create('accommodation_reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('accommodation_id')->constrained()->cascadeOnDelete();
             $table->string('customer');

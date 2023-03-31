@@ -13,7 +13,7 @@ class CreateAuctionbidsTable extends Migration
      */
     public function up()
     {
-        Schema::create('auctionbids', function (Blueprint $table) {
+        Schema::create('auction_bids', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('auction_id')->constrained()->cascadeOnDelete();

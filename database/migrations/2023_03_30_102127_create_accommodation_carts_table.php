@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuctionordersTable extends Migration
+class CreateAccommodationcartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateAuctionordersTable extends Migration
      */
     public function up()
     {
-        Schema::create('auction_orders', function (Blueprint $table) {
+        Schema::create('accommodation_carts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable();
+            $table->longText('removed_products')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateAuctionordersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auctionorders');
+        Schema::dropIfExists('accommodationcarts');
     }
 }
