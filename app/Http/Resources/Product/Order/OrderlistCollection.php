@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Order;
+namespace App\Http\Resources\Product\Order;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class OrderResourceCollection extends JsonResource
+class OrderlistCollection extends ResourceCollection
 {
+    public $collects = 'App\Http\Resources\OrderResource';
     /**
      * Transform the resource collection into an array.
      *
@@ -14,6 +15,6 @@ class OrderResourceCollection extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return $this->collection;
     }
 }

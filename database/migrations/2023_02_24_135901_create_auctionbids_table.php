@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccommodationreviewsTable extends Migration
+class CreateAuctionbidsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateAccommodationreviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accommodation_reviews', function (Blueprint $table) {
+        Schema::create('auction_bids', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('accommodation_id')->constrained()->cascadeOnDelete();
-            $table->string('customer');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->text('review');
-            $table->integer('star');
-            $table->timestamps();
+            $table->foreignId('auction_id')->constrained()->cascadeOnDelete();
+            $table->decimal('price', 50, 2);
+            $table->enum('status', ['bid', 'won', 'lost'])->default('bid');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -32,6 +31,6 @@ class CreateAccommodationreviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accommodationreviews');
+        Schema::dropIfExists('auctionbids');
     }
 }

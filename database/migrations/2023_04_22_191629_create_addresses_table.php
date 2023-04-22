@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccommodationreviewsTable extends Migration
+class CreateAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateAccommodationreviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accommodation_reviews', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('accommodation_id')->constrained()->cascadeOnDelete();
-            $table->string('customer');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->text('review');
-            $table->integer('star');
+            $table->string('address');
+            $table->string('state');
+            $table->string('city');
+            $table->string('phone');
+            $table->boolean('set_default')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +33,6 @@ class CreateAccommodationreviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accommodationreviews');
+        Schema::dropIfExists('addresses');
     }
 }

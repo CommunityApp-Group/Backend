@@ -2,32 +2,21 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Models\User;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Services\UserService;
 use App\Helpers\ResourceHelpers;
 use App\Jobs\SendActivationCodeJob;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
 use App\Repositories\OTP\OTPInterface;
-use App\Services\Auth\AuthenticateUser;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
-use App\Http\Requests\OtpValidationRequest;
 use App\Http\Requests\Auth\CreateNewUserRequest;
 use App\Http\Requests\Auth\PasswordResetRequest;
-use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\OTP\ActivationCodeValidationRequest;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenBlacklistedException;
-use PHPOpenSourceSaver\JWTAuth\JWTAuth;
 
 
 class AuthController extends Controller
@@ -38,7 +27,7 @@ class AuthController extends Controller
     /**
      * @var OTPInterface
      */
-    public $activation_code, $profileService;
+    public $activation_code;
     
     public function __construct(OTPInterface $activation_code)
     {
@@ -113,10 +102,8 @@ class AuthController extends Controller
         $user = auth('api')->user();
         if($user->email_verified_at == null) {
             SendActivationCodeJob::dispatch($user);
-            // $this->activation_code->send();
             return response()->success("Activation code sent to user's email");
         }
-
         return response()->success("User account already activated");
     }
 

@@ -13,7 +13,7 @@ class CreateProductreviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('productreviews', function (Blueprint $table) {
+        Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->string('customer');

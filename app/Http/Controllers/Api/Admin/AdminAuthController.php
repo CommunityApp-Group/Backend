@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\AdminLoginRequest;
+use App\Http\Requests\Auth\AdminPasswordResetRequest;
 use App\Http\Resources\Admin\AdminCollection;
 use App\Http\Resources\Admin\AdminResource;
 use App\Http\Resources\Admin\AdminlistResource;
@@ -12,18 +12,7 @@ use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Traits\GetRequestType;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
-use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
-use App\Http\Requests\OTP\ActivationCodeValidationRequest;
-use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException;
-use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenBlacklistedExceptionuse;
-use PHPOpenSourceSaver\JWTAuth\JWTAuthException;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
-use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth as JWTAuth;
 use Illuminate\Http\Response;
 
 class AdminAuthController extends Controller
@@ -74,6 +63,7 @@ class AdminAuthController extends Controller
     public function store(Request $request)
     {
         $admin = new Admin;
+        $admin->name = $request->name;
         $admin->name = $request->name;
         $admin->status = $request->status;
         $admin->email = $request->email;
@@ -144,7 +134,28 @@ class AdminAuthController extends Controller
         return $this->respondWithToken($token);
 
     }
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function forgotPassword(Request $request) {
+        $request->validate(['email' => 'required|email']);
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+        return $status === Password::RESET_LINK_SENT
+            ? response()->success(__($status))
+            : response()->errorResponse(__($status));
+    }
 
+
+    /**
+     * @param AdminPasswordResetRequest $request
+     * @return mixed
+     */
+    public function resetPassword(AdminPasswordResetRequest $request) {
+        return $request->resetPassword();
+    }
 
     /**
      * Remove the specified resource from storage.

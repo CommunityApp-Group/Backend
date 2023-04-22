@@ -3,31 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Order/Ordercontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Order/Ordercontroller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostCommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductreviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductreviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Post/CreatePostRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Post/CreatePostRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post/PostCommentResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post/PostCommentResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post/PostResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post/PostResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post/PostResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post/PostResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ReviewResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ReviewResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CartItem.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Postcomment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Postcomment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Productreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Productreview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/GetRequestType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GetRequestType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_21_122544_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_21_122544_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_06_161229_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_06_161229_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AddressCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AddressCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,19 +169,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories/Order" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Order" />
-      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Product" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Backend\app\Repositories\Order" />
       <recent name="C:\xampp\htdocs\Backend\app\Services" />
       <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Auth" />
       <recent name="C:\xampp\htdocs\Backend\app\Http\Resources\Product" />
       <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Product" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Resources\Product" />
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Product" />
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Auction" />
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Order" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -231,7 +213,17 @@
       <workItem from="1674158850522" duration="37650000" />
       <workItem from="1674850365797" duration="4121000" />
       <workItem from="1675255840250" duration="18020000" />
-      <workItem from="1675772771336" duration="153687000" />
+      <workItem from="1675772771336" duration="163760000" />
+      <workItem from="1677139760395" duration="4230000" />
+      <workItem from="1677145136855" duration="22000" />
+      <workItem from="1677145474990" duration="10715000" />
+      <workItem from="1677321735421" duration="5989000" />
+      <workItem from="1677898711203" duration="1936000" />
+      <workItem from="1678119536026" duration="29712000" />
+      <workItem from="1680162148667" duration="5164000" />
+      <workItem from="1680238624925" duration="11839000" />
+      <workItem from="1680813071948" duration="580000" />
+      <workItem from="1682189673426" duration="11660000" />
     </task>
     <servers />
   </component>
@@ -243,14 +235,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1676968804488" />
-    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1677084709918">
+    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1680257710862">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1677084709918" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1677080295073">
+    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1680257710862" />
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1682200028268">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1677080295073" />
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1682200028268" />
+    <state x="431" y="177" key="NewPhpClassDialog" timestamp="1677097270567">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="431" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1677097270567" />
+    <state x="516" y="286" key="NewPhpFileDialog" timestamp="1682190704450">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="516" y="286" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1682190704450" />
     <state x="491" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1676658599066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -259,6 +259,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="423" y="5" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1674222302313" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1678444195358">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1678444195358" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1676585457265">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

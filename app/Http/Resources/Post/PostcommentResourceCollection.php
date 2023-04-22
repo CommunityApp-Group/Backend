@@ -2,23 +2,25 @@
 
 namespace App\Http\Resources\Post;
 
+use App\Models\Postcomment;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostCommentResource extends JsonResource
+class PostcommentResourceCollection extends JsonResource
 {
+
+    public $collects = 'App\Http\Resources\PostResource';
     /**
-     * Transform the resource into an array.
+     * Transform the resource collection into an array.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
-        return [
-            'id'            =>  $this->id,
-            'Post'          =>  $this->post,
-            'created_at'    =>  $this->created_at->format('Y-m-d H:i:s'),
 
+        return [
+            "post" => new PostResource($this),
+            "Comment" => $this->postcomment
         ];
     }
 }

@@ -14,10 +14,11 @@ class SendActivationCodeJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public $user;
+
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param $user
      */
     public function __construct($user)
     {
@@ -27,6 +28,7 @@ class SendActivationCodeJob implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param OTPInterface $activation_code
      * @return void
      */
     public function handle(OTPInterface $activation_code)

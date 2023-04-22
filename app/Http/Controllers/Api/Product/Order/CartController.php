@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api\Order;
+namespace App\Http\Controllers\Api\Product\Order;
 
 use DB;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Order\CartitemResource;
+use App\Http\Resources\Product\Order\CartitemResource;
 
 class CartController extends Controller
 {

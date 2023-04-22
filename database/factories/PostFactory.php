@@ -28,7 +28,7 @@ class PostFactory extends Factory
                 return User::all()->random();
             },
             'category_name' => $this->faker->randomElement(['Electronic','Food','Motor','Kitchen']),
-            'postline'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
+            'post'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
             'encodedKey'=> $this->faker->uuid(),
             'post_image' => $this->faker->imageUrl($width = 640, $height = 480)
         ];

@@ -17,7 +17,7 @@ class   AuctionResourceCollection extends JsonResource
         return [
             "auction" => new AuctionResource($this),
             "user" => [
-                'fullname' => $this->firstname. " ".$this->lastname,
+                'fullname' => $this->user->firstname. " ".$this->user->lastname,
                 'email' => $this->user->email,
                 'call_up_no' => $this->user->call_up_no,
                 'verified' => is_null($this->user->email_verified_at) ? 'no' : 'yes',

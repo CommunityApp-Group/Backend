@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Order;
+namespace App\Http\Controllers\Api\Product\Order;
 
+use App\Jobs\SendOrderplacedJob;
+use App\Mail\OrderMail;
 use DB;
 use Mail;
 use App\Models\Cart;
@@ -9,7 +11,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Order\OrderResource;
+use App\Http\Resources\Product\Order\OrderResource;
 
 class Ordercontroller extends Controller
 {
@@ -98,8 +100,11 @@ class Ordercontroller extends Controller
                     Cart::where('user_id','=',auth()->user()->id)->delete();
 
                 }
-
+                /*==== email send ===*/
+                SendOrderplacedJob::dispatch($order);
+                /*==== email send ===*/
             });
+
             $results = [
                 'message' => 'your Order has been placed on pending please proceed to checkout'
             ];
@@ -125,6 +130,7 @@ class Ordercontroller extends Controller
      */
     public function show(Order $order)
     {
+
         $orders = $order->user_id ==auth()->user()->id;
 
         if(!$orders){

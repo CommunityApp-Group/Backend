@@ -3,16 +3,19 @@
 namespace App\Providers;
 
 use App\Helpers\PaystackHelper;
+use App\Models\Admin;
 use App\Models\User;
+use App\Observers\AdminObserver;
 use App\Observers\UserObserver;
+use App\Repositories\Order\OrderInterface;
+use App\Repositories\Order\SendOrderConfirmationViaMail;
+use App\Services\Auth\AuthenticateUser;
 use App\Services\PaystackService;
-use App\Services\AuthenticateUser;
 use App\Repositories\OTP\OTPInterface;
 use Illuminate\Support\Facades\Schema;
 use App\Repositories\OTP\SendOTPViaSMS;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\OTP\SendOTPViaMail;
-use App\Services\AdProductService\AdProductActionService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(OTPInterface::class, function() {
             return new SendOTPViaMail;
             // return new SendOTPViaSMS;
+        });
+        $this->app->singleton(OrderInterface::class, function() {
+            return new SendOrderConfirmationViaMail;
         });
 
         $this->app->singleton(AuthenticateUser::class, function() {
@@ -46,5 +52,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         User::observe(UserObserver::class);
+        Admin::observe(AdminObserver::class);
     }
 }

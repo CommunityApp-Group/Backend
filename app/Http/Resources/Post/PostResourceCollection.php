@@ -19,7 +19,8 @@ class PostResourceCollection extends JsonResource
             "Post By" => [
                 'fullname' => $this->user->firstname. " ".$this->user->lastname,
                 'created_at' => $this->created_at->format('Y-m-d H:i:s')
-            ]
+            ],
+            "Comment" =>$this->postcomment
         ];
     }
 }

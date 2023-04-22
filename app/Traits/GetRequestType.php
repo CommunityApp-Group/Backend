@@ -69,7 +69,7 @@ trait GetRequestType
     public function getSinglePost($post)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
-            return new PostResourceCollection($post);
+            return new PostResourceCollection($post->postcomment);
         }
         return new PostResourceCollection($post);
     }

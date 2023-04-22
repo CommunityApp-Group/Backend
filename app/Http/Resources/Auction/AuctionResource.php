@@ -21,7 +21,7 @@ class AuctionResource extends JsonResource
             'description'   =>  $this->description,
             'category'      =>  $this->category_name,
             'status'        =>  $this->status,
-            'verified_by'   =>  optional($this->verifiedBy)->email,
+//            'verified_by'   =>  optional($this->admin->verifiedBy)->email,
             'created_at'    =>  $this->created_at->format('Y-m-d H:i:s')
         ];
     }

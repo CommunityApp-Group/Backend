@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Order;
+namespace App\Http\Resources\Product\Order;
 
 use DB;
 use Illuminate\Http\Resources\Json\ResourceCollection;

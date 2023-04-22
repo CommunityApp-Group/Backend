@@ -57,7 +57,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Post $id
+     * @param Post $post
      * @return PostResourceCollection
      */
     public function show(Post $post)
@@ -66,6 +66,7 @@ class PostController extends Controller
             'message' => 'Post successfully retrieved',
             'status' => 'success'
         ]);
+
     }
 
     /**

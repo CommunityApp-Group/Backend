@@ -11,7 +11,7 @@ class AuctionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth.jwt:admin');
+        $this->middleware('admin');
     }
 
     public function update(Request $request, Auction $auction) {
@@ -19,9 +19,9 @@ class AuctionController extends Controller
             'status' => 'required|in:verified,rejected'
         ]);
 
-        $auction->status = $request->status;
-        $auction->verified_by = auth()->user()->id;
 
+        $auction->status = $request->status;
+        $auction->verified_by = auth()->guard('admin')->user()->id;
         $auction->save();
 
         if(!$auction->wasChanged()) {
