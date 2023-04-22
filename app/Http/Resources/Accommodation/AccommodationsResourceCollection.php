@@ -15,7 +15,7 @@ class AccommodationsResourceCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            "post" => new AccommodationResource($this),
+            "Accommodation" => new AccommodationResource($this),
             'href' => [
                 'link' => route('accommodation.show',$this->encodedKey)
             ],

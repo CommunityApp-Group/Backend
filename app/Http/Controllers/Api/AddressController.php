@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Api\Accommodation;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\User\AddressCollection;
+use App\Models\Address;
 use Illuminate\Http\Request;
 
-class AccommodationCartItemController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return AddressCollection
      */
     public function index()
     {
-        //
+        return new AddressCollection(Address::where('user_id', auth()->user()->id)->get());
     }
 
     /**
@@ -31,10 +33,10 @@ class AccommodationCartItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Address $address)
     {
         //
     }
@@ -43,10 +45,10 @@ class AccommodationCartItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Address $address)
     {
         //
     }
@@ -54,10 +56,10 @@ class AccommodationCartItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Address $address)
     {
         //
     }

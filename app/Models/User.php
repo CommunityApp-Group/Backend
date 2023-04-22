@@ -30,7 +30,7 @@ class User extends Authenticatable implements JWTSubject, Wallet
      */
     protected $fillable = [
         'firstname','lastname','call_up_no','email','encodedKey','password','phone',
-        'gender','address','dob','location','city','city','country','state','avatar'
+        'gender','address','dob','location','city','country','state','avatar'
           ];
 
     protected $dates = [

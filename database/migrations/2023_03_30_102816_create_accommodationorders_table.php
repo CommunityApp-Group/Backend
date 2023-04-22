@@ -15,13 +15,15 @@ class CreateAccommodationordersTable extends Migration
     {
         Schema::create('accommodation_orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable();
-            $table->foreignId('cart_id');
-            $table->string('name');
-            $table->text('address');
-            $table->longText('accommodations');
-            $table->decimal('total_cost');
+            $table->string('order_no');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('accommodation_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['pending','processing','completed','canceled'])->default('pending');
+            $table->boolean('is_paid')->default(false);
+            $table->enum('payment_method', ['cash_on_delivery'])->default('cash_on_delivery');
+            $table->string('notes')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -32,6 +34,6 @@ class CreateAccommodationordersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accommodationorders');
+        Schema::dropIfExists('accommodation_orders');
     }
 }
