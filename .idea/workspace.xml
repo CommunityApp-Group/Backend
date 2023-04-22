@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationCartController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationCartItemController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Accommodation/CartRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Accommodation/OrderRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationsResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationsResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AccommodationCart.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AccommodationOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccommodationOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CartAccommodationDetail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_03_30_102127_create_accommodation_carts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_03_30_102455_create_accommodation_cartdetails_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_03_30_102816_create_accommodationorders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_03_30_102816_create_accommodationorders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AddressCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AddressCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +223,7 @@
       <workItem from="1680162148667" duration="5164000" />
       <workItem from="1680238624925" duration="11839000" />
       <workItem from="1680813071948" duration="580000" />
-      <workItem from="1682189673426" duration="3180000" />
+      <workItem from="1682189673426" duration="11660000" />
     </task>
     <servers />
   </component>
@@ -247,10 +239,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1680257710862" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1682192955354">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1682200028268">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1682192955354" />
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1682200028268" />
     <state x="431" y="177" key="NewPhpClassDialog" timestamp="1677097270567">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

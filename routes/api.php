@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Accommodation\AccommodationController;
 use App\Http\Controllers\Api\Accommodation\AccommodationOrderController;
 use App\Http\Controllers\Api\Accommodation\AccommodationReviewController;
+use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\Admin\AdminAuthController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
@@ -47,7 +48,11 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::apiResource('profile', ProfileController::class);
             });
-
+    Route::group(['prefix'=>'shipping'],function(){
+        Route::apiResource('address', AddressController::class);
+        Route::patch('address/default/{address}', [AddressController::class, 'makedefault'])->name('makedefault');
+        Route::post('address/update_address_cart', [AddressController::class, 'updateAddressInCart'])->name('updateAddressInCart');
+    });
 
     Route::apiResource('category', CategoryController::class);
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);

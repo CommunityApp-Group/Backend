@@ -20,6 +20,7 @@ class CreateAddressesTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->string('phone');
+            $table->boolean('set_default')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

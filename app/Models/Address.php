@@ -11,7 +11,7 @@ class Address extends Model
     use HasFactory, SoftDeletes;
     protected $table = "addresses";
     protected $fillable = [
-      'phone', 'address', 'city','state'
+      'phone', 'address', 'city','state','set_default'
     ];
 
     protected $dates = [
