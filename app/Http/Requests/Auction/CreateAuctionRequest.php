@@ -28,11 +28,13 @@ class CreateAuctionRequest extends FormRequest
         $data =  [
             "auction_name"   => ['required', 'string', 'max:155'],
             "auction_price" => ['required', 'numeric', new ValidateValidAmount],
+            "step" => ['required', 'numeric', new ValidateValidAmount],
             "category_name" => ['required', 'exists:categories,name'],
             "location"      => ['required'],
             "description"   => ['nullable'],
             "auction_image"  => ['required'],
             "auction_image.*"  => ['required'],
+            "dt_end"  => ['required','date','date_format:Y-m-d'],
             "negotiable"    => ['nullable', 'boolean', 'in:true,false'],
         ];
 

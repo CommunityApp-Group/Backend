@@ -23,8 +23,12 @@ class CreateAuctionsTable extends Migration
             $table->string('category_name');
             $table->text('description')->nullable();
             $table->text('auction_image')->nullable();
-            $table->enum('status', ['pending', 'verified', 'rejected'])->default('pending');
+            $table->enum('verification', ['pending', 'verified', 'rejected'])->default('pending');
+            $table->enum('status', ['draft', 'on sale', 'sold'])->default('draft');
             $table->foreignId('verified_by')->nullOnDelete()->nullable();
+            $table->integer('step');
+            $table->boolean('active')->default(true);
+            $table->timestamp('end_time')->default(\Carbon\Carbon::now()->addDay());
             $table->timestamps();
             $table->softDeletes();
         });

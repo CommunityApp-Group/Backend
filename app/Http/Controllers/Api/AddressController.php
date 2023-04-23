@@ -12,7 +12,7 @@ class AddressController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index']);
+        $this->middleware('auth.jwt');
     }
     /**
      * Display a listing of the resource.

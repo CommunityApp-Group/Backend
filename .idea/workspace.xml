@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AddressCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AddressCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Auction/AuctionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Auction/AuctionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Auction/BidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Auction/BidController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auction/CreateAuctionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auction/CreateAuctionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auction/AuctionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auction/AuctionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auction/AuctionResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auction/AuctionResourceCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Auction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Auction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Auctionbid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Auctionorder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/AuctionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AuctionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_20_141813_create_auctions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_20_141813_create_auctions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_24_135901_create_auctionbids_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_24_135901_create_bids_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_24_141612_create_auctionorders_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +235,7 @@
       <workItem from="1680162148667" duration="5164000" />
       <workItem from="1680238624925" duration="11839000" />
       <workItem from="1680813071948" duration="580000" />
-      <workItem from="1682189673426" duration="11660000" />
+      <workItem from="1682189673426" duration="27879000" />
     </task>
     <servers />
   </component>
@@ -235,14 +247,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1676968804488" />
-    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1680257710862">
+    <state x="415" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1682252334450">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1680257710862" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1682200028268">
+    <state x="415" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1682252334450" />
+    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1682241960312">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1682200028268" />
+    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1682241960312" />
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1682256181797">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1682256181797" />
     <state x="431" y="177" key="NewPhpClassDialog" timestamp="1677097270567">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -255,6 +271,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="491" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1676658599066" />
+    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1682255101068">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1682255101068" />
     <state x="423" y="5" key="refactoring.ChangeSignatureDialog" timestamp="1674222302313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

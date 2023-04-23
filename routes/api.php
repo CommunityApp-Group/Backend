@@ -71,6 +71,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('auctions', AuctionController::class);
     Route::group(['prefix'=>'auction'],function(){
         Route::get('myauctions', [AuctionController::class, 'myauction'])->name('myauction');
+        Route::get('verifiedAuction', [AuctionController::class, 'verifiedAuction'])->name('verifiedAuction');
         Route::get('search/{auction_name}', [AuctionController::class, 'search'])->name('auctionsearch');
         Route::apiResource('bid', BidController::class);
         Route::patch('updatestatus/{bid}', [BidController::class, 'updatestatus'])->name('updatestatus');

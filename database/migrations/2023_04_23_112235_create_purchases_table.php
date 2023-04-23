@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuctionbidsTable extends Migration
+class CreatePurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateAuctionbidsTable extends Migration
      */
     public function up()
     {
-        Schema::create('auction_bids', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('auction_id')->constrained()->cascadeOnDelete();
-            $table->decimal('price', 50, 2);
-            $table->enum('status', ['bid', 'won', 'lost'])->default('bid');
-            $table->softDeletes();
+            $table->unsignedInteger('price');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateAuctionbidsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auctionbids');
+        Schema::dropIfExists('purchases');
     }
 }

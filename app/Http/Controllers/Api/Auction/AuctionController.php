@@ -28,6 +28,18 @@ class AuctionController extends Controller
      */
     public function index()
     {
+        $auctions = AuctionService::retrieveActiveAuction();
+        return $this->getFullAuction($auctions)->additional([
+            'message' => 'Auction successfully retrieved',
+            'status' => 'success'
+        ]);
+    }    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function verifiedAuction()
+    {
         $auctions = AuctionService::retrieveAuction();
         return $this->getFullAuction($auctions)->additional([
             'message' => 'Auction successfully retrieved',
