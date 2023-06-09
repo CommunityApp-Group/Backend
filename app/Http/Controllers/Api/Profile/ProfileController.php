@@ -9,6 +9,7 @@ use App\Http\Requests\Auth\UpdateUserRequest;
 use App\Http\Resources\User\UserProfile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 
@@ -48,6 +49,37 @@ class ProfileController extends Controller
             'status' => 'success'
         ]);
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function UpdatePassword(Request $request)
+    {
+        $request->validate([
+            'password' => ['required',
+                'string',
+                'confirmed',
+                'min:8', // must be a minimum of 8
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/']
+        ]);
+        if(!Hash::check($request->current_password,  auth()->user()->password))
+        {
+            return response()->errorResponse('Oop! you entered a wrong Password. Try again', [], 403);
+        }
+        $user = User::find( auth()->user()->id);
+        $user->forceFill([
+            'password' => Hash::make($request->password)
+        ])->save();
+        return response([
+            'message' => trans('Password Updated Successfully ')
+        ], 200);
+    }
 
     /**
      * Display the specified resource.
@@ -61,3 +93,5 @@ class ProfileController extends Controller
         return new UserProfile($user);
     }
 }
+
+

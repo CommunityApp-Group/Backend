@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\AuctionController as AdminAuctionController;
 use App\Http\Controllers\Api\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Api\Auction\BidController;
+use App\Http\Controllers\Api\Auth\ForgotPasswordController;
+use App\Http\Controllers\Api\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\Product\Order\CartController;
 use App\Http\Controllers\Api\Product\Order\Ordercontroller;
 use App\Http\Controllers\Api\Post\PostCommentController;
@@ -18,6 +20,7 @@ use App\Http\Controllers\Api\Auction\AuctionController;
 use App\Http\Controllers\Api\Product\ProductreviewController;
 use App\Http\Controllers\Api\Profile\ProfileController;
 use App\Http\Controllers\Api\Post\PostController;
+use App\Http\Controllers\Api\PurchaseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 
@@ -43,9 +46,14 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('current', [AuthController::class, 'authenticatedUser'])->name('current');
         Route::post('verify-account', [AuthController::class, 'verifyAccount'])->name('verify');
         Route::get('resend-code', [AuthController::class, 'resendCode'])->name('resend');
-        Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->name('password.request');
-        Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+        Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.request');
+        Route::post('reset-password', [AuthController::class, 'resetPassword']);
+        Route::post('verify', [ResetPasswordController::class,  'verify'])->name('token.verify');
+        Route::post('newpassword', [ResetPasswordController::class,  'newpassword'])->name('newpassword');
+        Route::get('newpassword/', [ResetPasswordController::class, 'show' ])->name('show');
+        Route::post('resetpassword', [ResetPasswordController::class,  'resetPassword'])->name('resetPassword');
         Route::get('logout', [AuthController::class, 'logout']);
+        Route::patch('UpdatePassword', [ProfileController::class,  'UpdatePassword'])->name('UpdatePassword');
         Route::apiResource('profile', ProfileController::class);
             });
     Route::group(['prefix'=>'shipping'],function(){
@@ -75,6 +83,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('search/{auction_name}', [AuctionController::class, 'search'])->name('auctionsearch');
         Route::apiResource('bid', BidController::class);
         Route::patch('updatestatus/{bid}', [BidController::class, 'updatestatus'])->name('updatestatus');
+        Route::get('purchases', [PurchaseController::class, 'getUserPurchases'])->name('purchases');
     });
 
     //Post management and comment

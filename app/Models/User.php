@@ -137,8 +137,8 @@ class User extends Authenticatable implements JWTSubject, Wallet
         }
     }
 
-    public function sendPasswordResetNotification($token) {
-        $this->notify(new ResetPasswordNotification($token));
+    public function sendPasswordResetNotification($activation_code) {
+        $this->notify(new ResetPasswordNotification());
     }
 
 
