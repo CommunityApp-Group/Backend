@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,8 +24,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => function(){
-                return User::all()->random();
+            'admin_id' => function(){
+                return Admin::all()->random();
             },
             'category_name' => $this->faker->randomElement(['Electronic','Food','Motor','Kitchen']),
             'description'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),

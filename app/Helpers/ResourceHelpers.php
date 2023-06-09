@@ -56,7 +56,7 @@ class ResourceHelpers
     public static function returnUserprofile($user, $message)
     {
         return (new UserProfile($user))->additional([
-            'message' => 'User Profile successfully retrieved',
+            'message' => $message,
             'status' => "success"
         ]);
     }

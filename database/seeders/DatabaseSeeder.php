@@ -14,11 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//
-//        $this->call(PermissionSeeder::class);
+        $this->call(PermissionSeeder::class);
 //        \App\Models\User::factory(10)->create();
-//        \App\Models\Post::factory(20)->create();
-//        \App\Models\Product::factory(20)->create();
-//        \App\Models\Productreview::factory(20)->create();
+//        \App\Models\Post::factory(10)->create();
+//        \App\Models\Product::factory(10)->create();
+//        \App\Models\Productreview::factory(10)->create();
     }
 }
