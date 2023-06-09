@@ -174,6 +174,7 @@ function getprofile()
         return ResourceHelpers::returnUserprofile($user, "User Profile successfully retrieved");
     }
     return ResourceHelpers::returnUserprofile($user, "User data successfully retrieved");
+
 }
 
 function logedAdmin()
