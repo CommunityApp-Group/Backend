@@ -17,12 +17,18 @@ class AuctionResource extends JsonResource
         return [
             'id'            =>  $this->encodedKey,
             'auction_name'  =>  $this->auction_name,
+            'image'         =>  $this->auction_image,
             'price'         =>  $this->auction_price,
             'description'   =>  $this->description,
+            'location'      =>  $this->location,
             'category'      =>  $this->category_name,
             'status'        =>  $this->status,
-//            'verified_by'   =>  optional($this->admin->verifiedBy)->email,
-            'created_at'    =>  $this->created_at->format('Y-m-d H:i:s')
+            'Verification'  =>  $this->verification,
+            'End date'      =>  $this->end_time->toDayDateTimeString(),
+            'bid_step'      =>  $this->step,
+            'verified_by'   =>  optional($this->verifiedBy)->name,
+    //        'created_at'    =>  $this->created_at->format('Y-m-d H:i:s')
+            'created_at'    => $this->created_at->toDayDateTimeString(),
         ];
     }
 }

@@ -119,14 +119,16 @@ class AuthController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function forgotPassword(Request $request) {
-        $request->validate(['email' => 'required|email']);
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-        return $status === Password::RESET_LINK_SENT
-                    ? response()->success(__($status))
-                    : response()->errorResponse(__($status));
+    public function forgotPassword(Request $request)
+    {
+//        $request->validate(['email' => 'required|email']);
+//        $status = Password::sendResetLink(
+//            $request->only('email')
+//        );
+//        return $status === Password::RESET_LINK_SENT
+//                    ? response()->success(__($status))
+//                    : response()->errorResponse(__($status));
+
     }
 
 

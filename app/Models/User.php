@@ -107,10 +107,13 @@ class User extends Authenticatable implements JWTSubject, Wallet
         return $this->hasMany(Cart::class);
     }
 
-    public function bid() {
-        return $this->hasMany(Auctionbid::class);
+    public function bids() {
+        return $this->hasMany(Bid::class);
     }
-
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 
 
     public function setPasswordAttribute($input) {
@@ -134,8 +137,8 @@ class User extends Authenticatable implements JWTSubject, Wallet
         }
     }
 
-    public function sendPasswordResetNotification($token) {
-        $this->notify(new ResetPasswordNotification($token));
+    public function sendPasswordResetNotification($activation_code) {
+        $this->notify(new ResetPasswordNotification());
     }
 
 

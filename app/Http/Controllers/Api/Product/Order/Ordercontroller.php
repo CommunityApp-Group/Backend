@@ -34,7 +34,8 @@ class Ordercontroller extends Controller
             ->where('orders.user_id', $user_id)
             ->orderBy('order_items.order_id', 'desc')->get();
 
-        if ($order_products->count() == 0) {
+        if ($order_products->count() == 0)
+        {
             $results = [
                 'message' => 'You have no Order'
             ];

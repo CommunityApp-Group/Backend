@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\Auction;
 
+use App\Events\BidEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Auction\AuctionResource;
 use App\Http\Resources\Auction\BidResource;
-use App\Models\auctionbid;
+use App\Models\Bid;
 use App\Rules\ValidateValidAmount;
+use App\Services\MakeBidService;
 use DB;
 use Illuminate\Http\Request;
 
@@ -52,40 +54,47 @@ class BidController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param MakeBidService $service
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MakeBidService $service)
     {
-        $request->validate([
-            "auction_id" => ['required', 'exists:auctions,id'],
-            "price" => ['required', 'numeric', new ValidateValidAmount]
-        ]);
-        $user_id = auth()->user()->id;
-        $exist = Auctionbid::where('user_id',$user_id)->where('auction_id',$request->auction_id)->get()->first();
-
-        if($exist){
-            return response(['message'=>'you have already made a bid for this auction'],200);
-        }
-        $auction = DB::table('auctions')->find($request->auction_id);
-
-        if(!$auction){
-            return response(['message'=>'Product not found'],404);
-        }
-        $bid = Auctionbid::create([
-            'user_id' => $user_id,
-            'auction_id' => $request->auction_id,
-            'price' => $request->price,
-
-
-        ]);
-
+        event(new BidEvent($service->bid));
         $results = [
             'message' => 'Successfully made a bid',
-            'Bid' => new BidResource($bid)
+//            'Bid' => new BidResource($bid)
         ];
 
         return response($results,201);
+//        $request->validate([
+//            "auction_id" => ['required', 'exists:auctions,id'],
+//            "price" => ['required', 'numeric', new ValidateValidAmount]
+//        ]);
+//        $user_id = auth()->user()->id;
+//        $exist = Bid::where('user_id',$user_id)->where('auction_id',$request->auction_id)->get()->first();
+//
+//        if($exist){
+//            return response(['message'=>'you have already made a bid for this auction'],200);
+//        }
+//        $auction = DB::table('auctions')->find($request->auction_id);
+//
+//        if(!$auction){
+//            return response(['message'=>'Product not found'],404);
+//        }
+//        $bid = Bid::create([
+//            'user_id' => $user_id,
+//            'auction_id' => $request->auction_id,
+//            'price' => $request->price,
+//
+//
+//        ]);
+//
+//        $results = [
+//            'message' => 'Successfully made a bid',
+//            'Bid' => new BidResource($bid)
+//        ];
+//
+//        return response($results,201);
     }
 
     /**
@@ -94,7 +103,7 @@ class BidController extends Controller
      * @param $bid
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function show(Auctionbid $bid)
+    public function show(Bid $bid)
     {
         $bids = $bid->user_id ==auth()->user()->id;
 
@@ -125,7 +134,7 @@ class BidController extends Controller
      * @param $bid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Auctionbid $bid)
+    public function update(Request $request, Bid $bid)
     {
 
         $request->validate([
@@ -134,7 +143,7 @@ class BidController extends Controller
 
         $user_id = auth()->user()->id;
 
-        $bid = Auctionbid::where('user_id',$user_id)->where('id',$bid->id)->get()->first();
+        $bid = Bid::where('user_id',$user_id)->where('id',$bid->id)->get()->first();
 
         if(!$bid){
             return response(['message'=>'Bid auction not found'],404);
@@ -154,7 +163,7 @@ class BidController extends Controller
         return response($results,201);
     }
 
-    public function updatestatus(Request $request, Auctionbid $bid) {
+    public function updatestatus(Request $request, Bid $bid) {
         $request->validate([
             'status' => 'required|in:bid,won,lost'
         ]);
@@ -184,10 +193,10 @@ class BidController extends Controller
      * @param $bid
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Auctionbid $bid)
+    public function destroy(Bid $bid)
     {
         $user_id = auth()->user()->id;
-        $bid = Auctionbid::where('user_id',$user_id)->where('id',$bid->id)->get()->first();
+        $bid = Bid::where('user_id',$user_id)->where('id',$bid->id)->get()->first();
 
         if(!$bid){
             $results = [ 'message' => 'bid not found' ];
