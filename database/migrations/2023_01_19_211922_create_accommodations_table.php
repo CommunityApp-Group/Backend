@@ -14,9 +14,8 @@ class CreateAccommodationsTable extends Migration
     public function up()
     {
         Schema::create('accommodations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('encodedKey')->unique();
+            $table->uuid('id')->primary()->unique();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('title')->unique();
             $table->double('accommodation_price', 50, 2);
             $table->enum('type', ['rent', 'shortlet']);

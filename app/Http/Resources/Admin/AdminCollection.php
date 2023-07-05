@@ -17,7 +17,7 @@ class AdminCollection extends ResourceCollection
         return [
             "admin" => new AdminResource($this),
             'href' => [
-                'link' => route('admin.show',$this->encodedKey)
+                'link' => route('admin.show',$this->id)
             ],
             "Created By" => [
                 'Name' => $this->admin->name

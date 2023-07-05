@@ -7,7 +7,7 @@ use App\Http\Requests\Post\PostCommentRequest;
 use App\Http\Resources\Post\PostCommentResource;
 use App\Http\Resources\Post\PostcommentResourceCollection;
 use App\Models\Post;
-use App\Models\Postcomment;
+use App\Models\Post_comment;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -59,7 +59,7 @@ class PostCommentController extends Controller
     public function store(PostCommentRequest $request, Post $post)
     {
         $user = auth()->user()->id;
-        $comment = new Postcomment($request->all());
+        $comment = new Post_comment($request->all());
         $comment->user_id =$user;
         $post->postcomment()->save($comment);
 

@@ -12,6 +12,7 @@ use Illuminate\Database\QueryException;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Requests\Post\CreatePostRequest;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 class PostController extends Controller
 {
@@ -40,6 +41,13 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request) {
         try {
+//
+//    $user = auth()->user();
+//
+//    if (is_null($user->email_verified_at)) {
+//        return response()->errorResponse('Failed to create post! Please Upload your NYSC Card for Verificatio');
+//    }
+
             if(!$post = $request->createPost()) {
                 return response()->errorResponse('Failed to create post! Please try again later');
             }

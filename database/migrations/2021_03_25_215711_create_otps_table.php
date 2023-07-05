@@ -14,14 +14,11 @@ class CreateOtpsTable extends Migration
     public function up()
     {
         Schema::create('otps', function (Blueprint $table) {
-            $table->id();
-            $table->string('encodedKey')->unique()->index()->nullable();
-            $table->string('parentEncodedKey')->index();
+            $table->uuid('id')->unique();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('digit')->nullable();
             $table->dateTime('expires_at')->nullable();
             $table->timestamps();
-
-            $table->foreign('parentEncodedKey')->references('encodedKey')->on('users')->onDelete('cascade');
         });
     }
 

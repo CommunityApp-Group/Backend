@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use App\Traits\AddUUID;
+
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory, AddUUID, SoftDeletes;
+    use HasFactory, Uuids, SoftDeletes;
 
-    protected $table = "product";
-    protected $guarded = ["id"];
+    protected $table = "products";
 
     public function orders()
     {
@@ -33,7 +33,7 @@ class Product extends Model
 
     public function getRouteKeyName()
     {
-        return 'encodedKey';
+        return 'id';
     }
 
     public function admin()
@@ -55,7 +55,7 @@ class Product extends Model
     }
     public function productreview()
     {
-        return $this->hasMany(Productreview::class);
+        return $this->hasMany(Product_review::class);
     }
 
 }

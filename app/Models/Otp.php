@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use App\Traits\AddUUID;
+
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Otp extends Model
 {
-    use HasFactory, AddUUID;
+    use HasFactory, Uuids;
     protected $guarded = [];
 
     protected $dates = [
@@ -18,6 +19,6 @@ class Otp extends Model
     ];
 
     public function user() {
-        return $this->belongsTo(User::class, 'parentEncodedKey', 'encodedKey');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

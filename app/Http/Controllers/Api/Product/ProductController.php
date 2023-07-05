@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
+        $this->middleware('auth:admin')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -48,7 +48,7 @@ class ProductController extends Controller
         $product->category_name = $request->category_name;
         $product->product_price = $request->product_price;
         $product->product_image = $request->product_image;
-        $product->user_id = $user = auth()->user()->id;
+        $product->admin_id = auth()->guard('admin')->user()->id;
         $product->save();
         return response([
             'data' => new ProductResource($product)

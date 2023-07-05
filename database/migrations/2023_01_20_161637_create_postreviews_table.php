@@ -15,9 +15,9 @@ class CreatePostreviewsTable extends Migration
     {
         Schema::create('post_reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('post_id')->constrained()->cascadeOnDelete();
             $table->string('customer');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->text('review');
             $table->integer('star');
             $table->timestamps();

@@ -29,7 +29,6 @@ class PostFactory extends Factory
             },
             'category_name' => $this->faker->randomElement(['Electronic','Food','Motor','Kitchen']),
             'post'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
-            'encodedKey'=> $this->faker->uuid(),
             'post_image' => $this->faker->imageUrl($width = 640, $height = 480)
         ];
     }

@@ -115,12 +115,12 @@ class AuthController extends Controller
        return $request->activateUserAccount();        
     }
 
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    public function forgotPassword(Request $request)
-    {
+//    /**
+//     * @param Request $request
+//     * @return mixed
+//     */
+//    public function forgotPassword(Request $request)
+//    {
 //        $request->validate(['email' => 'required|email']);
 //        $status = Password::sendResetLink(
 //            $request->only('email')
@@ -129,16 +129,16 @@ class AuthController extends Controller
 //                    ? response()->success(__($status))
 //                    : response()->errorResponse(__($status));
 
-    }
+ //   }
 
-
-    /**
-     * @param PasswordResetRequest $request
-     * @return mixed
-     */
-    public function resetPassword(PasswordResetRequest $request) {
-        return $request->resetPassword();
-    }
+//
+//    /**
+//     * @param PasswordResetRequest $request
+//     * @return mixed
+//     */
+//    public function resetPassword(PasswordResetRequest $request) {
+//        return $request->resetPassword();
+//    }
 
 
 
@@ -149,7 +149,7 @@ class AuthController extends Controller
         if(auth('api')->check()) {
             auth('api')->logout();
             return response()->success('Session ended! Log out was successful');
-        };
+        }
        return response()->errorResponse('You are not logged in', [], 401);
     }
 }

@@ -18,7 +18,7 @@ class UserResource extends JsonResource
         $token = JWTAuth::fromUser($this->resource);
 
         return [
-            'id' => $this->encodedKey,
+            'id' => $this->id,
             'fullname' => $this->firstname. " ".$this->lastname,
             'email' => $this->email,
             'call_up_no' => $this->call_up_no,

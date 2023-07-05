@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\Product\ProductreviewController;
 use App\Http\Controllers\Api\Profile\ProfileController;
 use App\Http\Controllers\Api\Post\PostController;
 use App\Http\Controllers\Api\PurchaseController;
+use App\Http\Controllers\Api\User\FriendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 
@@ -55,6 +56,14 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::patch('UpdatePassword', [ProfileController::class,  'UpdatePassword'])->name('UpdatePassword');
         Route::apiResource('profile', ProfileController::class);
+        Route::group(['prefix'=>'friends'],function(){
+            Route::apiResource('friend', FriendController::class);
+//            Route::post('adduser/{receiver_id}', [FriendController::class, 'add'])->name('addFriend');
+//            Route::post('accept/{sender}', [FriendController::class, 'accept'])->name('accept.friend');
+//            Route::post('reject/{sender}', [FriendController::class, 'reject'])->name('rejectFriend');
+//            Route::post('updateRequest', [FriendController::class, 'updateRequest'])->name('cancel.friend');
+        });
+
             });
     Route::group(['prefix'=>'shipping'],function(){
         Route::apiResource('address', AddressController::class);
@@ -111,21 +120,22 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Admin authentication
     Route::name('admin.')->prefix('admin')->group(function () {
-        Route::post('login', [AdminAuthController::class, 'login'])->name('adminlogin');
-        Route::post('logout', [AdminAuthController::class, 'logout'])->name('adminlogout');
-        Route::post('/forgot-password', [AdminAuthController::class, 'forgotPassword'])->name('password.request');
-        Route::post('/reset-password', [AdminAuthController::class, 'resetPassword']);
-        Route::post('refresh', [AdminAuthController::class, 'refresh'])->name('adminrefresh');
-        Route::post('me', [AdminAuthController::class, 'me'])->name('adminme');
+        Route::post('create', [AdminAuthController::class, 'create'])->name('create');
+        Route::post('login', [AdminAuthController::class, 'authenticate'])->name('login');
+        Route::get('logout', [AdminAuthController::class, 'logout'])->name('logout');
+        Route::post('forgot-password', [AdminAuthController::class, 'forgotPassword'])->name('password.request');
+        Route::post('reset-password', [AdminAuthController::class, 'resetPassword'])->name('password.reset');
+        Route::post('refresh', [AdminAuthController::class, 'refresh'])->name('admin.refresh');
+        Route::post('current', [AdminAuthController::class, 'me'])->name('current');
         Route::get('user', [AdminAuthController::class, 'user'])->name('user');
-        Route::apiResource('admin', AdminAuthController::class);
     });
-    // Admin Op
+    // Admin Operations
     Route::name('admin.')->prefix('admin')->group(function () {
-        Route::patch('auction/update/{auction}', [AdminAuctionController::class, 'update']);
-        Route::delete('auction/delete/{auction}', [AdminAuctionController::class, 'destroy']);
-        Route::delete('post/delete/{post}', [AdminPostController::class, 'destroy']);
-        Route::delete('product/delete/{product}', [AdminProductController::class, 'destroy']);
+        Route::apiResource('admin', AdminAuthController::class);
+        Route::patch('auction/update/{auction}', [AdminAuctionController::class, 'update'])->name('update.auction');
+        Route::delete('auction/delete/{auction}', [AdminAuctionController::class, 'destroy'])->name('delete.auction');
+        Route::delete('post/delete/{post}', [AdminPostController::class, 'destroy'])->name('update.post');
+        Route::delete('product/delete/{product}', [AdminProductController::class, 'destroy'])->name('delete.auction');
     });
 
 

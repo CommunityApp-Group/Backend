@@ -19,7 +19,7 @@ class ProductshowResource extends JsonResource
     {
         return
             [
-            'id'            =>  $this->encodedKey,
+            'id'            =>  $this->id,
             'Product'       =>  $this->product_name,
             'Description'   =>  $this->description,
             'Price'         =>  $this->product_price,
@@ -31,7 +31,7 @@ class ProductshowResource extends JsonResource
 
             'Rating' => $this->productreview->count() > 0 ? round($this->productreview->sum('star')/$this->productreview->count(),2) : 'No rating yet',
             'Total Reviews' => $this->productreview->count() ,
-            'Product Reviews' => [route('productreviews.index',$this->encodedKey)],
+            'Product Reviews' => [route('productreviews.index',$this->id)],
             ];
     }
 }

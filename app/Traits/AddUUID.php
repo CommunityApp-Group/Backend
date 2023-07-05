@@ -4,7 +4,8 @@ namespace App\Traits;
 
 use Illuminate\Support\Str;
 
-trait AddUUID {
+trait AddUUID
+{
 
     /**
      * Boot function from Laravel.
@@ -17,6 +18,6 @@ trait AddUUID {
                 $model->encodedKey = md5(Str::uuid()->toString());
             }
         });
-    }   
+    }
 
 }

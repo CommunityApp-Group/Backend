@@ -3,23 +3,31 @@
 namespace App\Models;
 
 use App\Models\Otp;
-use App\Traits\AddUUID;
+use App\Traits\Uuids;
 use Bavix\Wallet\Traits\HasWallet;
 use Bavix\Wallet\Interfaces\Wallet;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
-use Bavix\Wallet\Traits\HasWalletFloat;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
-use Bavix\Wallet\Interfaces\WalletFloat;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Multicaret\Acquaintances\Traits\CanLike;
+use Multicaret\Acquaintances\Traits\CanFollow;
+use Multicaret\Acquaintances\Traits\CanBeLiked;
+use Multicaret\Acquaintances\Traits\Friendable;
 use App\Notifications\ResetPasswordNotification;
+use Multicaret\Acquaintances\Traits\CanBeFollowed;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable implements JWTSubject, Wallet
 {
-    use HasFactory, Notifiable, SoftDeletes, AddUUID, HasWallet,  HasRoles;
+    use HasFactory, Notifiable, SoftDeletes, Uuids, HasWallet, HasRoles;
+    use Friendable;
+    use CanFollow, CanBeFollowed;
+    use CanLike, CanBeLiked;
+
 
     protected $guard = "user";
 
@@ -29,9 +37,9 @@ class User extends Authenticatable implements JWTSubject, Wallet
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname','call_up_no','email','encodedKey','password','phone',
-        'gender','address','dob','location','city','country','state','avatar'
-          ];
+        'firstname', 'lastname', 'call_up_no', 'email',  'password', 'phone',
+        'gender', 'address', 'dob', 'location', 'city', 'country', 'state', 'avatar'
+    ];
 
     protected $dates = [
         'updated_at',
@@ -60,14 +68,15 @@ class User extends Authenticatable implements JWTSubject, Wallet
     ];
 
     // Define relationships
-    public function otp() {
-        return $this->hasOne(Otp::class, 'parentEncodedKey', 'encodedKey');
+    public function otp()
+    {
+        return $this->hasOne(Otp::class, 'user_id', 'id');
     }
 
 
     public function getRouteKeyName()
     {
-        return 'encodedKey';
+        return 'id';
     }
 
     // Define JWT auth methods
@@ -85,44 +94,56 @@ class User extends Authenticatable implements JWTSubject, Wallet
      * Relationships
      */
 
-    public function auction() {
+    public function auction()
+    {
         return $this->hasMany(Auction::class);
     }
 
-    public function post() {
+    public function post()
+    {
         return $this->hasMany(Post::class);
     }
-    public function postcomment() {
-        return $this->hasMany(Postcomment::class);
-    }
-    public function productreview() {
-        return $this->hasMany(Productreview::class);
+
+    public function postcomment()
+    {
+        return $this->hasMany(Post_comment::class);
     }
 
-    public function orders() {
+    public function productreview()
+    {
+        return $this->hasMany(Product_review::class);
+    }
+
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 
-    public function cart() {
+    public function cart()
+    {
         return $this->hasMany(Cart::class);
     }
 
-    public function bids() {
+    public function bids()
+    {
         return $this->hasMany(Bid::class);
     }
+
     public function addresses()
     {
         return $this->hasMany(Address::class);
     }
 
 
-    public function setPasswordAttribute($input) {
-        if($input) {
+    public function setPasswordAttribute($input)
+    {
+        if ($input) {
             $this->attributes['password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
         }
     }
 
-    public function gererateOTP() {
+    public function gererateOTP()
+    {
         $this->resetOTP();
         $OTP = rand(1000, 9999);
         $expires = now()->addMinutes(10);
@@ -131,20 +152,23 @@ class User extends Authenticatable implements JWTSubject, Wallet
             'expires_at' => $expires
         ]);
     }
-    public function resetOTP() {
-        if($this->otp) {
+
+    public function resetOTP()
+    {
+        if ($this->otp) {
             return $this->otp->delete();
         }
     }
 
-    public function sendPasswordResetNotification($activation_code) {
+    public function sendPasswordResetNotification($activation_code)
+    {
         $this->notify(new ResetPasswordNotification());
     }
 
 
-    public function createNewToken() {
+    public function createNewToken()
+    {
         return rand(100000, 999999);
     }
+
 }
-
-

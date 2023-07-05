@@ -16,9 +16,9 @@ class PasswordResource extends JsonResource
      */
     public function toArray($request)
     { $users = DB::table('users')
-        ->join('otps', 'otps.parentEncodedKey', '=', 'users.encodedKey')
+        ->join('otps', 'otps.user_id', '=', 'users.id')
         ->where('otps.digit', '=',$request->token)
-        ->select('users.encodedKey')
+        ->select('users.id')
         ->get();
 
         return [

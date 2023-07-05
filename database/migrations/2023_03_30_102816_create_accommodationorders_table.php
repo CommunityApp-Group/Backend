@@ -16,8 +16,8 @@ class CreateAccommodationordersTable extends Migration
         Schema::create('accommodation_orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_no');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('accommodation_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('accommodation_id')->constrained()->cascadeOnDelete();
             $table->enum('status', ['pending','processing','completed','canceled'])->default('pending');
             $table->boolean('is_paid')->default(false);
             $table->enum('payment_method', ['cash_on_delivery'])->default('cash_on_delivery');

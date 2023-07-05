@@ -29,7 +29,6 @@ class ProductFactory extends Factory
             },
             'category_name' => $this->faker->randomElement(['Electronic','Food','Motor','Kitchen']),
             'description'  => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
-            'encodedKey'=> $this->faker->uuid(),
             'product_name'=> $this->faker->company(),
             'product_price'=> $this->faker->randomNumber(3),
             'product_image' => $this->faker->imageUrl($width = 640, $height = 480)

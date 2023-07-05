@@ -24,6 +24,7 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^8.5.1",
         "laravel/tinker": "^2.5",
+        "multicaret/laravel-acquaintances": "^3.5",
         "php-open-source-saver/jwt-auth": "^1.4",
         "spatie/laravel-permission": "^4.0"
     },

@@ -15,7 +15,7 @@ class UserProfile extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->encodedKey,
+            'id' => $this->id,
             'Email' => $this->email,
             'Phone' => $this->phone,
             'Gender' => $this->gender,

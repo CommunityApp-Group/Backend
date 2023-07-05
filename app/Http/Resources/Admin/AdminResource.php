@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
+use DB;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
@@ -16,15 +17,18 @@ class AdminResource extends JsonResource
      */
     public function toArray($request)
     {
+        $token = JWTAuth::fromUser($this->resource);
+        $admin = DB::table('admins')->find($this->created_by);
         return [
-            'id' => $this->encodedKey,
-            'Name' => $this->   name,
+            'id'            => $this->id,
+            'Name'          => $this->name,
             'Phone'         =>  $this->phone,
             'Location'      =>  $this->location,
             'Email'         =>  $this->email,
-            'status'         =>  $this->status,
+            'status'        =>  $this->status,
             'created_at'    =>  $this->created_at->format('Y-m-d H:i:s'),
-            'Created_by'    =>  $this->created_by
+            'Created_by'    => $admin->name,
+            'authentication' => respondWithToken($token)
         ];
     }
 }
