@@ -65,6 +65,7 @@ class User extends Authenticatable implements JWTSubject, Wallet
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'id' => 'string',
     ];
 
     // Define relationships

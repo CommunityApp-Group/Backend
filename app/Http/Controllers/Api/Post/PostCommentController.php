@@ -74,10 +74,10 @@ class PostCommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Postcomment $postcomment
+     * @param \App\Models\Post_comment $postcomment
      * @return void
      */
-    public function show( Postcomment $postcomment)
+    public function show( Post_comment $postcomment)
     {
 //
     }
@@ -85,10 +85,10 @@ class PostCommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Postcomment  $postcomment
+     * @param  \App\Models\Post_comment  $post_comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Postcomment $postcomment)
+    public function edit(Post_comment $postcomment)
     {
         //
     }
@@ -97,10 +97,10 @@ class PostCommentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Postcomment  $postcomment
+     * @param  \App\Models\Post_comment $postcomment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post, Postcomment $postcomment)
+    public function update(Request $request, Post $post, Post_comment $postcomment)
     {
         $postcomment->update($request->all());
         return response([

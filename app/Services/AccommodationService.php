@@ -10,7 +10,7 @@ class AccommodationService
 {
     public static function retrieveMyAccommodation() {
         $accommodation_filter = app(Pipeline::class)
-            ->send(Accommodation::where('user_id',  auth()->guard('admin')->id()))
+            ->send(Accommodation::where('admin_id',  auth()->guard('admin')->id()))
             ->through([
                 Category::class,
                 AccommodationName::class
@@ -19,9 +19,10 @@ class AccommodationService
         return $accommodation_filter;
     }
 
+
     public static function retrievePopularAccommodation() {
         $accommodation_filter = app(Pipeline::class)
-            ->send(Accommodation::where('user_id',  auth()->id()))
+            ->send(Accommodation::where('admin_id',  auth()->guard('admin')->id()))
             ->through([
                 Category::class,
                 AccommodationName::class

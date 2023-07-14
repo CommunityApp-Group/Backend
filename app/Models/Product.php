@@ -11,8 +11,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory, Uuids, SoftDeletes;
-
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
     protected $table = "products";
+
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     public function orders()
     {
@@ -23,13 +37,6 @@ class Product extends Model
     {
         return $this->hasMany("OrderItem");
     }
-
-
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at'
-    ];
 
     public function getRouteKeyName()
     {

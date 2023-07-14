@@ -58,13 +58,14 @@ Route::group(['prefix' => 'v1'], function () {
         Route::apiResource('profile', ProfileController::class);
         Route::group(['prefix'=>'friends'],function(){
             Route::apiResource('friend', FriendController::class);
-//            Route::post('adduser/{receiver_id}', [FriendController::class, 'add'])->name('addFriend');
-//            Route::post('accept/{sender}', [FriendController::class, 'accept'])->name('accept.friend');
-//            Route::post('reject/{sender}', [FriendController::class, 'reject'])->name('rejectFriend');
-//            Route::post('updateRequest', [FriendController::class, 'updateRequest'])->name('cancel.friend');
+            Route::post('accept', [FriendController::class, 'accept'])->name('accept.friend');
+            Route::post('reject', [FriendController::class, 'reject'])->name('reject.friend');
+            Route::post('block', [FriendController::class, 'block'])->name('block.friend');
+            Route::post('unfriend', [FriendController::class, 'unfriend'])->name('unfriend.friend');
+            Route::get('pending', [FriendController::class, 'pending'])->name('pending.friend');
         });
+    });
 
-            });
     Route::group(['prefix'=>'shipping'],function(){
         Route::apiResource('address', AddressController::class);
         Route::patch('address/default/{address}', [AddressController::class, 'makedefault'])->name('makedefault');
@@ -75,12 +76,13 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('category/find-by-name/{name}', [CategoryController::class, 'findByName']);
 
     // User CRUD operations
+    //Accommodations management and order
     Route::apiResource('accommodations', AccommodationController::class);
-    Route::get('accommodations/search/{title}', [AccommodationController::class, 'search'])->name('accommodationsearch');
-    Route::get('accommodations/my', [AccommodationController::class, 'myaccommodation'])->name('myaccommodation');
-    Route::get('accommodations/popular', [AccommodationController::class, 'popularaccommodation'])->name('popularaccommodation');
+    Route::get('my/accommodation', [AccommodationController::class, 'my'])->name('accommodation.my');
     Route::group(['prefix'=>'accommodations'],function(){
-        Route::apiResource('/{accommodation}/reviews',AccommodationReviewController::class);
+        Route::get('search/{title}', [AccommodationController::class, 'search'])->name('accommodation.search');
+      //  Route::get('popular', [AccommodationController::class, 'popularaccommodation'])->name('popular.accommodations');
+        Route::apiResource('{accommodation}/reviews',AccommodationReviewController::class);
         Route::apiResource('/order',AccommodationOrderController::class);
     });
 
@@ -109,12 +111,11 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('products', ProductController::class);
     Route::group(['prefix'=>'product'],function(){
     Route::get('search/{product_name}', [ProductController::class, 'search'])->name('productsearch');
-    Route::get('myproduct', [ProductController::class, 'myproduct'])->name('myproduct');
+    Route::get('myproduct', [ProductController::class, 'my'])->name('myproduct');
     Route::get('popular', [ProductController::class, 'popularproduct'])->name('popularproduct');
     Route::apiResource('/{product}/productreviews',ProductReviewController::class);
     Route::apiResource('carts', CartController::class);
     Route::apiResource('orders', OrderController::class);
-
     });
 
 

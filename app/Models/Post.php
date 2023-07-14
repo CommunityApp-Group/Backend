@@ -13,7 +13,14 @@ class Post extends Model
     use HasFactory, Uuids, SoftDeletes;
     protected $guard = "post";
 
-
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
     protected $dates = [
         'created_at',
         'updated_at',
@@ -42,5 +49,6 @@ class Post extends Model
     {
         return $this->hasMany(Post_comment::class)->whereNull('parent_id');
     }
+
 
 }

@@ -30,7 +30,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResourceCollection::Collection(Post::orderBy('created_at', 'DESC')->paginate(10));
+        return PostResourceCollection::Collection(Post::latest()->paginate(10));
     }
 
     /**
@@ -82,13 +82,19 @@ class PostController extends Controller
      *
      * @return AnonymousResourceCollection
      */
-    public function mypost(Post $post) {
-
-        $post = PostService::retrieveMyPost();
-        return $this->getMypost($post)->additional([
+    public function mypost(Post $post)
+    {
+        $user = auth()->user();
+        $post = $user->post;
+        return PostResource::collection($post)->additional([
             'message' => 'My Post successfully retrieved',
             'status' => 'success'
         ]);
+//        $post = PostService::retrieveMyPost();
+//        return $this->getMypost($post)->additional([
+//            'message' => 'My Post successfully retrieved',
+//            'status' => 'success'
+//        ]);
     }
 
     /**

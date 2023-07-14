@@ -41,7 +41,7 @@ class AdminAuthController extends Controller
      */
     public function index()
     {
-      $admin = Admin::orderBy('created_at', 'DESC')->paginate(10);
+      $admin = Admin::latest()->paginate(10);
        return AdminlistResource::collection($admin);
 
     }
@@ -53,7 +53,7 @@ class AdminAuthController extends Controller
      */
     public function user()
     {
-      $user = User::orderBy('created_at', 'DESC')->paginate(10);
+      $user = User::latest()->paginate(10);
        return UserlistResource::collection($user);
 
     }
@@ -126,25 +126,6 @@ class AdminAuthController extends Controller
         ]);
     }
 
-
-//    /**
-//     * @param Request $request
-//     * @return \Illuminate\Http\JsonResponse
-//     * @throws \Illuminate\Validation\ValidationException
-//     */
-//    public function login(Request $request)
-//    {
-//        $request->validate([
-//            'email' => 'required',
-//            'password' => 'required',
-//        ]);
-//        $credentials = request(['email', 'password']);
-//        if (!$token = auth()->guard('admin')->attempt($credentials)) {
-//            return response()->json(['error' => 'Unauthorized'], 401);
-//        }
-//        return $this->respondWithToken($token);
-//
-//    }
 
     /**
      * @param AdminLoginRequest $request

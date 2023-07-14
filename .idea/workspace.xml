@@ -2,72 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AddressController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Admin/AdminAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Admin/AdminAuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostCommentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/AdminLoginRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/AdminLoginRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Admin/AdminCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/AdminCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Admin/AdminResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/AdminResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Admin/AdminlistResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/AdminlistResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auth/PasswordResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auth/PasswordResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Auth/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Auth/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Post/PostResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Post/PostResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ProductshowResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductshowResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/AuthUserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserlistResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserlistResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/User/FriendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/User/FriendController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationsResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationsResourceCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendsCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendResourceCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendsResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Accommodation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accommodation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Accommodationreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accommodationreview.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Auction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Auction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Otp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Otp.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Postcomment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post_comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post_comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post_comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Productreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product_review.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/AdminObserver.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/AddUUID.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/AddUUID.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostcommentFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_25_215711_create_otps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_25_215711_create_otps_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_20_141813_create_auctions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_20_141813_create_auctions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_24_172242_create_permission_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_24_172242_create_permission_tables.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_06_122446_create_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_122446_create_admins_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_211626_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_01_21_122544_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_21_122544_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_12_28_153504_create_productreviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_12_28_153504_create_productreviews_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/AccommodationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AccommodationService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/GetRequestType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GetRequestType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2023_01_19_211922_create_accommodations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_01_19_211922_create_accommodations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_01_20_152002_create_accommodationreviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_01_20_152002_create_accommodationreviews_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_01_20_161637_create_postreviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_01_20_161637_create_postreviews_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_06_161229_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_06_161229_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_16_130734_create_order_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_16_130734_create_order_items_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_23_084052_create_postcomments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_01_06_211627_create_postcomments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_24_135901_create_bids_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_24_135901_create_bids_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_03_30_102816_create_accommodationorders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_03_30_102816_create_accommodationorders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_04_22_191629_create_addresses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_04_23_112235_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_04_23_112235_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_04_062802_create_notifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_04_062802_create_notifications_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,6 +191,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories/Password" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -298,7 +255,10 @@
       <workItem from="1687286802029" duration="8901000" />
       <workItem from="1687449875608" duration="22456000" />
       <workItem from="1688311423061" duration="36231000" />
-      <workItem from="1688580921984" duration="3450000" />
+      <workItem from="1688580921984" duration="19847000" />
+      <workItem from="1688916698379" duration="11616000" />
+      <workItem from="1689175179489" duration="573000" />
+      <workItem from="1689348931342" duration="2652000" />
     </task>
     <servers />
   </component>
@@ -314,21 +274,29 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1688283367375" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1688569241270">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1688925468061">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1688569241270" />
-    <state x="431" y="177" key="NewPhpClassDialog" timestamp="1688557763701">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1688925468061" />
+    <state x="431" y="177" key="NewPhpClassDialog" timestamp="1688925605301">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="431" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1688557763701" />
+    <state x="431" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1688925605301" />
     <state x="516" y="286" key="NewPhpFileDialog" timestamp="1682190704450">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="516" y="286" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1682190704450" />
+    <state x="183" y="5" key="SettingsEditor" timestamp="1689350854711">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="183" y="5" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1689350854711" />
     <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1688561919803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1688561919803" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1689350286150">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1689350286150" />
   </component>
 </project>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Product;
 
-use App\Http\Resources\Product\ProductResourceCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Traits\GetRequestType;
@@ -14,6 +13,7 @@ use App\Http\Requests\Product\CreateProductRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
+use App\Http\Resources\Product\ProductResourceCollection;
 
 class ProductController extends Controller
 {
@@ -31,7 +31,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return ProductResourceCollection::Collection(Product::orderBy('created_at', 'DESC')->paginate(10));
+        return ProductResourceCollection::Collection(Product::latest()->paginate(10));
+
     }
 
     /**
@@ -77,7 +78,7 @@ class ProductController extends Controller
      * @param  int  $product
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function myproduct(Product $product)
+    public function my(Product $product)
    {
        $product = ProductService::retrieveMyProduct();
        return $this->getMyProduct($product)->additional([

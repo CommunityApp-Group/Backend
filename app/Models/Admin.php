@@ -19,6 +19,15 @@ class Admin extends  Authenticatable implements JWTSubject
 
     protected $table = "admins";
     public $guard_name = 'api';
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
     /**
      * The attributes that are mass assignable.
      *

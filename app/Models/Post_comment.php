@@ -9,6 +9,7 @@ class Post_comment extends Model
 {
     use HasFactory;
     protected $guard = "post_comment";
+    protected $table = "post_comments";
     protected $fillable = [
         'post'
     ];

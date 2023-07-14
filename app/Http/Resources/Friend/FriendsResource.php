@@ -4,6 +4,7 @@ namespace App\Http\Resources\Friend;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+
 class FriendsResource extends JsonResource
 {
     /**
@@ -15,8 +16,7 @@ class FriendsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->encodedKey,
-            'fullname' => $this->firstname. " ".$this->lastname,
+            'fullname' => $this->user->firstname,
 
     ];
     }

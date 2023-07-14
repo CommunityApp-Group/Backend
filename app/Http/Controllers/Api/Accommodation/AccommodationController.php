@@ -19,7 +19,7 @@ class AccommodationController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.jwt')->except(['index', 'show', 'search']);
+        $this->middleware('auth:admin')->except(['index', 'show', 'search']);
     }
 
     /**
@@ -29,7 +29,7 @@ class AccommodationController extends Controller
      */
     public function index()
     {
-        return AccommodationsResourceCollection::Collection(Accommodation::orderBy('created_at', 'DESC')->paginate(10));
+        return AccommodationsResourceCollection::Collection(Accommodation::latest()->paginate(10));
     }
 
     /**
@@ -55,7 +55,7 @@ class AccommodationController extends Controller
         $accommodation->address = $request->address;
         $accommodation->nearby = $request->nearby;
         $accommodation->lga = $request->lga;
-        $accommodation->user_id = $user = auth()->guard('admin')->user()->id;
+        $accommodation->admin_id =  auth()->guard('admin')->user()->id;
         $accommodation->save();
         return response([
             'data' => new AccommodationResource($accommodation)
@@ -72,22 +72,6 @@ class AccommodationController extends Controller
     {
         return $this->getSingleAccommodation($accommodation)->additional([
             'message' => 'Accommodation successfully retrieved',
-            'status' => 'success'
-        ]);
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $accommodation
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
-     */
-    public function myaccommodation(Accommodation $accommodation)
-    {
-        $accommodation = AccommodationService::retrieveMyAccommodation();
-        return $this->getMyAccommodation($accommodation)->additional([
-            'message' => 'My Accommodation successfully retrieved',
             'status' => 'success'
         ]);
     }
@@ -160,4 +144,20 @@ class AccommodationController extends Controller
         $accommodation = Accommodation::where('title', 'like', '%'.$title.'%')->get();
         return AccommodationResource::collection($accommodation);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Accommodation $accommodation
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function my(Accommodation $accommodation)
+    {
+        $accommodation = AccommodationService::retrievePopularAccommodation();
+        return $this->getMyAccommodation($accommodation)->additional([
+            'message' => 'My Product successfully retrieved',
+            'status' => 'success'
+        ]);
+    }
+
 }

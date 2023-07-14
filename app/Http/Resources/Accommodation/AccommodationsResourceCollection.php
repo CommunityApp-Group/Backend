@@ -17,7 +17,7 @@ class AccommodationsResourceCollection extends JsonResource
         return [
             "Accommodation" => new AccommodationResource($this),
             'href' => [
-                'link' => route('accommodation.show',$this->encodedKey)
+                'link' => route('accommodations.show',$this->id)
             ],
         ];
     }

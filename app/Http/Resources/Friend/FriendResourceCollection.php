@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\Friend;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class FriendsCollection extends ResourceCollection
+class FriendResourceCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
