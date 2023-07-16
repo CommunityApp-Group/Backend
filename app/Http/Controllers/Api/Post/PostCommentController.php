@@ -7,7 +7,7 @@ use App\Http\Requests\Post\PostCommentRequest;
 use App\Http\Resources\Post\PostCommentResource;
 use App\Http\Resources\Post\PostcommentResourceCollection;
 use App\Models\Post;
-use App\Models\Postcomment;
+use App\Models\Post_comment;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -59,7 +59,7 @@ class PostCommentController extends Controller
     public function store(PostCommentRequest $request, Post $post)
     {
         $user = auth()->user()->id;
-        $comment = new Postcomment($request->all());
+        $comment = new Post_comment($request->all());
         $comment->user_id =$user;
         $post->postcomment()->save($comment);
 
@@ -74,10 +74,10 @@ class PostCommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Postcomment $postcomment
+     * @param \App\Models\Post_comment $postcomment
      * @return void
      */
-    public function show( Postcomment $postcomment)
+    public function show( Post_comment $postcomment)
     {
 //
     }
@@ -85,10 +85,10 @@ class PostCommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Postcomment  $postcomment
+     * @param  \App\Models\Post_comment  $post_comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Postcomment $postcomment)
+    public function edit(Post_comment $postcomment)
     {
         //
     }
@@ -97,10 +97,10 @@ class PostCommentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Postcomment  $postcomment
+     * @param  \App\Models\Post_comment $postcomment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post, Postcomment $postcomment)
+    public function update(Request $request, Post $post, Post_comment $postcomment)
     {
         $postcomment->update($request->all());
         return response([

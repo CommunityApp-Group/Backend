@@ -15,7 +15,7 @@ class AccommodationResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'            =>  $this->encodedKey,
+            'id'            =>  $this->id,
             'Title'       =>  $this->title,
             'Description'   =>  $this->description,
             'Price'         =>  $this->accommodation_price,
@@ -32,10 +32,10 @@ class AccommodationResource extends JsonResource
             'accommodation Created Date'    =>  $this->created_at->format('Y-m-d H:i:s'),
             'rating' => $this->reviews->count() > 0 ? round($this->reviews->sum('star')/$this->reviews->count(),2) : 'No rating yet',
             'href' => [
-                'reviews' => route('reviews.index',$this->encodedKey)
+                'reviews' => route('reviews.index',$this->id)
             ],
-            "user" => [
-                'Name' => $this->name
+            "Uploaded By" => [
+                'Name' => $this-> admin->name
             ]
         ];
 

@@ -14,9 +14,8 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('admin_id')->constrained()->cascadeOnDelete();
-            $table->string('encodedKey')->unique();
+            $table->uuid('id')->primary()->unique();
+            $table->foreignUuid('admin_id')->constrained()->cascadeOnDelete();
             $table->string('product_name');
             $table->decimal('product_price', 10, 2);
             $table->string('category_name');
@@ -24,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('product_image')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

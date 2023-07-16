@@ -81,8 +81,7 @@ class AddressController extends Controller
      */
     public function makedefault(Request $request,  Address $address)
     {
-        Address::where('user_id', auth()->user()->id)->update(['set_default' => 0]); //make all user addressed non default first
-
+        Address::where('user_id', auth()->user()->id)->update(['set_default' => 0]);
         $address->set_default = 1;
         $address->update($request->all());
         return response()->json([

@@ -15,9 +15,9 @@ class CreateAccommodationreviewsTable extends Migration
     {
         Schema::create('accommodation_reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('accommodation_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('accommodation_id')->constrained()->cascadeOnDelete();
             $table->string('customer');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->text('review');
             $table->integer('star');
             $table->timestamps();

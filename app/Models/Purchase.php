@@ -24,4 +24,5 @@ class Purchase extends Model
     {
         return $this->belongsTo(Auction::class);
     }
+
 }

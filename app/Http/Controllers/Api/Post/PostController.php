@@ -12,6 +12,7 @@ use Illuminate\Database\QueryException;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Requests\Post\CreatePostRequest;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use PHPOpenSourceSaver\JWTAuth\Contracts\Providers\Auth;
 
 class PostController extends Controller
 {
@@ -29,7 +30,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResourceCollection::Collection(Post::orderBy('created_at', 'DESC')->paginate(10));
+        return PostResourceCollection::Collection(Post::latest()->paginate(10));
     }
 
     /**
@@ -40,6 +41,13 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request) {
         try {
+//
+//    $user = auth()->user();
+//
+//    if (is_null($user->email_verified_at)) {
+//        return response()->errorResponse('Failed to create post! Please Upload your NYSC Card for Verificatio');
+//    }
+
             if(!$post = $request->createPost()) {
                 return response()->errorResponse('Failed to create post! Please try again later');
             }
@@ -74,13 +82,19 @@ class PostController extends Controller
      *
      * @return AnonymousResourceCollection
      */
-    public function mypost(Post $post) {
-
-        $post = PostService::retrieveMyPost();
-        return $this->getMypost($post)->additional([
+    public function mypost(Post $post)
+    {
+        $user = auth()->user();
+        $post = $user->post;
+        return PostResource::collection($post)->additional([
             'message' => 'My Post successfully retrieved',
             'status' => 'success'
         ]);
+//        $post = PostService::retrieveMyPost();
+//        return $this->getMypost($post)->additional([
+//            'message' => 'My Post successfully retrieved',
+//            'status' => 'success'
+//        ]);
     }
 
     /**

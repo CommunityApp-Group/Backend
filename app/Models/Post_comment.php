@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Postcomment extends Model
+class Post_comment extends Model
 {
     use HasFactory;
-
+    protected $guard = "post_comment";
+    protected $table = "post_comments";
     protected $fillable = [
         'post'
     ];
@@ -41,6 +42,6 @@ class Postcomment extends Model
      */
     public function replies()
     {
-        return $this->hasMany(Postcomment::class, 'parent_id');
+        return $this->hasMany(Post_comment::class, 'parent_id');
     }
 }

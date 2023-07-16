@@ -15,8 +15,8 @@ class CreateBidsTable extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('auction_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('auction_id')->constrained()->cascadeOnDelete();
             $table->decimal('price', 50, 2);
             $table->enum('status', ['bid', 'won', 'lost'])->default('bid');
             $table->boolean('is_active')->default(true);

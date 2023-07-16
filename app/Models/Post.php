@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\AddUUID;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,10 +10,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
 
-    use HasFactory, AddUUID, SoftDeletes;
+    use HasFactory, Uuids, SoftDeletes;
+    protected $guard = "post";
 
-    protected $guarded = ['id'];
-
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
     protected $dates = [
         'created_at',
         'updated_at',
@@ -22,7 +29,7 @@ class Post extends Model
 
     public function getRouteKeyName()
     {
-        return 'encodedKey';
+        return 'id';
     }
     public function user() {
         return $this->belongsTo(User::class);
@@ -40,7 +47,8 @@ class Post extends Model
 
     public function postcomment()
     {
-        return $this->hasMany(Postcomment::class)->whereNull('parent_id');
+        return $this->hasMany(Post_comment::class)->whereNull('parent_id');
     }
+
 
 }

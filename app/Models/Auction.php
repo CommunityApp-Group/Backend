@@ -13,10 +13,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Auction extends Model
 {
-    use HasFactory, AddUUID, SoftDeletes;
+    use HasFactory,  SoftDeletes;
 
     protected $table = "auctions";
-    protected $guarded = ['id'];
 
     protected $dates = [
         'created_at',
@@ -27,7 +26,7 @@ class Auction extends Model
 
     public function getRouteKeyName()
     {
-        return 'encodedKey';
+        return 'id';
     }
 
     public function user()

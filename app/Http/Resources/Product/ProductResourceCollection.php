@@ -21,7 +21,7 @@ class ProductResourceCollection extends JsonResource
             "Upload by" => [ $this-> admin->name],
             'rating' => $this->productreview->count() > 0 ? round($this->productreview->sum('star')/$this->productreview->count(),2) : 'No rating yet',
 
-            'This Product' => ['link' => route('products.show',$this->encodedKey)],
+            'This Product' => ['link' => route('products.show',$this->id)],
             ];
     }
 }

@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/ResourceHelpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/ResourceHelpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/User/UserProfile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Purchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -156,6 +155,9 @@
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/hesto/multi-auth" />
       <path value="$PROJECT_DIR$/vendor/hesto/core" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/multicaret/laravel-acquaintances" />
     </include_path>
   </component>
   <component name="ProjectId" id="2Ig1gsjwFCcGfQtjI9EWAXDipdF" />
@@ -169,20 +171,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories/Password" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Backend\app\Http\Resources\Product" />
-      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Product" />
-      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Auction" />
-      <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Order" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Backend\app\Repositories\Password" />
       <recent name="C:\xampp\htdocs\Backend\app\Repositories\Order" />
       <recent name="C:\xampp\htdocs\Backend\app\Services" />
       <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Auth" />
       <recent name="C:\xampp\htdocs\Backend\app\Http\Resources\Product" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Resources\Product" />
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Product" />
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Controllers\Api\Auction" />
+      <recent name="C:\xampp\htdocs\Backend\app\Http\Requests\Order" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -226,7 +229,18 @@
       <workItem from="1684081923648" duration="6263000" />
       <workItem from="1684597869350" duration="37126000" />
       <workItem from="1684950240095" duration="35695000" />
-      <workItem from="1686307126250" duration="7163000" />
+      <workItem from="1686307126250" duration="15708000" />
+      <workItem from="1686480836397" duration="1972000" />
+      <workItem from="1686486684839" duration="18412000" />
+      <workItem from="1687286802029" duration="8901000" />
+      <workItem from="1687449875608" duration="22456000" />
+      <workItem from="1688311423061" duration="36231000" />
+      <workItem from="1688580921984" duration="19847000" />
+      <workItem from="1688916698379" duration="11616000" />
+      <workItem from="1689175179489" duration="573000" />
+      <workItem from="1689348931342" duration="2652000" />
+      <workItem from="1689354930860" duration="825000" />
+      <workItem from="1689355820058" duration="2629000" />
     </task>
     <servers />
   </component>
@@ -234,41 +248,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="136" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1676968804488">
+    <state x="415" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1686343949795">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="136" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1676968804488" />
-    <state x="415" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1682252334450">
+    <state x="415" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1686343949795" />
+    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1688283367375">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="415" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1682252334450" />
-    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1682241960312">
+    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1688283367375" />
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1688925468061">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1682241960312" />
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1685430035593">
+    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1688925468061" />
+    <state x="431" y="177" key="NewPhpClassDialog" timestamp="1688925605301">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="412" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1685430035593" />
-    <state x="431" y="177" key="NewPhpClassDialog" timestamp="1684699509897">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="431" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1684699509897" />
+    <state x="431" y="177" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1688925605301" />
     <state x="516" y="286" key="NewPhpFileDialog" timestamp="1682190704450">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="516" y="286" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1682190704450" />
-    <state x="491" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1676658599066">
+    <state x="183" y="5" key="SettingsEditor" timestamp="1689357362008">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="491" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1676658599066" />
-    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1682255101068">
+    <state x="183" y="5" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1689357362008" />
+    <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1688561919803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1682255101068" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1678444195358">
+    <state x="314" y="61" width="737" height="606" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1688561919803" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1689350286150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1678444195358" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1689350286150" />
   </component>
 </project>

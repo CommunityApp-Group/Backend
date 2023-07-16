@@ -80,11 +80,10 @@ class ResetPasswordController extends Controller
         }
         $password = $request->password;
 
-        // Validate the token
         $tokenData = DB::table('otps')->where('digit', $request->token)->first();
-        // Redirect the user back to the password reset request form if the token is invalid
 
-        $user = User::where('encodedKey', $tokenData->parentEncodedKey)->first();
+
+        $user = User::where('id', $tokenData->user_id)->first();
 
         $user->password = Hash::make($password);
         if ($user->update()) {

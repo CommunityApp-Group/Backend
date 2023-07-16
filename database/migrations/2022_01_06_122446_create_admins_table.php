@@ -14,15 +14,14 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary()->unique();
             $table->string('name');
             $table->string('phone')->nullable();
             $table->string('location')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('encodedKey')->unique()->index()->nullable();
             $table->enum('status', ['super_admin', 'admin'])->default('admin');
-            $table->foreignId('created_by')->nullOnDelete();
+            $table->foreignUuId('created_by')->nullOnDelete();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

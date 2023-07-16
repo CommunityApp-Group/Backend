@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
+use App\Models\User;
+use App\Models\Admin;
+use Illuminate\Http\Request;
+use App\Traits\GetRequestType;
+use App\Helpers\ResourceHelpers;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\AdminLoginRequest;
 use App\Http\Requests\Auth\AdminPasswordResetRequest;
+use App\Http\Requests\Auth\CreateNewAdminRequest;
 use App\Http\Resources\Admin\AdminCollection;
 use App\Http\Resources\Admin\AdminResource;
 use App\Http\Resources\Admin\AdminlistResource;
 use App\Http\Resources\User\UserlistResource;
-use App\Models\Admin;
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Traits\GetRequestType;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
+use PHPOpenSourceSaver\JWTAuth\JWTAuth;
+use Validator;
 
 class AdminAuthController extends Controller
 {
@@ -26,7 +31,7 @@ class AdminAuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin', ['except' => ['login']]);
+        $this->middleware('auth:admin')->except(['authenticate', 'logout']);
     }
 
     /**
@@ -36,7 +41,7 @@ class AdminAuthController extends Controller
      */
     public function index()
     {
-      $admin = Admin::orderBy('created_at', 'DESC')->paginate(10);
+      $admin = Admin::latest()->paginate(10);
        return AdminlistResource::collection($admin);
 
     }
@@ -48,22 +53,31 @@ class AdminAuthController extends Controller
      */
     public function user()
     {
-      $user = User::orderBy('created_at', 'DESC')->paginate(10);
+      $user = User::latest()->paginate(10);
        return UserlistResource::collection($user);
 
     }
-
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return AdminResource
      */
-    public function store(Request $request)
+    public function create(Request $request)
+    {
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return AdminResource
+     */
+    public function store(CreateNewAdminRequest $request)
     {
         $admin = new Admin;
-        $admin->name = $request->name;
         $admin->name = $request->name;
         $admin->status = $request->status;
         $admin->email = $request->email;
@@ -72,9 +86,7 @@ class AdminAuthController extends Controller
         $admin->location = $request->location;
         $admin->created_by = auth()->guard('admin')->user()->id;
         $admin->save();
-        return response([
-            'data' => new AdminResource($admin)
-        ],Response::HTTP_CREATED);
+        return ResourceHelpers::returnAdminData($admin);
     }
 
     /**
@@ -116,22 +128,17 @@ class AdminAuthController extends Controller
 
 
     /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param AdminLoginRequest $request
+     * @return \App\Http\Resources\Admin\AdminResource
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(Request $request)
+    public function authenticate(AdminLoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        $credentials = request(['email', 'password']);
-        if (!$token = auth()->guard('admin')->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        if(auth('api')->check()) {
+            auth('api')->logout();
         }
 
-        return $this->respondWithToken($token);
+        return $request->authenticate();
 
     }
     /**
@@ -185,14 +192,17 @@ class AdminAuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout()
-    {
-        auth()->logout();
-
-        return response()->json(['message' => 'Successfully logged out']);
-    }
+ public function logout()
+ {
+     if (auth()->guard('admin')->check()) {
+         auth()->guard('admin')->logout();
+         return response()->success('Session ended! Log out was successful');
+     }
+     return response()->errorResponse('You are not logged in', [], 401);
+ }
 
     /**
      * Refresh a token.

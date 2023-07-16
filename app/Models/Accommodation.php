@@ -3,15 +3,24 @@
 namespace App\Models;
 
 use App\Traits\AddUUID;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Accommodation extends Model
 {
-    use HasFactory, AddUUID, SoftDeletes;
+    use HasFactory, Uuids, SoftDeletes;
 
-    protected $guarded = ['id'];
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
+    protected $table = "accommodations";
 
     protected $dates = [
         'created_at',
@@ -21,7 +30,7 @@ class Accommodation extends Model
 
     public function getRouteKeyName()
     {
-        return 'encodedKey';
+        return 'id';
     }
 
     public function admin()

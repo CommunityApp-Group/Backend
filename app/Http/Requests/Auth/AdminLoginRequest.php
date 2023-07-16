@@ -56,7 +56,7 @@ class AdminLoginRequest extends FormRequest
         }
 
         RateLimiter::clear($this->throttleKey());
-        $admin = auth('api')->user();
+        $admin = auth()->guard('admin')->user();
 
         return ResourceHelpers::returnAdminData($admin);
 

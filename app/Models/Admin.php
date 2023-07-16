@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-use App\Traits\AddUUID;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -15,10 +15,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends  Authenticatable implements JWTSubject
 {
-    use HasFactory, Notifiable, SoftDeletes, AddUUID, HasRoles;
+    use HasFactory, Notifiable, SoftDeletes, Uuids, HasRoles;
 
-    protected $guard = "admin";
+    protected $table = "admins";
+    public $guard_name = 'api';
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'string',
+    ];
     /**
      * The attributes that are mass assignable.
      *
@@ -28,7 +37,6 @@ class Admin extends  Authenticatable implements JWTSubject
         'name',
         'status',
         'email',
-        'encodedKey',
         'phone',
         'location'
     ];
@@ -51,7 +59,7 @@ class Admin extends  Authenticatable implements JWTSubject
 
     public function getRouteKeyName()
     {
-        return 'encodedKey';
+        return 'id';
     }
 
     // Define JWT auth methods

@@ -14,9 +14,8 @@ class CreateAuctionsTable extends Migration
     public function up()
     {
         Schema::create('auctions', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('encodedKey')->unique();
+            $table->uuid('id')->primary()->unique();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('auction_name');
             $table->string('location');
             $table->decimal('auction_price', 50, 2);
@@ -31,7 +30,7 @@ class CreateAuctionsTable extends Migration
             $table->timestamp('end_time')->default(\Carbon\Carbon::now()->addDay());
             $table->timestamps();
             $table->softDeletes();
-        });
+            });
     }
 
     /**

@@ -2,22 +2,23 @@
 
 namespace App\Providers;
 
-use App\Helpers\PaystackHelper;
-use App\Models\Admin;
 use App\Models\User;
-use App\Observers\AdminObserver;
+use App\Models\Admin;
+use App\Helpers\PaystackHelper;
 use App\Observers\UserObserver;
-use App\Repositories\Order\OrderInterface;
-use App\Repositories\Order\SendOrderConfirmationViaMail;
-use App\Repositories\Password\PasswordResetInterface;
-use App\Repositories\Password\ResetTokenViaMail;
-use App\Services\Auth\AuthenticateUser;
+use App\Observers\AdminObserver;
 use App\Services\PaystackService;
 use App\Repositories\OTP\OTPInterface;
 use Illuminate\Support\Facades\Schema;
 use App\Repositories\OTP\SendOTPViaSMS;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\OTP\SendOTPViaMail;
+use App\Services\Auth\AuthenticateUser;
+use App\Services\Auth\AuthenticateAdmin;
+use App\Repositories\Order\OrderInterface;
+use App\Repositories\Password\ResetTokenViaMail;
+use App\Repositories\Order\SendOrderConfirmationViaMail;
+use App\Repositories\Password\PasswordResetInterface;;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,6 +42,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton(AuthenticateUser::class, function() {
             return new AuthenticateUser;
+        });
+
+        $this->app->singleton(AuthenticateAdmin::class, function() {
+            return new AuthenticateAdmin;
         });
 
         $this->app->singleton(PaystackHelper::class, function() {

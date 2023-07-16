@@ -14,6 +14,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -261,6 +263,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -508,6 +512,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -755,6 +761,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -1002,6 +1010,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -1249,6 +1259,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -1496,6 +1508,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -1743,6 +1757,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -1990,6 +2006,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -2237,6 +2255,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -2484,6 +2504,8 @@ namespace PHPSTORM_META {
             'App\Helpers\PaystackHelper' => \App\Helpers\PaystackHelper::class,
             'App\Repositories\OTP\OTPInterface' => \App\Repositories\OTP\SendOTPViaMail::class,
             'App\Repositories\Order\OrderInterface' => \App\Repositories\Order\SendOrderConfirmationViaMail::class,
+            'App\Repositories\Password\PasswordResetInterface' => \App\Repositories\Password\ResetTokenViaMail::class,
+            'App\Services\Auth\AuthenticateAdmin' => \App\Services\Auth\AuthenticateAdmin::class,
             'App\Services\Auth\AuthenticateUser' => \App\Services\Auth\AuthenticateUser::class,
             'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
             'Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssemblerInterface' => \Bavix\Wallet\Internal\Assembler\AvailabilityDtoAssembler::class,
@@ -2728,6 +2750,10 @@ namespace PHPSTORM_META {
         ]));
 
 
+    override(\Illuminate\Foundation\Testing\Concerns\InteractsWithContainer::mock(0), map(["" => "@&\Mockery\MockInterface"]));
+    override(\Illuminate\Foundation\Testing\Concerns\InteractsWithContainer::partialMock(0), map(["" => "@&\Mockery\MockInterface"]));
+    override(\Illuminate\Foundation\Testing\Concerns\InteractsWithContainer::instance(0), type(1));
+    override(\Illuminate\Foundation\Testing\Concerns\InteractsWithContainer::spy(0), map(["" => "@&\Mockery\MockInterface"]));
     override(\Illuminate\Support\Arr::add(0), type(0));
     override(\Illuminate\Support\Arr::except(0), type(0));
     override(\Illuminate\Support\Arr::first(0), elementType(0));

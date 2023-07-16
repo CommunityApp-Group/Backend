@@ -151,6 +151,7 @@ trait GetRequestType
         return AccommodationResource::collection($accommodation->paginate(5));
     }
 
+
     public function getPopularAccommodation($accommodation)
     {
         if (request()->has('fullDetails') && request('fullDetails') === 'true') {
