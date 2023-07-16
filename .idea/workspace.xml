@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b879d8e-90ea-4c2c-bb0e-dd7c1ce0c4e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Accommodation/AccommodationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Admin/AdminAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Admin/AdminAuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostCommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Post/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/User/FriendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/User/FriendController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationsResourceCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Accommodation/AccommodationsResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendsCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendResourceCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Friend/FriendsResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Accommodation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accommodation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Accommodationreview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accommodationreview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post_comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post_comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AccommodationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AccommodationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/GetRequestType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/GetRequestType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_01_19_211922_create_accommodations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_01_19_211922_create_accommodations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_02_04_062802_create_notifications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_02_04_062802_create_notifications_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Purchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -259,6 +239,8 @@
       <workItem from="1688916698379" duration="11616000" />
       <workItem from="1689175179489" duration="573000" />
       <workItem from="1689348931342" duration="2652000" />
+      <workItem from="1689354930860" duration="825000" />
+      <workItem from="1689355820058" duration="2629000" />
     </task>
     <servers />
   </component>
@@ -286,10 +268,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="516" y="286" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1682190704450" />
-    <state x="183" y="5" key="SettingsEditor" timestamp="1689350854711">
+    <state x="183" y="5" key="SettingsEditor" timestamp="1689357362008">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="183" y="5" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1689350854711" />
+    <state x="183" y="5" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1689357362008" />
     <state x="314" y="61" width="737" height="606" key="find.popup" timestamp="1688561919803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
