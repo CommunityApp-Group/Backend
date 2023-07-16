@@ -13,6 +13,9 @@ class Post extends Model
     use HasFactory, Uuids, SoftDeletes;
     protected $guard = "post";
 
+    protected $fillable = [
+        'post', 'category_name'
+    ];
     /**
      * The attributes that should be cast to native types.
      *

@@ -27,7 +27,11 @@ class UserProfile extends JsonResource
             'Last Name' => $this->lastname,
             'city' => $this->city,
             'country' => $this->country,
-            'state' => $this->state
+            'state' => $this->state,
+            'post' => $this->post->count() > 0 ? round($this->post->count(),2) : 'No post yet',
+           // 'friends' => $this->friendship->count() > 0 ? round($this->friendship->count(),2) : 'No Friends yet',
+
+
         ];
     }
 
