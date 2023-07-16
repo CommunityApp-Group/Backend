@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Product;
 use App\Http\Resources\Product\ProductResourceCollection;
 use App\Http\Resources\Product\ReviewResourceCollection;
 use App\Models\Product;
-use App\Models\Productreview;
+use App\Models\Product_review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,7 +41,7 @@ class ProductreviewController extends Controller
      */
     public function store(ProductReviewRequest $request, Product $product)
     {
-        $productreview = new Productreview($request->all());
+        $productreview = new Product_review($request->all());
         $productreview->user_id = $user = auth()->user()->id;
         $product->productreview()->save($productreview);
         return response([
