@@ -134,7 +134,11 @@ class User extends Authenticatable implements JWTSubject, Wallet
     {
         return $this->hasMany(Address::class);
     }
-
+    
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
 
     public function setPasswordAttribute($input)
     {
